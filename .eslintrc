@@ -1,0 +1,48 @@
+{
+  "env": {
+    "browser": true,
+    "es2017": true,
+    "node": true
+  },
+
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+
+  "rules": {
+    "semi": 2, // Правило про пробелы
+    "no-console": 1, // Правило про console
+    "no-alert": "error", // Правило про alert
+    "eol-last": 2, // Правило про перенос строки
+    "no-dupe-else-if": "error", // Правило про повторение одинаковых else if
+    "no-template-curly-in-string": "error", // Правило про шаблонные строки
+    "accessor-pairs": "error", // Правило про если есть setter, то должен быть getter
+    "template-curly-spacing": ["error", "never"], // Правило про пробелы в шаблонных строках
+    "eqeqeq": ["error", "always"], // Правило про равенства
+    "no-useless-return": 2, // Правило про return
+    "no-shadow": ["error", {"hoist": "all"}], // Правило про запретные слова
+    "no-use-before-define": ["error", {"functions": false}],  // Правило про раннее использование того, чего нет
+    "comma-dangle": ["error", {
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "functions": "always-multiline"
+    }], // Правило про замыкающую запятую
+    "indent": ["error", 2, {
+      "SwitchCase": 1
+    }], // Правило про использование пробелов и табуляции
+    "no-multiple-empty-lines": "error", // Правило про максимальное число пустых строк после кода
+    "no-nested-ternary": "error", // Правило про вложенность тернарных операторов
+    "no-trailing-spaces": "error", // Правило про лишние пробелы в конце строк
+    "no-unneeded-ternary": "error",  // Правило про неуместное использование тернарных операторов
+    "quotes": ["error", "single"], // Правило про ковычки
+    "semi-style": ["error", "last"], // Правило про автоматическую расстановку ; в конце строки
+    "arrow-body-style": ["error", "as-needed"], // Правило про необходимость фигурных скобочек у стрелочной функции
+    "arrow-parens": "error", // Правило про круглые скобочки для стрелочной функции
+    "no-var": "error", // Правило про var
+    "prefer-arrow-callback": "error", // Правило про стрелочные функции у колбэков
+    "prefer-const": "error" // Правило про const
+  },
+
+  "plugins": ["import", "optimize-regex", "promise", "sonarjs"]
+}

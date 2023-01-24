@@ -1,0 +1,76 @@
+@include font("PTMono", "PTMono-Regular", 400);
+@include font("RobotoCondensed", "RobotoCondensed-Regular", 400);
+@include font("RobotoCondensed", "RobotoCondensed-Bold", 700);
+
+.html {
+  height: 100%;
+
+  font-family: "RobotoCondensed", "Arial", sans-serif;
+  font-size: 14px;
+  line-height: 16.41px;
+  font-weight: 400;
+  font-style: normal;
+
+  scroll-behavior: smooth;
+
+  margin: 0 auto;
+
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.body {
+  height: 100%;
+
+  display: flex;
+  flex-flow: column;
+
+  margin: 0;
+}
+
+.main {
+  flex: 1 0 auto;
+}
+
+.visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  border: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+
+  padding: 0;
+  margin: -1px;
+}
+
+a {
+  text-decoration: none;
+
+  color: rgb(19, 8, 167), 0, 0);
+}
+
+img {
+  border-style: none;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
