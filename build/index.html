@@ -11,6 +11,7 @@
   <link rel="preload" href="fonts/PT-Root-UI_Bold.woff2" as="font" crossorigin="anonymous">
   <link rel="preload" href="fonts/PT-Root-UI_Regular.woff" as="font" crossorigin="anonymous">
   <link rel="preload" href="fonts/PT-Root-UI_Bold.woff" as="font" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabulator/5.4.3/css/tabulator.min.css">
   <link rel="stylesheet" href="css/style.min.css" />
 </head>
 
@@ -31,7 +32,8 @@
     <div class="header__subscriber-wrapper">
       <span class="header__subscriber">Абонентское дело</span>
       <div class="header__user-container">
-        <span class="header__user-name">Добро пожаловать Александр</span>
+        <span class="header__user-greeting">Добро пожаловать</span>
+        <span class="header__user-name">Александр</span>
         <span class="header__user-surname">Ганин</span>
         <div class="header__line"></div>
         <span class="header__button-out">Выйти</span>
@@ -39,102 +41,115 @@
     </div>
   </header>
   <main class="main">
-    <section class="work-with-the-folder">
-      <div class="work-with-the-folder__wrapper-button-container">
-        <button class="work-with-the-folder__button-up">Подняться на уровень</button>
-        <button class="work-with-the-folder__button-down">Опуститься на уровень</button>
-        <button class="work-with-the-folder__button-new-folder">Новыя папка</button>
-        <button class="work-with-the-folder__button-cut">Вырезать</button>
-        <button class="work-with-the-folder__button-renovate">Обновить</button>
-        <button class="work-with-the-folder__button-remove">Удалить</button>
-        <select class="work-with-the-folder__subscriber" name="" id="" aria-placeholder="Абонентcкое дело">
-          <option class="work-with-the-folder__item" value="">Абонентcкое дело</option>
-          <option class="work-with-the-folder__item" value="">2</option>
-          <option class="work-with-the-folder__item" value="">3</option>
-        </select>
-        <select class="work-with-the-folder__faster-search" name="" id="" aria-placeholder="Папка верхнего уровня">
-          <option class="" value="Верхний уровень">Папка верхнего уровня</option>
-          <option class="" value="Верхний уровень"></option>
-        </select>
-        <div class="work-with-the-folder__seach-wrapper">
-          <img class="work-with-the-folder__seach-img" src="" alt="">
-          <input class="work-with-the-folder__seach" type="text" placeholder="Поиск">
-        </div>
-      </div>
-      <div class="work-with-the-folder__table-wrapper">
-        <table class="work-with-the-folder__table">
-          <tbody>
-            <tr>
-              <!-- <td>1</th> -->
-            </tr>
-            </tr>
-          </tbody>
-        </table>
-        <div class="work-with-the-folder__button-flipper-container">
-          <button class="work-with-the-folder__button-flipping-start">&laquo;</button>
-          <button class="work-with-the-folder__button-flipping-previous">&#8249;</button>
-          <span class="work-with-the-folder__text-content-of-flipping">Страница</span>
-          <input class="work-with-the-folder__number-page" type="text" name="" id="">
-          <span class="work-with-the-folder__text-content-of-flipping">Из</span>
-          <span class="work-with-the-folder__text-content-of-flipping"></span>
-          <button class="work-with-the-folder__button-flipping-next">&#8250;</button>
-          <button class="work-with-the-folder__button-flipping-end">&raquo;</button>
-        </div>
-      </div>
-    </section>
-    <section class="work-with-the-file">
-      <div class="work-with-the-file__menu-of-change">
-        <button class="work-with-the-file__button-append-file">Добавить документ</button>
-        <button class="work-with-the-file__button-open-file">Открыть документ</button>
-        <button class="work-with-the-file__button-search">Поиск</button>
-        <button class="work-with-the-file__button-cut-out">Вырезать документ</button>
-        <button class="work-with-the-file__button-remove">Удалить документ</button>
-        <button class="work-with-the-file__button-up">Верх</button>
-        <button class="work-with-the-file__button-cash">Очистить кеш</button>
-        <button class="work-with-the-file__button-down">Низ</button>
-        <input class="work-with-the-file__indicator" type="text" placeholder="Показатель">
-      </div>
-      <div class="work-with-the-file__change-popup-button-container-wrapper">
-        <table class="work-with-the-file__table">
+    <div class="main-page">
 
-          <head>
-            <tr>
-              <div class="work-with-the-file__change-popup-button-container">
-                <button class="work-with-the-file__button-of-documents">Документы. "Абонентcкие дела"</button>
-                <button class="work-with-the-file__button-of-search-result">Результаты поиска. Нет документов.</button>
-              </div>
-            </tr>
-          </head>
+    </div>
+    <div class="archive">
+      <section class="work-with-the-folder">
+        <div class="work-with-the-folder__wrapper-button-container">
+          <button class="work-with-the-folder__button-up">Подняться на уровень</button>
+          <button class="work-with-the-folder__button-down">Опуститься на уровень</button>
+          <button class="work-with-the-folder__button-new-folder">Новыя папка</button>
+          <button class="work-with-the-folder__button-cut">Вырезать</button>
+          <button class="work-with-the-folder__button-renovate">Обновить</button>
+          <button class="work-with-the-folder__button-remove">Удалить</button>
+          <select class="work-with-the-folder__subscriber" name="" id="" aria-placeholder="Абонентcкое дело">
+            <option class="work-with-the-folder__item" value="">Абонентcкое дело</option>
+            <option class="work-with-the-folder__item" value="">2</option>
+            <option class="work-with-the-folder__item" value="">3</option>
+          </select>
+          <select class="work-with-the-folder__faster-search" name="" id="" aria-placeholder="Папка верхнего уровня">
+            <option class="" value="Верхний уровень">Папка верхнего уровня</option>
+            <option class="" value="Верхний уровень"></option>
+          </select>
+          <div class="work-with-the-folder__seach-wrapper">
+            <img class="work-with-the-folder__seach-img" src="" alt="">
+            <input class="work-with-the-folder__seach" type="text" placeholder="Поиск">
+          </div>
+        </div>
+        <div class="work-with-the-folder__table-wrapper">
+          <table class="work-with-the-folder__table">
+            <tbody>
+              <tr>
+                <!-- <td>1</th> -->
+              </tr>
+              </tr>
+            </tbody>
+          </table>
+          <div class="work-with-the-folder__button-flipper-container">
+            <button class="work-with-the-folder__button-flipping-start">&laquo;</button>
+            <button class="work-with-the-folder__button-flipping-previous">&#8249;</button>
+            <span class="work-with-the-folder__text-content-of-flipping">Страница</span>
+            <input class="work-with-the-folder__number-page" type="text" name="" id="">
+            <span class="work-with-the-folder__text-content-of-flipping">Из</span>
+            <span class="work-with-the-folder__text-content-of-flipping"></span>
+            <button class="work-with-the-folder__button-flipping-next">&#8250;</button>
+            <button class="work-with-the-folder__button-flipping-end">&raquo;</button>
+          </div>
+        </div>
+      </section>
+      <section class="work-with-the-file">
+        <div class="work-with-the-file__menu-of-change">
+          <button class="work-with-the-file__button-append-file">Добавить документ</button>
+          <button class="work-with-the-file__button-open-file">Открыть документ</button>
+          <button class="work-with-the-file__button-search">Поиск</button>
+          <button class="work-with-the-file__button-cut-out">Вырезать документ</button>
+          <button class="work-with-the-file__button-remove">Удалить документ</button>
+          <button class="work-with-the-file__button-up">Верх</button>
+          <button class="work-with-the-file__button-cash">Очистить кеш</button>
+          <button class="work-with-the-file__button-down">Низ</button>
+          <input class="work-with-the-file__indicator" type="text" placeholder="Показатель">
+        </div>
+        <div class="work-with-the-file__change-popup-button-container-wrapper">
+          <table class="work-with-the-file__table">
+
+            <head>
+              <tr>
+                <div class="work-with-the-file__change-popup-button-container">
+                  <button class="work-with-the-file__button-of-documents">Документы. "Абонентcкие дела"</button>
+                  <button class="work-with-the-file__button-of-search-result">Результаты поиска. Нет документов.</button>
+                </div>
+              </tr>
+            </head>
             <td>
               <!-- <tr>1</tr>
-              <tr>1</tr>
-              <tr>1</tr>
-              <tr>1</tr>
-              <tr>1</tr>
-              <tr>1</tr>
-              <tr>1</tr>
-              <tr>1</tr>
-              <tr>1</tr>
-              <tr>1</tr> -->
+                <tr>1</tr>
+                <tr>1</tr>
+                <tr>1</tr>
+                <tr>1</tr>
+                <tr>1</tr>
+                <tr>1</tr>
+                <tr>1</tr>
+                <tr>1</tr>
+                <tr>1</tr> -->
             </td>
             <td>
               <!-- <tr>1</tr> -->
             </td>
-        </table>
-      </div>
-      <div class="work-with-the-file__button-flipper-container">
-        <button class="work-with-the-file__button-flipping-start">&#171;</button>
-        <button class="work-with-the-file__button-flipping-previous">&#8249;</button>
-        <span class="work-with-the-file__text-content-of-flipping">Страница</span>
-        <input class="work-with-the-file__number-page" type="text" name="" id="">
-        <span class="work-with-the-file__text-content-of-flipping">Из</span>
-        <span class="work-with-the-file__text-content-of-flipping"></span>
-        <button class="work-with-the-file__button-flipping-next">&#8250;</button>
-        <button class="work-with-the-file__button-flipping-end">&#187;</button>
-      </div>
-    </section>
+          </table>
+        </div>
+        <div class="work-with-the-file__button-flipper-container">
+          <button class="work-with-the-file__button-flipping-start">&#171;</button>
+          <button class="work-with-the-file__button-flipping-previous">&#8249;</button>
+          <span class="work-with-the-file__text-content-of-flipping">Страница</span>
+          <input class="work-with-the-file__number-page" type="text" name="" id="">
+          <span class="work-with-the-file__text-content-of-flipping">Из</span>
+          <span class="work-with-the-file__text-content-of-flipping"></span>
+          <button class="work-with-the-file__button-flipping-next">&#8250;</button>
+          <button class="work-with-the-file__button-flipping-end">&#187;</button>
+        </div>
+      </section>
+    </div>
+    <div class="settings">
+
+    </div>
+    <div class="About-programm">
+
+    </div>
+
   </main>
   <footer class="footer"></footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tabulator/5.4.3/js/tabulator.min.js"></script>
   <script src="./js/main.js" type="module"></script>
 </body>
 <!--

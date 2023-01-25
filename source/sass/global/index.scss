@@ -1,3 +1,8 @@
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+/// header
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
 .header {
   display: grid;
   grid-template-rows: 1.7fr 0.5fr;
@@ -78,6 +83,8 @@
   align-items: center;
 }
 
+.header__user-greeting {}
+
 .header__user-name {
   margin: 5px;
 }
@@ -98,15 +105,38 @@
 }
 
 .main {
+  position: relative;
+}
+
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+/// main popup
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+
+
+
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+/// archive popup
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+
+.archive {
+  position: relative;
   display: grid;
   grid-template-columns: 0.5fr 1.5fr;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .work-with-the-folder {
   position: relative;
   display: flex;
   flex-direction: column;
-  border: 1px solid rgba(114,88,40,.644);
+  border: 1px solid rgba(114, 88, 40, .644);
 }
 
 .work-with-the-folder__wrapper-button-container {
@@ -247,6 +277,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin-bottom: 5px;
   bottom: 0;
 }
 
@@ -257,6 +288,7 @@
   height: 20px;
   width: 20px;
   margin: 3px;
+  cursor: pointer;
 }
 
 .work-with-the-folder__button-flipping-previous {
@@ -266,6 +298,7 @@
   height: 20px;
   width: 20px;
   margin: 3px;
+  cursor: pointer;
 }
 
 .work-with-the-folder__text-content-of-flipping {
@@ -284,6 +317,7 @@
   height: 20px;
   width: 20px;
   margin: 3px;
+  cursor: pointer;
 }
 
 .work-with-the-folder__button-flipping-end {
@@ -293,6 +327,7 @@
   height: 20px;
   width: 20px;
   margin: 3px;
+  cursor: pointer;
 }
 
 .work-with-the-file {
@@ -324,6 +359,7 @@
   border: none;
   background-color: white;
   cursor: pointer;
+
   &:hover {
     transform: scale(1.02);
     background-color: rgba(166, 225, 240, 0.493);
@@ -334,6 +370,7 @@
   border: none;
   background-color: white;
   cursor: pointer;
+
   &:hover {
     transform: scale(1.02);
     background-color: rgba(166, 225, 240, 0.493);
@@ -344,6 +381,7 @@
   border: none;
   background-color: white;
   cursor: pointer;
+
   &:hover {
     transform: scale(1.02);
     background-color: rgba(166, 225, 240, 0.493);
@@ -354,6 +392,7 @@
   border: none;
   background-color: white;
   cursor: pointer;
+
   &:hover {
     transform: scale(1.02);
     background-color: rgba(166, 225, 240, 0.493);
@@ -364,6 +403,7 @@
   border: none;
   background-color: white;
   cursor: pointer;
+
   &:hover {
     transform: scale(1.02);
     background-color: rgba(166, 225, 240, 0.493);
@@ -374,6 +414,7 @@
   border: none;
   background-color: white;
   cursor: pointer;
+
   &:hover {
     transform: scale(1.02);
     background-color: rgba(166, 225, 240, 0.493);
@@ -384,6 +425,7 @@
   border: none;
   background-color: white;
   cursor: pointer;
+
   &:hover {
     transform: scale(1.02);
     background-color: rgba(166, 225, 240, 0.493);
@@ -406,7 +448,8 @@
 
 .work-with-the-file__button-of-documents {
   width: 100%;
-  background-color: rgba(227,202,156,.6705882353);
+  background-color: rgba(227, 202, 156, .6705882353);
+
   &:active {
     border-bottom: none;
   }
@@ -414,7 +457,8 @@
 
 .work-with-the-file__button-of-search-result {
   width: 100%;
-  background-color: rgba(227,202,156,.6705882353);
+  background-color: rgba(227, 202, 156, .6705882353);
+
   &:active {
     border-bottom: none;
   }
@@ -431,6 +475,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin-bottom: 5px;
   bottom: 0;
 }
 
@@ -441,6 +486,7 @@
   height: 20px;
   width: 20px;
   margin: 3px;
+  cursor: pointer;
 }
 
 .work-with-the-file__button-flipping-previous {
@@ -450,6 +496,7 @@
   height: 20px;
   width: 20px;
   margin: 3px;
+  cursor: pointer;
 }
 
 .work-with-the-file__text-content-of-flipping {
@@ -468,6 +515,7 @@
   height: 20px;
   width: 20px;
   margin: 3px;
+  cursor: pointer;
 }
 
 .work-with-the-file__button-flipping-end {
@@ -477,4 +525,27 @@
   height: 20px;
   width: 20px;
   margin: 3px;
+  cursor: pointer;
 }
+
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+/// settings popup
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+
+
+
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+/// about programm popup
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+
+
+
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+/// other popup
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
