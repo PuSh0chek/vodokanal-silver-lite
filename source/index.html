@@ -29,9 +29,9 @@
       </div>
     </div>
     <div class="header__subscriber-wrapper">
-        <span class="header__subscriber-wrapper">Абонентское дело</span>
-      <div class="header__">
-        <span class="header__user-name">Александр</span>
+      <span class="header__subscriber">Абонентское дело</span>
+      <div class="header__user-container">
+        <span class="header__user-name">Добро пожаловать Александр</span>
         <span class="header__user-surname">Ганин</span>
         <div class="header__line"></div>
         <span class="header__button-out">Выйти</span>
@@ -41,68 +41,106 @@
   <main class="main">
     <section class="work-with-the-folder">
       <div class="work-with-the-folder__wrapper">
-        <button class="work-with-the-folder__button-up">Верх</button>
-        <button class="work-with-the-folder__button-down">Низ</button>
+        <button class="work-with-the-folder__button-up">Подняться на уровень</button>
+        <button class="work-with-the-folder__button-down">Опуститься на уровень</button>
+        <button class="work-with-the-folder__button-new-folder">Новыя папка</button>
+        <button class="work-with-the-folder__button-cut">Вырезать</button>
+        <button class="work-with-the-folder__button-renovate">Обновить</button>
+        <button class="work-with-the-folder__button-remove">Удалить</button>
         <select class="work-with-the-folder__subscriber" name="" id="" aria-placeholder="Абонентcкое дело">
           <option class="work-with-the-folder__item" value="">Абонентcкое дело</option>
           <option class="work-with-the-folder__item" value="">2</option>
           <option class="work-with-the-folder__item" value="">3</option>
         </select>
-        <button class="work-with-the-folder__button-new-folder">Новыя папка</button>
-        <button class="work-with-the-folder__button-cut">Вырезать</button>
-        <button class="work-with-the-folder__button-renovate">Обновить</button>
-        <button class="work-with-the-folder__button-remove">Удалить</button>
-        <select class="work-with-the-folder__faster-" name="" id="" aria-placeholder="Папка верхнего уровня">
+        <select class="work-with-the-folder__faster-search" name="" id="" aria-placeholder="Папка верхнего уровня">
           <option class="" value="Верхний уровень">Папка верхнего уровня</option>
           <option class="" value="Верхний уровень"></option>
         </select>
-        <div class="">
-          <img class="" src="" alt="">
-          <input class="" type="text" placeholder="Поиск">
+        <div class="work-with-the-folder__seach-wrapper">
+          <img class="work-with-the-folder__seach-img" src="" alt="">
+          <input class="work-with-the-folder__seach" type="text" placeholder="Поиск">
         </div>
       </div>
-      <div class="">
-        <table class="">
-
+      <div class="work-with-the-folder__table-wrapper">
+        <table class="work-with-the-folder__table">
+          <tbody>
+            <tr>
+              <th>1</th>
+            </tr>
+            <tr>
+              <th>1</th>
+            </tr>
+            <tr>
+              <th>1</th>
+            </tr>
+            <tr>
+              <th>1</th>
+            </tr>
+          </tbody>
+          <tfoot>
+            <button class="work-with-the-folder__button-flipping-start"></button>
+            <button class="work-with-the-folder__button-flipping-previous"></button>
+            <span class="work-with-the-folder__text-content-of-flipping">Страница</span>
+            <input class="work-with-the-folder__number-page" type="text" name="" id="">
+            <span class="work-with-the-folder__text-content-of-flipping">Из</span>
+            <span class="work-with-the-folder__text-content-of-flipping"></span>
+            <button class="work-with-the-folder__button-flipping-next"></button>
+            <button class="work-with-the-folder__button-flipping-end"></button>
+          </tfoot>
         </table>
-        <button class=""></button>
-        <button class=""></button>
-        <span class="">Страница</span>
-        <input class="" type="text" name="" id="">
-        <span class="">Из</span>
-        <span class=""></span>
-        <button class=""></button>
-        <button class=""></button>
       </div>
     </section>
-    <section class="">
-      <div class="">
-        <button class="">Добавить документ</button>
-        <button class="">Открыть документ</button>
-        <button class="">Поиск</button>
-        <button class="">Вырезать документ</button>
-        <button class="">Удалить документ</button>
-        <button class="">Верх</button>
-        <button class="">Очистить кеш</button>
-        <button class="">Них</button>
-        <input class="" type="text" placeholder="Показатель">
+    <section class="work-with-the-file">
+      <div class="work-with-the-file__menu-of-change">
+        <button class="work-with-the-file__button-append-file">Добавить документ</button>
+        <button class="work-with-the-file__button-open-file">Открыть документ</button>
+        <button class="work-with-the-file__button-search">Поиск</button>
+        <button class="work-with-the-file__button-cut-out">Вырезать документ</button>
+        <button class="work-with-the-file__button-remove">Удалить документ</button>
+        <button class="work-with-the-file__button-up">Верх</button>
+        <button class="work-with-the-file__button-cash">Очистить кеш</button>
+        <button class="work-with-the-file__button-down">Низ</button>
+        <input class="work-with-the-file__indicator" type="text" placeholder="Показатель">
       </div>
-      <div class="">
-        <div class="">
-          <button class=""></button>
-          <button class=""></button>
-        </div>
-        <table class="">
+      <div class="work-with-the-file__change-popup-button-container-wrapper">
+        <table class="work-with-the-file__table">
 
+          <head>
+            <tr>
+              <div class="work-with-the-file__change-popup-button-container">
+                <button class="work-with-the-file__button-of-documents">Документы. "Абонентcкие дела"</button>
+                <button class="work-with-the-file__button-of-search-result">Результаты поиска. Нет документов.</button>
+              </div>
+            </tr>
+          </head>
+          <tbody>
+            <td>
+              <tr>1</tr>
+              <tr>1</tr>
+              <tr>1</tr>
+              <tr>1</tr>
+              <tr>1</tr>
+              <tr>1</tr>
+              <tr>1</tr>
+              <tr>1</tr>
+              <tr>1</tr>
+              <tr>1</tr>
+            </td>
+            <td>
+              <tr>1</tr>
+            </td>
+          </tbody>
+          <tfoot>
+            <button class="work-with-the-file__button-flipping-start"></button>
+            <button class="work-with-the-file__button-flipping-previous"></button>
+            <span class="work-with-the-file__text-content-of-flipping">Страница</span>
+            <input class="work-with-the-file__number-page" type="text" name="" id="">
+            <span class="work-with-the-file__text-content-of-flipping">Из</span>
+            <span class="work-with-the-file__text-content-of-flipping"></span>
+            <button class="work-with-the-file__button-flipping-next"></button>
+            <button class="work-with-the-file__button-flipping-end"></button>
+          </tfoot>
         </table>
-        <button class=""></button>
-        <button class=""></button>
-        <span class="">Страница</span>
-        <input class="" type="text" name="" id="">
-        <span class="">Из</span>
-        <span class=""></span>
-        <button class=""></button>
-        <button class=""></button>
       </div>
     </section>
   </main>
