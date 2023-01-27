@@ -23,7 +23,6 @@
         <h1 class="header__preview">Электронный Архив</h1>
       </div>
       <div class="header__main-menu">
-        <span class="header__button-of-main-page">Главная</span>
         <span class="header__button-of-archive-page">Архив</span>
         <span class="header__button-of-archive-page">Администрирование</span>
         <span class="header__button-of-settings-page">Настройки</span>
@@ -42,9 +41,6 @@
     </div>
   </header>
   <main class="main">
-    <div class="main-page">
-
-    </div>
     <section class="archive">
       <div class="work-with-the-folder">
         <div class="work-with-the-folder__wrapper-button-container">
@@ -181,15 +177,16 @@
       <div class='admin__content-container'>
         <div class="admin__structure-of-the-enterprise">
           <h2 class="admin__preview-structure-of-the-enterprise">Сотрудники предприятия</h2>
-          <form action="" method="post">
+          <form class="admin__form-structure-of-the-enterprise" action="" method="post">
             <button type="submit" class="admin__button-structure-of-the-enterprise">Структура предприятия</button>
             <button type="submit" class="admin__button-structure-of-the-enterprise">Работающие сотрудники</button>
             <button type="submit" class="admin__button-structure-of-the-enterprise">Настройки пользователей</button>
-        </form>
+          </form>
           <div class="admin__menu-structure-of-the-enterprise">
             <form action="" method="post">
               <button class="admin__buttom-form-of-the-structure-enterprise">Свернуть\Развернуть</button>
-              <button class="admin__buttom-form-of-the-structure-enterprise">Пользователи не назначенные на должность</button>
+              <button class="admin__buttom-form-of-the-structure-enterprise">Не назначенные на
+                должность</button>
               <button class="admin__buttom-form-of-the-structure-enterprise">Сохранить изменения</button>
               <button class="admin__buttom-form-of-the-structure-enterprise">Показать сведения</button>
               <button class="admin__buttom-form-of-the-structure-enterprise">Обновить данные</button>
@@ -197,7 +194,7 @@
               <button class="admin__buttom-form-of-the-structure-enterprise">Добавить должность</button>
               <button class="admin__buttom-form-of-the-structure-enterprise">хз</button>
               <button class="admin__buttom-form-of-the-structure-enterprise">хз</button>
-              <span class="admin__text-form-structure-of-the-enterprise">Пользователь:</span><input class="admin__input-structure-of-the-enterprise" type="submit">
+              <input class="admin__input-structure-of-the-enterprise" type="text" placeholder="Пользователь">
             </form>
           </div>
           <div class="admin__block-of-tables">
@@ -213,7 +210,8 @@
         <div class="admin__working-employees">
           <div class="admin__menu-working-employees">
             <form class="admin__form-working-employees" action="" method="post">
-              <button class="admin__button-working-employees" type="submit">Послать сообщение всем пользователям</button>
+              <button class="admin__button-working-employees" type="submit">Послать сообщение всем
+                пользователям</button>
               <button class="admin__button-working-employees" type="submit">Отключить всех пользователей</button>
             </form>
           </div>
@@ -223,17 +221,74 @@
         </div>
         <div class="admin__settings-users">
           <form class="admin__form-settings-users" action="" method="post">
-            <button class="admin__button-settings-users" type="submit">Сохранить</button>
-            <input class="admin__input-settings-users" type="checkbox" name="" id=""><span class="admin__text-settings-users">Проверять сложность пароля</span>
-            <span class="admin__text-settings-users">Минимальная длина пароля:</span><input class="" type="number" name="" id="" placeholder="Символов">
-            <input class="admin__checkbox-settings-users" type="checkbox" name="" id=""><span class="admin__text-settings-users">Пароль должен содержать буквы</span>
-            <input class="admin__checkbox-settings-users" type="checkbox" name="" id=""><span class="admin__text-settings-users">Пароль должен содержать цифры</span>
-            <input class="admin__checkbox-settings-users" type="checkbox" name="" id=""><span class="admin__text-settings-users">Пароль должен содержать специальные символы</span>
+            <div class="admin__container-settings-users">
+              <input class="admin__input-settings-users" type="checkbox" name="" id=""><span
+                class="admin__text-settings-users">Проверять сложность пароля</span>
+            </div>
+            <div class="admin__container-settings-users">
+              <span class="admin__text-settings-users">Минимальная длина пароля:</span><input class="" type="number"
+                name="" id="" placeholder="Символов">
+            </div>
+            <div class="admin__container-settings-users">
+              <input class="admin__checkbox-settings-users" type="checkbox" name="" id=""><span
+                class="admin__text-settings-users">Пароль должен содержать буквы</span>
+            </div>
+            <div class="admin__container-settings-users">
+              <input class="admin__checkbox-settings-users" type="checkbox" name="" id=""><span
+                class="admin__text-settings-users">Пароль должен содержать цифры</span>
+            </div>
+            <div class="admin__container-settings-users">
+              <input class="admin__checkbox-settings-users" type="checkbox" name="" id=""><span
+                class="admin__text-settings-users">Пароль должен содержать специальные символы</span>
+            </div>
+            <button class="admin__button-settings-users" type="submit">Сохранить изменения</button>
           </form>
         </div>
+        <div>
+          <div>
+            <h2>Группа доступа</h2>
+            <form action="" method="post">
+              <button type="submit">Свернуть\Развернуть</button>
+              <button type="submit">Сохранить</button>
+              <button type="submit">Добавить группу</button>
+              <button type="submit">Удалить группу</button>
+              <button type="submit">Редактировать название группы</button>
+            </form>
+            <div>
+              <table>
 
+              </table>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h2>Структура папок</h2>
+          <div>
+            <div>
+              <button>Папки и права</button>
+              <button>Шаблоны папок</button>
+            </div>
+            <form>
+              <button type="submit"></button>
+              <button type="submit"></button>
+              <button type="submit"></button>
+              <button type="submit"></button>
+              <button type="submit"></button>
+              <button type="submit"></button>
+              <button type="submit"></button>
+              <input type="text">
+              <select name="" id="">
+                <option value=""></option>
+                <option value=""></option>
+              </select>
+              <input type="text">
+            </form>
+            <table>
+              
+            </table>
+          </div>
+        </div>
       </div>
-
     </section>
     <section class="settings">
       <div class="settings__buttons-container">
@@ -250,39 +305,41 @@
           <button class="settings__scanning-button">Настройки сканирования</button>
         </div>
       </div>
-      <div class="settings__popup-of-user-settings">
-        <div class="settings__popup-of-user-settings-preview-wrapper">
-          <h2 class="settings__popup-of-user-settings-preview">Настройки пользователя</h2>
+      <div class="settings__popups-container">
+        <div class="settings__popup-of-user-settings" style="display: none;">
+          <div class="settings__popup-of-user-settings-preview-wrapper">
+            <h2 class="settings__popup-of-user-settings-preview">Настройки пользователя</h2>
+          </div>
+          <form class="settings__popup-of-user-settings-form" action="" method="post">
+            <input class="settings__button-of-old-passwords" type="password" placeholder="Текущий пароль">
+            <input class="settings__button-of-new-passwords" type="password" placeholder="Новый пароль">
+            <input class="settings__button-of-confirmatio-passwords" type="password" placeholder="Подтвердите пароль">
+            <button type="submit" class="settings__button-of-user-settings">Сохранить</button>
+          </form>
         </div>
-        <form class="settings__popup-of-user-settings-form" action="" method="post">
-          <input class="settings__button-of-old-passwords" type="password" placeholder="Текущий пароль">
-          <input class="settings__button-of-new-passwords" type="password" placeholder="Новый пароль">
-          <input class="settings__button-of-confirmatio-passwords" type="password" placeholder="Подтвердите пароль">
-          <button type="submit" class="settings__button-of-user-settings">Сохранить</button>
-        </form>
-      </div>
-      <div class="settings__popup-of-generalis-settings">
-        <h2 class="settings__preview-of-generalis-settings">Общие настройки</h2>
-        <form action="settings__form-of-generalis-settings" method="post">
-          <button class="settings__button-for-open-acta-of-generalis-settings" type="submit">Отправить журснал
-            трассировки</button>
-        </form>
-      </div>
-      <div class="settings__popup-of-scanning-settings">
-        <h2 class="settings__preview-of-scanning-settings">Настройки сканирования</h2>
-        <span class="settings__choice-scan-of-scanning-settings">Выбор сканера</span>
-        <form class="settings__form-of-scanning-settings" action="" method="post">
-          <button class="settings__button-choice-of-scanning-settings" type="submit">Выбрать...</button>
-          <span class="settings__-of-scanning-settings">Подача бумаги</span>
-          <input class="settings__button-checkbox-choice-of-scanning-settings" type="checkbox" name="" id=""><span
-            class="">Ручная подача</span>
-          <input class="settings__button-checkbox-choice-of-scanning-settings" type="checkbox" name="" id=""><span
-            class="">Автоматическая подача</span>
-          <input class="settings__button-checkbox-choice-of-scanning-settings" type="checkbox" name="" id=""><span
-            class="">Скрывать интерфейс</span>
-          <input class="settings__button-checkbox-choice-of-scanning-settings" type="checkbox" name="" id=""><span
-            class="">Показать интерфейс</span>
-        </form>
+        <div class="settings__popup-of-generalis-settings" style="display: none;">
+          <h2 class="settings__preview-of-generalis-settings">Общие настройки</h2>
+          <form action="settings__form-of-generalis-settings" method="post">
+            <button class="settings__button-for-open-acta-of-generalis-settings" type="submit">Отправить журснал
+              трассировки</button>
+          </form>
+        </div>
+        <div class="settings__popup-of-scanning-settings" style="display: none;">
+          <h2 class="settings__preview-of-scanning-settings">Настройки сканирования</h2>
+          <span class="settings__choice-scan-of-scanning-settings">Выбор сканера</span>
+          <form class="settings__form-of-scanning-settings" action="" method="post">
+            <button class="settings__button-choice-of-scanning-settings" type="submit">Выбрать...</button><br>
+            <span class="settings__text-of-scanning-settings">Подача бумаги</span><br>
+            <input class="settings__button-checkbox-choice-of-scanning-settings" type="checkbox" name="" id=""><span
+              class="">Ручная подача</span><br>
+            <input class="settings__button-checkbox-choice-of-scanning-settings" type="checkbox" name="" id=""><span
+              class="">Автоматическая подача</span><br>
+            <input class="settings__button-checkbox-choice-of-scanning-settings" type="checkbox" name="" id=""><span
+              class="">Скрывать интерфейс</span><br>
+            <input class="settings__button-checkbox-choice-of-scanning-settings" type="checkbox" name="" id=""><span
+              class="">Показать интерфейс</span>
+          </form>
+        </div>
       </div>
     </section>
     <section class="About-programm">

@@ -6,6 +6,7 @@
 .header {
   display: grid;
   grid-template-rows: 1.7fr 0.5fr;
+  user-select: none;
 }
 
 .header__preview-wrapper {
@@ -110,21 +111,13 @@
 
 //////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////
-/// main popup
-//////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////
-
-
-
-//////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////
 /// archive popup
 //////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////
 
 .archive {
   position: relative;
-  display: grid;
+  display: none;
   grid-template-columns: 254px 1fr;
   margin: 0;
   padding: 0;
@@ -535,60 +528,164 @@
 //////////////////////////////////////////////////////////////
 
 .admin {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  width: 100%;
+  height: 100%;
+  user-select: none;
 }
+
 .admin__containers-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: 100%;
+  height: 100%;
 }
+
 .admin__container {
+  margin: 20px;
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
 }
-.admin__img {
-}
+
+.admin__img {}
+
 .admin__text {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
 }
-.admin__content-container {
-}
-.admin__structure-of-the-enterprise {
-}
+
+.admin__content-container {}
+
+.admin__structure-of-the-enterprise {}
+
 .admin__preview-structure-of-the-enterprise {
+  width: 100%;
 }
+
+.admin__form-structure-of-the-enterprise {
+  display: flex;
+  justify-content: start;
+}
+
 .admin__button-structure-of-the-enterprise {
+  background-color: white;
+  &:hover {
+    background-color: rgba(55, 134, 134, 0.171);
+    cursor: pointer;
+  }
 }
+
 .admin__menu-structure-of-the-enterprise {
+  display: none;
+  text-align: center;
+  width: 100%;
 }
+
 .admin__buttom-form-of-the-structure-enterprise {
+  font-size: 12px;
+  width: 220px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: white;
+
+  &:hover {
+    background-color: rgba(0, 255, 255, 0.26);
+    cursor: pointer;
+  }
 }
-.admin__text-form-structure-of-the-enterprise {
-}
+
 .admin__input-structure-of-the-enterprise {
+  font-size: 12px;
+  width: 220px;
+  height: 40px;
+  margin-top: 10px;
+  padding: 0;
 }
+
 .admin__block-of-tables {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  height: 100%;
 }
+
 .admin__table-wrapper {
+  width: 100%;
+  height: 100%;
 }
-.admin__contant-table {
-}
+
+.admin__contant-table {}
+
 .admin__working-employees {
+  display: none;
 }
+
 .admin__menu-working-employees {
+  width: 1000px;
 }
+
 .admin__form-working-employees {
+  width: 1000px;
 }
+
 .admin__button-working-employees {
+  width: 400px;
+  margin-top: 5px;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
+
 .admin__table-wrapper-working-employees {
+  width: 100%;
+  height: 100%;
 }
+
 .admin__table-working-employees {
+  width: 100%;
+  height: 100%;
 }
+
 .admin__settings-users {
+  display: none;
 }
+
 .admin__form-settings-users {
+  display: flex;
+  flex-direction: column;
 }
+
+.admin__container-settings-users {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
 .admin__button-settings-users {
+  width: 200px;
+  margin: 10px;
 }
+
 .admin__input-settings-users {
+  margin-right: 10px;
 }
+
 .admin__text-settings-users {
+  font-size: 18px;
+  font-weight: 500;
 }
+
 .admin__checkbox-settings-users {
+  margin-right: 10px;
 }
 
 //////////////////////////////////////////////////////////////
@@ -598,62 +695,179 @@
 //////////////////////////////////////////////////////////////
 
 .settings {
+  display: none;
+  grid-template-columns: 250px 1fr;
 }
+
 .settings__buttons-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 16px;
+  width: 100%;
+  height: 100%;
 }
-.settings__user {
-}
-.settings__user-img {
-}
+
+.settings__user {}
+
+.settings__user-img {}
+
 .settings__user-button {
+  font-size: 15px;
+  font-weight: 600;
+  width: 220px;
+  height: 45px;
 }
-.settings__generalis {
-}
-.settings__generalis-imt {
-}
+
+.settings__generalis {}
+
+.settings__generalis-imt {}
+
 .settings__generalis-button {
+  font-size: 15px;
+  font-weight: 600;
+  width: 220px;
+  height: 45px;
 }
-.settings__scanning {
-}
-.settings__scanning-img {
-}
+
+.settings__scanning {}
+
+.settings__scanning-img {}
+
 .settings__scanning-button {
+  font-size: 15px;
+  font-weight: 600;
+  width: 220px;
+  height: 45px;
 }
-.settings__popup-of-user-settings {
-}
-.settings__popup-of-user-settings-preview-wrapper {
-}
-.settings__popup-of-user-settings-preview {
-}
+
+.settings__popups-container {}
+
+.settings__popup-of-user-settings {}
+
+.settings__popup-of-user-settings-preview-wrapper {}
+
+.settings__popup-of-user-settings-preview {}
+
 .settings__popup-of-user-settings-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
+
 .settings__button-of-old-passwords {
+  width: 250px;
+  height: 30px;
+  margin: 5px;
+  transition: .4s;
+
+  &:hover {
+    transform: scale(1.1);
+    border: 1px solid blue;
+    cursor: pointer;
+    transition: .4s;
+  }
 }
+
 .settings__button-of-new-passwords {
+  width: 250px;
+  height: 30px;
+  margin: 5px;
+  transition: .4s;
+
+  &:hover {
+    transform: scale(1.1);
+    border: 1px solid blue;
+    cursor: pointer;
+    transition: .4s;
+  }
 }
+
 .settings__button-of-confirmatio-passwords {
+  width: 250px;
+  height: 30px;
+  margin: 5px;
+  transition: .4s;
+
+  &:hover {
+    transform: scale(1.1);
+    border: 1px solid blue;
+    cursor: pointer;
+    transition: .4s;
+  }
 }
+
 .settings__button-of-user-settings {
+  width: 150px;
+  height: 30px;
+  background-color: white;
+  transition: .4s;
+
+  &:hover {
+    color: white;
+    border-color: blue;
+    background-color: blue;
+    transition: .4s;
+  }
 }
+
 .settings__popup-of-generalis-settings {
+  display: block;
 }
-.settings__preview-of-generalis-settings {
-}
+
+.settings__preview-of-generalis-settings {}
+
 .settings__button-for-open-acta-of-generalis-settings {
+  width: 300px;
+  height: 35px;
+  transition: .4s;
+  background-color: white;
+
+  &:hover {
+    color: white;
+    background-color: rgba(28, 119, 119, 0.651);
+    cursor: pointer;
+    transition: .4s;
+  }
 }
+
 .settings__popup-of-scanning-settings {
+  display: flex;
+  flex-direction: column;
 }
+
 .settings__preview-of-scanning-settings {
+  font-size: 18px;
+  font-weight: 600;
+  width: 100%;
+  height: 50px;
+  padding: 15px;
+  color: white;
+  background-color: rgba(61, 61, 38, 0.658);
 }
+
 .settings__choice-scan-of-scanning-settings {
+  margin: 5px;
 }
-.settings__form-of-scanning-settings {
-}
+
+.settings__form-of-scanning-settings {}
+
 .settings__button-choice-of-scanning-settings {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
-.settings__-of-scanning-settings {
+
+.settings__text-of-scanning-settings {
+  font-size: 16px;
+  font-weight: 600;
 }
+
 .settings__button-checkbox-choice-of-scanning-settings {
+  margin: 15px;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 //////////////////////////////////////////////////////////////
@@ -663,18 +877,43 @@
 //////////////////////////////////////////////////////////////
 
 .About-programm {
+  display: none;
+  user-select: none;
 }
+
 .About-programm__preview {
+  font-size: 35px;
+  font-weight: 600;
+  margin: 20px;
 }
+
 .About-programm__wrapper-version-of-programm {
+  font-size: 25px;
+  font-weight: 500;
+  margin-top: 45px;
+  padding-bottom: 20px;
 }
+
 .About-programm__text-version-of-programm {
+  font-size: 25px;
+  font-weight: 500;
+  margin-left: 20px;
 }
+
 .About-programm__number-version-of-programm {
+  font-size: 25px;
+  font-weight: 500;
 }
+
 .About-programm__text-licence-of-programm {
+  font-size: 25px;
+  font-weight: 500;
+  margin-left: 20px;
 }
+
 .About-programm__count-licence-of-programm {
+  font-size: 25px;
+  font-weight: 500;
 }
 
 //////////////////////////////////////////////////////////////
@@ -682,4 +921,3 @@
 /// other popup
 //////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////
-
