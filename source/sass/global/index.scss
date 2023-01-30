@@ -575,6 +575,7 @@
 
 .admin__button-structure-of-the-enterprise {
   background-color: white;
+
   &:hover {
     background-color: rgba(55, 134, 134, 0.171);
     cursor: pointer;
@@ -687,6 +688,20 @@
 .admin__checkbox-settings-users {
   margin-right: 10px;
 }
+
+.admin__group-access {}
+
+.admin__wrapper-buttons-group-access {}
+
+.admin__preview-group-access {}
+
+.admin__form-menu-group-access {}
+
+.admin__form-menu-button-group-access {}
+
+.admin__wrapper-table-group-access {}
+
+.admin__table-group-access {}
 
 //////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////

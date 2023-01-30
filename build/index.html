@@ -244,51 +244,254 @@
             <button class="admin__button-settings-users" type="submit">Сохранить изменения</button>
           </form>
         </div>
-        <div>
-          <div>
-            <h2>Группа доступа</h2>
-            <form action="" method="post">
-              <button type="submit">Свернуть\Развернуть</button>
-              <button type="submit">Сохранить</button>
-              <button type="submit">Добавить группу</button>
-              <button type="submit">Удалить группу</button>
-              <button type="submit">Редактировать название группы</button>
+        <div class="admin__group-access">
+          <div class="admin__wrapper-buttons-group-access">
+            <h2 class="admin__preview-group-access">Группа доступа</h2>
+            <form class="admin__form-menu-group-access" action="" method="post">
+              <button class="admin__form-menu-button-group-access" type="submit">Свернуть\Развернуть</button>
+              <button class="admin__form-menu-button-group-access" type="submit">Сохранить</button>
+              <button class="admin__form-menu-button-group-access" type="submit">Добавить группу</button>
+              <button class="admin__form-menu-button-group-access" type="submit">Удалить группу</button>
+              <button class="admin__form-menu-button-group-access" type="submit">Редактировать название группы</button>
             </form>
-            <div>
-              <table>
+            <div class="admin__wrapper-table-group-access">
+              <table class="admin__table-group-access">
+
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="admin__structure-folder">
+          <h2 class="admin__preview-structure-folder">Структура папок</h2>
+          <div class="admin__">
+            <div class="">
+              <div class="">
+                <button class="">Папки и права</button>
+                <button class="">Шаблоны папок</button>
+              </div>
+              <form class="" method="post">
+                <button class="" type="submit"></button>
+                <button class="" type="submit"></button>
+                <button class="" type="submit"></button>
+                <button class="" type="submit"></button>
+                <button class="" type="submit"></button>
+                <button class="" type="submit"></button>
+                <button class="" type="submit"></button>
+                <input class="" type="text">
+                <select class="" name="" id="">
+                  <option class="" value=""></option>
+                  <option class="" value=""></option>
+                </select>
+                <input class="" type="text">
+              </form>
+              <table class=""></table>
+            </div>
+            <div class="">
+              <div class="">
+                <button class=""></button>
+                <button class=""></button>
+                <button class=""></button>
+                <button class=""></button>
+                <button class=""></button>
+              </div>
+              <table class="">
+
+              </table>
+            </div>
+            <div class="">
+              <div class="">
+                <button class="">Назначенные права</button>
+                <span class="">Права с учетом унаследованных прав и групп</span>
+              </div>
+              <table class=""></table>
+            </div>
+            <div class="">
+              <div class="">
+                <button class=""></button>
+                <button class=""></button>
+                <button class=""></button>
+              </div>
+              <table class="">
 
               </table>
             </div>
           </div>
         </div>
         <div>
-          <h2>Структура папок</h2>
+          <h2>Словари</h2>
+          <span>Улицы</span>
+          <div>
+            <span></span>
+            <input type="text">
+            <select name="" id="">
+              <option value=""></option>
+            </select>
+            <button></button>
+            <button></button>
+            <button></button>
+            <button></button>
+          </div>
+          <table></table>
+        </div>
+        <div>
+          <h2>Хранение файлов</h2>
+          <div>
+            <button></button>
+            <button></button>
+          </div>
+          <div>
+            <span></span><input type="text" name="" id="">
+            <span></span><input type="text" name="" id="">
+            <span></span><input type="password" name="" id="">
+          </div>
+        </div>
+        <div>
+          <h2>Конфигурация системы</h2>
+          <div>
+            <button>Конфигурация документа</button>
+            <button>Настройка рассылки</button>
+          </div>
+          <div>
+            <form method="post">
+              <select name="" id="">
+                <option value=""></option>
+              </select>
+              <button>Сохранить</button>
+              <button>Обновить</button>
+            </form>
+            <table></table>
+          </div>
+          <div>
+            <h3>Настройка рассылки</h3>
+            <form action="" method="post">
+              <button>Тестировать сообщение</button>
+              <button>Сохранить</button>
+              <button>Обновить</button>
+              <div>
+                <span>Имя пользователя:</span><input type="text">
+                <span>Пароль:</span><input type="text">
+                <span>SMTP-Сервер:</span><input type="text">
+                <span>Адрес отправителя:</span><input type="text">
+                <span>Имя отправителя:</span><input type="text">
+                <span>Адрес поддержки:</span><input type="text">
+                <input type="checkbox" name="" id=""> <span>Включить\выключить отправку об ошибках</span>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div>
+          <h2>Протоколы</h2>
+          <div>
+            <button>Активные протоколы</button>
+            <button>Протоколы действий</button>
+            <button>Настройки протоколов</button>
+          </div>
+          <div>
+            <form action="" method="post">
+              <button type="submit">Обновить</button>
+              <button type="submit">Печать</button>
+              <button type="submit">Сохранить</button>
+              <input type="date" placeholder="Период С">
+              <input type="date" placeholder="Период По">
+              <input type="number" name="" id="" placeholder="Кол-во отображаемых эл.">
+              <input type="text" placeholder="Комментарий">
+              <input type="text" placeholder="Пользователь">
+            </form>
+            <table></table>
+          </div>
           <div>
             <div>
-              <div>
-                <button>Папки и права</button>
-                <button>Шаблоны папок</button>
-              </div>
-              <form>
-                <button type="submit"></button>
-                <button type="submit"></button>
-                <button type="submit"></button>
-                <button type="submit"></button>
-                <button type="submit"></button>
-                <button type="submit"></button>
-                <button type="submit"></button>
-                <input type="text">
-                <select name="" id="">
-                  <option value=""></option>
-                  <option value=""></option>
-                </select>
-                <input type="text">
+              <h3>Действия с документами</h3>
+              <form action="" method="post">
+                <div>
+                  <input type="checkbox" name="" id=""><span>Создание документа</span>
+                </div>
+                <div>
+                  <input type="checkbox" name="" id=""><span>Перемещение документа</span>
+                </div>
+                <div>
+                  <input type="checkbox" name="" id=""><span>Взятие документа а редактирование</span>
+                </div>
+                <div>
+                  <input type="checkbox" name="" id=""><span>Изменение присоединенных файлов</span>
+                </div>
+                <div>
+                  <input type="checkbox" name="" id=""><span>Просмотр документа</span>
+                </div>
+                <div>
+                  <h3>Пользовательские действия</h3>
+                  <div>
+                    <input type="checkbox" name="" id=""><span>Вход и выход из системы</span>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="" id=""><span>Печать содержимого РКК</span>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="" id=""><span>Печать присоединенных файлов</span>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="" id=""><span>Отправка документа по почте</span>
+                  </div>
+                </div>
+                <div>
+                  <h3>Административные действия</h3>
+                  <div>
+                    <input type="checkbox" name="" id=""><span>Создание пользователя</span>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="" id=""><span>Удаление пользователя</span>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="" id=""><span>Изменение профиля пользователя</span>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="" id=""><span>Создание групп</span>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="" id=""><span>Удаление групп</span>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="" id=""><span>Изменение настроек системы</span>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="" id=""><span>Удаление протоколов</span>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="" id=""><span>Изменение прав пользователя</span>
+                  </div>
+                </div>
+                <div>
+                  <h3>Действия с папками</h3>
+                  <div>
+                    <input type="checkbox" name="" id=""><span>Создание папки</span>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="" id=""><span>Удаление папки</span>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="" id=""><span>Изменение свойств папки</span>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="" id=""><span>Перемещение папки</span>
+                  </div>
               </form>
-              <table></table>
-              
             </div>
-
           </div>
+        </div>
+        <div>
+          <h2>Лицензирование</h2>
+          <form accept="" method="post">
+            <div>
+              <input type="text">
+              <button></button>
+            </div>
+            <div>
+              <input type="text">
+              <button></button>
+            </div>
+            <button></button>
+            <span>Количество лицензий<span>-</span></span>
+          </form>
         </div>
       </div>
     </section>
