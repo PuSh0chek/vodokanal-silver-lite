@@ -175,7 +175,7 @@
       </div>
 
       <div class='admin__content-container'>
-        <div class="admin__structure-of-the-enterprise">
+        <div class="admin__structure-of-the-enterprise" style="display: none;">
           <h2 class="admin__preview-structure-of-the-enterprise">Сотрудники предприятия</h2>
           <form class="admin__form-structure-of-the-enterprise" action="" method="post">
             <button type="submit" class="admin__button-structure-of-the-enterprise">Структура предприятия</button>
@@ -243,7 +243,7 @@
             <button class="admin__button-settings-users" type="submit">Сохранить изменения</button>
           </form>
         </div>
-        <div class="admin__group-access">
+        <div class="admin__group-access" style="display: none;">
           <div class="admin__wrapper-buttons-group-access">
             <h2 class="admin__preview-group-access">Группа доступа</h2>
             <form class="admin__form-menu-group-access" action="" method="post">
@@ -258,21 +258,21 @@
             </div>
           </div>
         </div>
-        <div class="admin__structure-folder">
+        <div class="admin__structure-folder" style="display: none;">
           <h2 class="admin__preview-structure-folder">Структура папок</h2>
-          <div class="admin__wrapper-containers-structure-folder">
-            <div class="admin__container-structure-folder">
+          <div class="admin__wrapper-containers-structure-folder" >
+            <div class="admin__container-structure-folder" style="display: none;">
               <div class="admin__popup-container-structure-folder">
                 <button class="admin__button-structure-folder">Папки и права</button>
                 <button class="admin__button-structure-folder">Шаблоны папок</button>
               </div>
               <form class="admin__menu-container-structure-folder" method="post">
-                <button class="admin__menu-buttonstructure-folder" type="submit">Подняться на уровень</button>
-                <button class="admin__menu-buttonstructure-folder" type="submit">Создать папкуОбновить папку</button>
-                <button class="admin__menu-buttonstructure-folder" type="submit">Обновить</button>
-                <button class="admin__menu-buttonstructure-folder" type="submit">Вырезать</button>
-                <button class="admin__menu-buttonstructure-folder" type="submit">Опуститься на уровень</button>
-                <button class="admin__menu-buttonstructure-folder" type="submit">Удалить папку</button>
+                <button class="admin__menu-button-structure-folder" type="submit">Подняться на уровень</button>
+                <button class="admin__menu-button-structure-folder" type="submit">Создать папкуОбновить папку</button>
+                <button class="admin__menu-button-structure-folder" type="submit">Обновить</button>
+                <button class="admin__menu-button-structure-folder" type="submit">Вырезать</button>
+                <button class="admin__menu-button-structure-folder" type="submit">Опуститься на уровень</button>
+                <button class="admin__menu-button-structure-folder" type="submit">Удалить папку</button>
                 <input class="admin__menu-input-count-structure-folder" type="number" placeholder="Показатель">
                 <select class="admin__menu-input-level-structure-folder" name="" id=""
                   aria-placeholder="Папка верхнего уровня">
@@ -284,7 +284,7 @@
               </form>
               <table class="admin__table-structure-folder"></table>
             </div>
-            <div class="admin__main-table-container-structure-folder">
+            <div class="admin__main-table-container-structure-folder" style="display: none;">
               <div class="admin__wrapper-quick-menu-structure-folder">
                 <button class="admin__button-toggle-table-structure-folder">Назначенные права</button>
                 <span class="admin__button-current-mode-structure-folder">Права с учетом унаследованных прав и
@@ -312,10 +312,10 @@
             </div>
           </div>
         </div>
-        <div class="admin__dictionaries">
+        <div class="admin__dictionaries" style="display: none;">
           <h2 class="admin__preview-dictionaries">Словари</h2>
           <span class="admin__text-dictionaries">Улицы</span>
-          <div class="admin__manu-dictionaries">
+          <div class="admin__menu-dictionaries">
             <input class="admin__input-search-dictionaries" type="text" placeholder="Поиск">
             <select class="admin__selecting-an-area-dictionaries" name="" id="" aria-placeholder="Выберите район">
               <option class="admin__element-selecting-an-area-dictionaries" value="">Ростов-на-Дону</option>
@@ -337,18 +337,18 @@
           </div>
           <table class="admin__table-of-dictionaries"></table>
         </div>
-        <div class="admin__file-storage">
+        <div class="admin__file-storage"  style="display: none;">
           <h2 class="admin__preview-file-storage">Хранение файлов</h2>
           <div class="admin__wrapper-button-file-storage">
-            <button class="admin__button-file-storage"></button>
-            <button class="admin__button-file-storage"></button>
+            <button class="admin__button-file-storage">Сохранить</button>
+            <button class="admin__button-file-storage">Проверить соединение</button>
           </div>
           <div class="admin__content-container-of-file-storage">
-            <span class="admin__text-file-storage"></span><input class="admin__input-file-storage" type="text" name=""
+            <span class="admin__text-file-storage">Адрес FTP-сервера</span><input class="admin__input-file-storage" type="text" name=""
               id="">
-            <span class="admin__text-file-storage"></span><input class="admin__input-file-storage" type="text" name=""
+            <span class="admin__text-file-storage">Логин</span><input class="admin__input-file-storage" type="text" name=""
               id="">
-            <span class="admin__text-file-storage"></span><input class="admin__input-file-storage" type="password"
+            <span class="admin__text-file-storage">Пароль</span><input class="admin__input-file-storage" type="password"
               name="" id="">
           </div>
         </div>
@@ -358,10 +358,12 @@
             <button class="admin__button-of-chenge-system-configuration">Конфигурация документа</button>
             <button class="admin__button-of-chenge-system-configuration">Настройка рассылки</button>
           </div>
-          <div class="admin__wrapper-form-system-configuration">
+          <div class="admin__wrapper-form-system-configuration" style="display: none;">
             <form class="admin__form-system-configuration" method="post">
               <select class="admin__select-type-system-configuration" name="" id="">
-                <option class="admin__element-of-select-type-system-configuration" value=""></option>
+                <option class="admin__element-of-select-type-system-configuration" value="Типовая">Типовая</option>
+                <option class="admin__element-of-select-type-system-configuration" value="Управление имуществом">Управление имуществом</option>
+                <option class="admin__element-of-select-type-system-configuration" value="Абонентское дело">Абонентское дело</option>
               </select>
               <button class="admin__button-system-configuration">Сохранить</button>
               <button class="admin__button-system-configuration">Обновить</button>
@@ -394,7 +396,7 @@
             </form>
           </div>
         </div>
-        <div class="admin__protocols">
+        <div class="admin__protocols" style="display: none;">
           <h2 class="admin__peview-protocols">Протоколы</h2>
           <div class="admin__popup-change-protocols">
             <button class="admin__button-change-popup-of-protocols">Активные протоколы</button>
@@ -494,7 +496,7 @@
             </form>
           </div>
         </div>
-        <div class="admin__license">
+        <div class="admin__license" style="display: none;">
           <h2 class="admin__preview-license">Лицензирование</h2>
           <form class="admin__form-license" accept="" method="post">
             <div class="admin__container-license">

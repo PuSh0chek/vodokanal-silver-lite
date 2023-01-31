@@ -691,33 +691,65 @@
 
 .admin__group-access {}
 
-.admin__wrapper-buttons-group-access {}
+.admin__wrapper-buttons-group-access {
+  display: inline-block;
+}
 
 .admin__preview-group-access {}
 
-.admin__form-menu-group-access {}
+.admin__form-menu-group-access {
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+}
 
-.admin__form-menu-button-group-access {}
+.admin__form-menu-button-group-access {
+  border: none;
+  transition: .4s;
+  &:hover {
+    color: white;
+    background-color: rgba(3, 143, 143, 0.849);
+    cursor: pointer;
+    transition: .4s;
+  }
+}
 
-.admin__wrapper-table-group-access {}
+.admin__wrapper-table-group-access {
+  width: 100%;
+  height: 100%;
+}
 
-.admin__table-group-access {}
+.admin__table-group-access {
+  width: 100%;
+  height: 100%;
+}
 
 .admin__structure-folder {}
 
 .admin__preview-structure-folder {}
 
-.admin__wrapper-containers-structure-folder {}
+.admin__wrapper-containers-structure-folder {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+}
 
 .admin__container-structure-folder {}
 
-.admin__popup-container-structure-folder {}
+.admin__popup-container-structure-folder {
+  display: flex;
+  width: 100%;
+}
 
-.admin__button-structure-folder {}
+.admin__button-structure-folder {
+}
 
-.admin__menu-container-structure-folder {}
+.admin__menu-container-structure-folder {
+  display: grid;
+  width: 100%;
+}
 
-.admin__menu-buttonstructure-folder {}
+.admin__menu-button-structure-folder {
+}
 
 .admin__menu-input-count-structure-folder {}
 
@@ -731,17 +763,28 @@
 
 .admin__main-table-container-structure-folder {}
 
-.admin__wrapper-quick-menu-structure-folder {}
+.admin__wrapper-quick-menu-structure-folder {
+  display: grid;
+  justify-content: center;
+}
 
 .admin__button-toggle-table-structure-folder {}
 
 .admin__button-current-mode-structure-folder {}
 
-.admin__main-table-structure-folder {}
+.admin__main-table-structure-folder {
 
-.admin__rights-and-folders-structure-folder {}
+}
 
-.admin__menu-rights-and-folders-structure-folder {}
+.admin__rights-and-folders-structure-folder {
+  width: 100%;
+}
+
+.admin__menu-rights-and-folders-structure-folder {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+}
 
 .admin__button-of-menu-rights-and-folders-structure-folder {}
 
@@ -749,9 +792,15 @@
 
 .admin__container-rights-and-folders-structure-folder {}
 
-.admin__wrapper-menu-rights-and-folders-structure-folder {}
+.admin__wrapper-menu-rights-and-folders-structure-folder {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
+}
 
-.admin__button-menu-rights-and-folders-structure-folder {}
+.admin__button-menu-rights-and-folders-structure-folder {
+
+}
 
 .admin__main-table-rights-and-folders-structure-folder {}
 
@@ -761,7 +810,10 @@
 
 .admin__text-dictionaries {}
 
-.admin__manu-dictionaries {}
+.admin__menu-dictionaries {
+  display: flex;
+  margin-top: 5px;
+}
 
 .admin__input-search-dictionaries {}
 
@@ -777,13 +829,23 @@
 
 .admin__preview-file-storage {}
 
-.admin__wrapper-button-file-storage {}
+.admin__wrapper-button-file-storage {
+  display: flex;
+}
 
 .admin__button-file-storage {}
 
-.admin__content-container-of-file-storage {}
+.admin__content-container-of-file-storage {
+  display: grid;
+  grid-template-columns: 200px 300px;
+  margin-top: 20px;
+}
 
-.admin__text-file-storage {}
+.admin__text-file-storage {
+  display: inline-block;
+  width: 200px;
+  margin-top: 20px;
+}
 
 .admin__input-file-storage {}
 
@@ -797,11 +859,15 @@
 
 .admin__wrapper-form-system-configuration {}
 
-.admin__form-system-configuration {}
+.admin__form-system-configuration {
+  margin-top: 10px;
+}
 
-.admin__select-type-system-configuration {}
+.admin__select-type-system-configuration {
+}
 
-.admin__element-of-select-type-system-configuration {}
+.admin__element-of-select-type-system-configuration {
+}
 
 .admin__button-system-configuration {}
 
@@ -815,13 +881,23 @@
 
 .admin__button-setting-up-mailing-lists {}
 
-.admin__wrapper-content-setting-up-mailing-lists {}
+.admin__wrapper-content-setting-up-mailing-lists {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+}
 
-.admin__content-setting-up-mailing-lists {}
+.admin__content-setting-up-mailing-lists {
+  margin-top: 15px;
+}
 
-.admin__input-for-content-setting-up-mailing-lists {}
+.admin__input-for-content-setting-up-mailing-lists {
+  width: 300px;
+  margin-top: 15px;
+}
 
-.admin__input-enable-or-disable-up-maailling-error-of-setting-up-mailing-lists {}
+.admin__input-enable-or-disable-up-maailling-error-of-setting-up-mailing-lists {
+  margin: 5px;
+}
 
 .admin__protocols {}
 
