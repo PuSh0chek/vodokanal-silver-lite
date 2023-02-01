@@ -50,6 +50,14 @@
   }
 }
 
+.header__button-of-admin-page {
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 .header__button-of-settings-page {
   cursor: pointer;
 
@@ -899,7 +907,9 @@
   margin: 5px;
 }
 
-.admin__protocols {}
+.admin__protocols {
+
+}
 
 .admin__peview-protocols {}
 
@@ -907,9 +917,14 @@
 
 .admin__button-change-popup-of-protocols {}
 
-.admin__popup-archive-protocols-of-all-protocols {}
+.admin__popup-archive-protocols-of-all-protocols {
+  display: flex;
+  flex-wrap: wrap;
+}
 
-.admin__form-archive-protocols-of-all-protocols {}
+.admin__form-archive-protocols-of-all-protocols {
+  margin-top: 10px;
+}
 
 .admin__button-archive-protocols-of-all-protocols {}
 
@@ -917,9 +932,13 @@
 
 .admin__talbe-archive-protocols-of-all-protocols {}
 
-.admin__setting-all-protocols {}
+.admin__setting-all-protocols {
+}
 
-.admin__form-of-setting-all-protocols {}
+.admin__form-of-setting-all-protocols {
+  display: grid;
+  grid-template-columns: 1fr 1fr
+}
 
 .admin__wrapper-container-of-setting-all-protocols {}
 
@@ -1137,42 +1156,42 @@
 //////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////
 
-.About-programm {
+.about-programm {
   display: none;
   user-select: none;
 }
 
-.About-programm__preview {
+.about-programm__preview {
   font-size: 35px;
   font-weight: 600;
   margin: 20px;
 }
 
-.About-programm__wrapper-version-of-programm {
+.about-programm__wrapper-version-of-programm {
   font-size: 25px;
   font-weight: 500;
   margin-top: 45px;
   padding-bottom: 20px;
 }
 
-.About-programm__text-version-of-programm {
+.about-programm__text-version-of-programm {
   font-size: 25px;
   font-weight: 500;
   margin-left: 20px;
 }
 
-.About-programm__number-version-of-programm {
+.about-programm__number-version-of-programm {
   font-size: 25px;
   font-weight: 500;
 }
 
-.About-programm__text-licence-of-programm {
+.about-programm__text-licence-of-programm {
   font-size: 25px;
   font-weight: 500;
   margin-left: 20px;
 }
 
-.About-programm__count-licence-of-programm {
+.about-programm__count-licence-of-programm {
   font-size: 25px;
   font-weight: 500;
 }

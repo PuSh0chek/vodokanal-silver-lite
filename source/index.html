@@ -24,7 +24,7 @@
       </div>
       <div class="header__main-menu">
         <span class="header__button-of-archive-page">Архив</span>
-        <span class="header__button-of-archive-page">Администрирование</span>
+        <span class="header__button-of-admin-page">Администрирование</span>
         <span class="header__button-of-settings-page">Настройки</span>
         <span class="header__button-of-about-the-program-page">О программе</span>
       </div>
@@ -138,7 +138,7 @@
         </div>
       </div>
     </section>
-    <section class="admin">
+    <section class="admin" style="display: none;">
       <div class="admin__containers-wrapper">
         <div class="admin__container">
           <img class="admin__img" src="" alt="">
@@ -175,7 +175,7 @@
       </div>
 
       <div class='admin__content-container'>
-        <div class="admin__structure-of-the-enterprise" style="display: none;">
+        <div class="admin__structure-of-the-enterprise">
           <h2 class="admin__preview-structure-of-the-enterprise">Сотрудники предприятия</h2>
           <form class="admin__form-structure-of-the-enterprise" action="" method="post">
             <button type="submit" class="admin__button-structure-of-the-enterprise">Структура предприятия</button>
@@ -352,7 +352,7 @@
               name="" id="">
           </div>
         </div>
-        <div class="admin__system-configuration">
+        <div class="admin__system-configuration" style="display: none;">
           <h2 class="admin__preview-system-configuration">Конфигурация системы</h2>
           <div class="admin__popup-change-of-system-configuration">
             <button class="admin__button-of-chenge-system-configuration">Конфигурация документа</button>
@@ -396,14 +396,14 @@
             </form>
           </div>
         </div>
-        <div class="admin__protocols" style="display: none;">
+        <div class="admin__protocols"  style="display: none;">
           <h2 class="admin__peview-protocols">Протоколы</h2>
           <div class="admin__popup-change-protocols">
             <button class="admin__button-change-popup-of-protocols">Активные протоколы</button>
             <button class="admin__button-change-popup-of-protocols">Протоколы действий</button>
             <button class="admin__button-change-popup-of-protocols">Настройки протоколов</button>
           </div>
-          <div class="admin__popup-archive-protocols-of-all-protocols">
+          <div class="admin__popup-archive-protocols-of-all-protocols"  style="display: none;">
             <form class="admin__form-archive-protocols-of-all-protocols" action="" method="post">
               <button class="admin__button-archive-protocols-of-all-protocols" type="submit">Обновить</button>
               <button class="admin__button-archive-protocols-of-all-protocols" type="submit">Печать</button>
@@ -417,7 +417,7 @@
             </form>
             <table class="admin__talbe-archive-protocols-of-all-protocols"></table>
           </div>
-          <div class="admin__setting-all-protocols">
+          <div class="admin__setting-all-protocols"  style="display: none;">
             <form class="admin__form-of-setting-all-protocols" action="" method="post">
               <div class="admin__wrapper-container-of-setting-all-protocols">
                 <h3 class="admin__introduction-of-setting-all-protocols">Действия с документами</h3>
@@ -565,15 +565,15 @@
         </div>
       </div>
     </section>
-    <section class="About-programm">
-      <h2 class="About-programm__preview">О программе</h2>
-      <div class="About-programm__wrapper-version-of-programm">
-        <span class="About-programm__text-version-of-programm">Версия:</span>
-        <span class="About-programm__number-version-of-programm">-</span>
+    <section class="about-programm">
+      <h2 class="about-programm__preview">О программе</h2>
+      <div class="about-programm__wrapper-version-of-programm">
+        <span class="about-programm__text-version-of-programm">Версия:</span>
+        <span class="about-programm__number-version-of-programm">-</span>
       </div>
       <div>
-        <span class="About-programm__text-licence-of-programm">Количество лицензий:</span>
-        <span class="About-programm__count-licence-of-programm">-</span>
+        <span class="about-programm__text-licence-of-programm">Количество лицензий:</span>
+        <span class="about-programm__count-licence-of-programm">-</span>
       </div>
     </section>
   </main>
