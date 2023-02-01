@@ -556,21 +556,25 @@
 
   &:hover {
     text-decoration: underline;
-    cursor: pointer;
   }
 }
 
 .admin__img {}
 
-.admin__text {
+.admin__button-of-container {
   font-size: 16px;
   font-weight: 600;
+  width: 100%;
+  height: 50px;
   text-align: center;
+  cursor: pointer;
 }
 
 .admin__content-container {}
 
-.admin__structure-of-the-enterprise {}
+.admin__structure-of-the-enterprise {
+  display: none;
+}
 
 .admin__preview-structure-of-the-enterprise {
   width: 100%;
@@ -591,7 +595,7 @@
 }
 
 .admin__menu-structure-of-the-enterprise {
-  display: none;
+  display: flex;
   text-align: center;
   width: 100%;
 }
@@ -599,7 +603,7 @@
 .admin__buttom-form-of-the-structure-enterprise {
   font-size: 12px;
   width: 220px;
-  height: 40px;
+  height: 30px;
   margin: 0;
   padding: 0;
   border: none;

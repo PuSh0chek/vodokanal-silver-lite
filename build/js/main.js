@@ -54,7 +54,7 @@ buttonAdmin.addEventListener('click', () => {
 buttonSettings.addEventListener('click', () => {
   getRequiredWindow(settingsPage, adminPage, archivePage, aboutProgrammPage, displayGrid, displayNone);
 });
-// Вызов окна о прокграмме //
+// Вызов окна о программе //
 buttonAbout.addEventListener('click', () => {
   getRequiredWindow(aboutProgrammPage, adminPage, settingsPage, archivePage, displayGrid, displayNone);
 });
@@ -63,11 +63,15 @@ buttonAbout.addEventListener('click', () => {
 const structure = document.querySelector('.admin__structure-of-the-enterprise');
 const structureWorkingEmloyees = document.querySelector('.admin__working-employees');
 const structureSettingsUsers = document.querySelector('.admin__settings-users');
-const buttonsAdminMainMenu = document.querySelectorAll('.admin__buttom-form-of-the-structure-enterprise');
-for (let i = 0; i < buttonsAdminMainMenu.length; i++) {
-  buttonsAdminMainMenu.addEventListener('click', {});
-}
-
+const buttonsAdminMainMenu = document.querySelectorAll('.admin__button-of-container');
+const adminMainMenu = document.querySelector('.admin__container');
+const workersPopup = document.querySelector('.admin__structure-of-the-enterprise');
+Array.from(adminMainMenu.children).forEach(item => {
+  item.addEventListener('click', () => {
+    console.log(1);
+    workersPopup.style = 'display: block';
+  });
+});
 // Блок вызова функций //
 getCountLicen();
 getVersionThisProgramm();
