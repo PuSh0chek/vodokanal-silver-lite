@@ -31,6 +31,12 @@ const fileStorage = document.querySelector('.admin__file-storage');
 const systemCondiguration = document.querySelector('.admin__system-configuration');
 const protocols = document.querySelector('.admin__protocols');
 const license = document.querySelector('.admin__license');
+const settingsUser = document.querySelector('.settings__popup-of-user-settings');
+const generalisSettings = document.querySelector('.settings__popup-of-generalis-settings');
+const scanningSettings = document.querySelector('.settings__popup-of-scanning-settings');
+const buttonSettingsUser = document.querySelector('.settings__user-button');
+const buttonSettingsGeneralis = document.querySelector('.settings__generalis-button');
+const buttonScanning = document.querySelector('.settings__scanning');
 
 // Универсальные функции //
 const getRequiredWindow = (showElement, removeElementOne, removeElementTwo, removeElementThree, displayShow, displayRemove) => {
@@ -143,12 +149,6 @@ buttonSettings.addEventListener('click', () => {
   getRequiredWindow(settingsPage, adminPage, archivePage, aboutProgrammPage, displayGrid, displayNone);
 });
 // Вывод popup's settings //
-const settingsUser = document.querySelector('.settings__popup-of-user-settings');
-const generalisSettings = document.querySelector('.settings__popup-of-generalis-settings');
-const scanningSettings = document.querySelector('.settings__popup-of-scanning-settings');
-const buttonSettingsUser = document.querySelector('.settings__user-button');
-const buttonSettingsGeneralis = document.querySelector('.settings__generalis-button');
-const buttonScanning = document.querySelector('.settings__scanning');
 buttonSettingsUser.addEventListener('click', () => {
   settingsUser.style = 'display: block';
   generalisSettings.style = 'display: none';
