@@ -138,7 +138,7 @@
         </div>
       </div>
     </section>
-    <section class="admin" style="display: none;">
+    <section class="admin">
       <div class="admin__containers-wrapper">
         <div class="admin__container">
           <button class="admin__button-of-container">Сотрудники предприятия</button>
@@ -220,7 +220,7 @@
             <button class="admin__button-settings-users" type="submit">Сохранить изменения</button>
           </form>
         </div>
-        <div class="admin__group-access" style="display: none;">
+        <div class="admin__group-access">
           <div class="admin__wrapper-buttons-group-access">
             <h2 class="admin__preview-group-access">Группа доступа</h2>
             <form class="admin__form-menu-group-access" action="" method="post">
@@ -235,10 +235,10 @@
             </div>
           </div>
         </div>
-        <div class="admin__structure-folder" style="display: none;">
+        <div class="admin__structure-folder">
           <h2 class="admin__preview-structure-folder">Структура папок</h2>
-          <div class="admin__wrapper-containers-structure-folder" >
-            <div class="admin__container-structure-folder" style="display: none;">
+          <div class="admin__wrapper-containers-structure-folder">
+            <div class="admin__container-structure-folder">
               <div class="admin__popup-container-structure-folder">
                 <button class="admin__button-structure-folder">Папки и права</button>
                 <button class="admin__button-structure-folder">Шаблоны папок</button>
@@ -261,7 +261,7 @@
               </form>
               <table class="admin__table-structure-folder"></table>
             </div>
-            <div class="admin__main-table-container-structure-folder" style="display: none;">
+            <div class="admin__main-table-container-structure-folder">
               <div class="admin__wrapper-quick-menu-structure-folder">
                 <button class="admin__button-toggle-table-structure-folder">Назначенные права</button>
                 <span class="admin__button-current-mode-structure-folder">Права с учетом унаследованных прав и
@@ -289,7 +289,7 @@
             </div>
           </div>
         </div>
-        <div class="admin__dictionaries" style="display: none;">
+        <div class="admin__dictionaries">
           <h2 class="admin__preview-dictionaries">Словари</h2>
           <span class="admin__text-dictionaries">Улицы</span>
           <div class="admin__menu-dictionaries">
@@ -314,33 +314,35 @@
           </div>
           <table class="admin__table-of-dictionaries"></table>
         </div>
-        <div class="admin__file-storage"  style="display: none;">
+        <div class="admin__file-storage">
           <h2 class="admin__preview-file-storage">Хранение файлов</h2>
           <div class="admin__wrapper-button-file-storage">
             <button class="admin__button-file-storage">Сохранить</button>
             <button class="admin__button-file-storage">Проверить соединение</button>
           </div>
           <div class="admin__content-container-of-file-storage">
-            <span class="admin__text-file-storage">Адрес FTP-сервера</span><input class="admin__input-file-storage" type="text" name=""
-              id="">
-            <span class="admin__text-file-storage">Логин</span><input class="admin__input-file-storage" type="text" name=""
-              id="">
+            <span class="admin__text-file-storage">Адрес FTP-сервера</span><input class="admin__input-file-storage"
+              type="text" name="" id="">
+            <span class="admin__text-file-storage">Логин</span><input class="admin__input-file-storage" type="text"
+              name="" id="">
             <span class="admin__text-file-storage">Пароль</span><input class="admin__input-file-storage" type="password"
               name="" id="">
           </div>
         </div>
-        <div class="admin__system-configuration" style="display: none;">
+        <div class="admin__system-configuration">
           <h2 class="admin__preview-system-configuration">Конфигурация системы</h2>
           <div class="admin__popup-change-of-system-configuration">
             <button class="admin__button-of-chenge-system-configuration">Конфигурация документа</button>
             <button class="admin__button-of-chenge-system-configuration">Настройка рассылки</button>
           </div>
-          <div class="admin__wrapper-form-system-configuration" style="display: none;">
+          <div class="admin__wrapper-form-system-configuration">
             <form class="admin__form-system-configuration" method="post">
               <select class="admin__select-type-system-configuration" name="" id="">
                 <option class="admin__element-of-select-type-system-configuration" value="Типовая">Типовая</option>
-                <option class="admin__element-of-select-type-system-configuration" value="Управление имуществом">Управление имуществом</option>
-                <option class="admin__element-of-select-type-system-configuration" value="Абонентское дело">Абонентское дело</option>
+                <option class="admin__element-of-select-type-system-configuration" value="Управление имуществом">
+                  Управление имуществом</option>
+                <option class="admin__element-of-select-type-system-configuration" value="Абонентское дело">Абонентское
+                  дело</option>
               </select>
               <button class="admin__button-system-configuration">Сохранить</button>
               <button class="admin__button-system-configuration">Обновить</button>
@@ -373,14 +375,14 @@
             </form>
           </div>
         </div>
-        <div class="admin__protocols"  style="display: none;">
+        <div class="admin__protocols">
           <h2 class="admin__peview-protocols">Протоколы</h2>
           <div class="admin__popup-change-protocols">
             <button class="admin__button-change-popup-of-protocols">Активные протоколы</button>
             <button class="admin__button-change-popup-of-protocols">Протоколы действий</button>
             <button class="admin__button-change-popup-of-protocols">Настройки протоколов</button>
           </div>
-          <div class="admin__popup-archive-protocols-of-all-protocols"  style="display: none;">
+          <div class="admin__popup-archive-protocols-of-all-protocols">
             <form class="admin__form-archive-protocols-of-all-protocols" action="" method="post">
               <button class="admin__button-archive-protocols-of-all-protocols" type="submit">Обновить</button>
               <button class="admin__button-archive-protocols-of-all-protocols" type="submit">Печать</button>
@@ -394,86 +396,107 @@
             </form>
             <table class="admin__talbe-archive-protocols-of-all-protocols"></table>
           </div>
-          <div class="admin__setting-all-protocols"  style="display: none;">
+          <div class="admin__setting-all-protocols">
             <form class="admin__form-of-setting-all-protocols" action="" method="post">
               <div class="admin__wrapper-container-of-setting-all-protocols">
                 <h3 class="admin__introduction-of-setting-all-protocols">Действия с документами</h3>
                 <div class="admin__wrapper-element-of-cotainer-setting-all-protocols">
-                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span class="admin__text-checkbox-setting-all-protocols">Создание документа</span>
+                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span
+                    class="admin__text-checkbox-setting-all-protocols">Создание документа</span>
                 </div>
                 <div class="admin__wrapper-element-of-cotainer-setting-all-protocols">
-                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span class="admin__text-checkbox-setting-all-protocols">Перемещение документа</span>
+                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span
+                    class="admin__text-checkbox-setting-all-protocols">Перемещение документа</span>
                 </div>
                 <div class="admin__wrapper-element-of-cotainer-setting-all-protocols">
-                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span class="admin__text-checkbox-setting-all-protocols">Взятие документа а редактирование</span>
+                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span
+                    class="admin__text-checkbox-setting-all-protocols">Взятие документа а редактирование</span>
                 </div>
                 <div class="admin__wrapper-element-of-cotainer-setting-all-protocols">
-                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span class="admin__text-checkbox-setting-all-protocols">Изменение присоединенных файлов</span>
+                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span
+                    class="admin__text-checkbox-setting-all-protocols">Изменение присоединенных файлов</span>
                 </div>
                 <div class="admin__wrapper-element-of-cotainer-setting-all-protocols">
-                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span class="admin__text-checkbox-setting-all-protocols">Просмотр документа</span>
+                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span
+                    class="admin__text-checkbox-setting-all-protocols">Просмотр документа</span>
                 </div>
               </div>
               <div class="admin__wrapper-container-of-setting-all-protocols">
                 <h3 class="admin__introduction-of-setting-all-protocols">Пользовательские действия</h3>
                 <div class="admin__wrapper-element-of-cotainer-setting-all-protocols">
-                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span class="admin__text-checkbox-setting-all-protocols">Вход и выход из системы</span>
+                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span
+                    class="admin__text-checkbox-setting-all-protocols">Вход и выход из системы</span>
                 </div>
                 <div class="admin__wrapper-element-of-cotainer-setting-all-protocols">
-                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span class="admin__text-checkbox-setting-all-protocols">Печать содержимого РКК</span>
+                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span
+                    class="admin__text-checkbox-setting-all-protocols">Печать содержимого РКК</span>
                 </div>
                 <div class="admin__wrapper-element-of-cotainer-setting-all-protocols">
-                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span class="admin__text-checkbox-setting-all-protocols">Печать присоединенных файлов</span>
+                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span
+                    class="admin__text-checkbox-setting-all-protocols">Печать присоединенных файлов</span>
                 </div>
                 <div class="admin__wrapper-element-of-cotainer-setting-all-protocols">
-                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span class="admin__text-checkbox-setting-all-protocols">Отправка документа по почте</span>
+                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span
+                    class="admin__text-checkbox-setting-all-protocols">Отправка документа по почте</span>
                 </div>
               </div>
               <div class="admin__wrapper-container-of-setting-all-protocols">
                 <h3 class="admin__introduction-of-setting-all-protocols">Административные действия</h3>
                 <div class="admin__wrapper-element-of-cotainer-setting-all-protocols">
-                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span class="admin__text-checkbox-setting-all-protocols">Создание пользователя</span>
+                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span
+                    class="admin__text-checkbox-setting-all-protocols">Создание пользователя</span>
                 </div>
                 <div class="admin__wrapper-element-of-cotainer-setting-all-protocols">
-                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span class="admin__text-checkbox-setting-all-protocols">Удаление пользователя</span>
+                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span
+                    class="admin__text-checkbox-setting-all-protocols">Удаление пользователя</span>
                 </div>
                 <div class="admin__wrapper-element-of-cotainer-setting-all-protocols">
-                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span class="admin__text-checkbox-setting-all-protocols">Изменение профиля пользователя</span>
+                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span
+                    class="admin__text-checkbox-setting-all-protocols">Изменение профиля пользователя</span>
                 </div>
                 <div class="admin__wrapper-element-of-cotainer-setting-all-protocols">
-                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span class="admin__text-checkbox-setting-all-protocols">Создание групп</span>
+                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span
+                    class="admin__text-checkbox-setting-all-protocols">Создание групп</span>
                 </div>
                 <div class="admin__wrapper-element-of-cotainer-setting-all-protocols">
-                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span class="admin__text-checkbox-setting-all-protocols">Удаление групп</span>
+                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span
+                    class="admin__text-checkbox-setting-all-protocols">Удаление групп</span>
                 </div>
                 <div class="admin__wrapper-element-of-cotainer-setting-all-protocols">
-                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span class="admin__text-checkbox-setting-all-protocols">Изменение настроек системы</span>
+                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span
+                    class="admin__text-checkbox-setting-all-protocols">Изменение настроек системы</span>
                 </div>
                 <div class="admin__wrapper-element-of-cotainer-setting-all-protocols">
-                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span class="admin__text-checkbox-setting-all-protocols">Удаление протоколов</span>
+                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span
+                    class="admin__text-checkbox-setting-all-protocols">Удаление протоколов</span>
                 </div>
                 <div class="admin__wrapper-element-of-cotainer-setting-all-protocols">
-                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span class="admin__text-checkbox-setting-all-protocols">Изменение прав пользователя</span>
+                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span
+                    class="admin__text-checkbox-setting-all-protocols">Изменение прав пользователя</span>
                 </div>
               </div>
               <div class="admin__wrapper-container-of-setting-all-protocols">
                 <h3 class="admin__introduction-of-setting-all-protocols">Действия с папками</h3>
                 <div class="admin__wrapper-element-of-cotainer-setting-all-protocols">
-                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span class="admin__text-checkbox-setting-all-protocols">Создание папки</span>
+                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span
+                    class="admin__text-checkbox-setting-all-protocols">Создание папки</span>
                 </div>
                 <div class="admin__wrapper-element-of-cotainer-setting-all-protocols">
-                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span class="admin__text-checkbox-setting-all-protocols">Удаление папки</span>
+                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span
+                    class="admin__text-checkbox-setting-all-protocols">Удаление папки</span>
                 </div>
                 <div class="admin__wrapper-element-of-cotainer-setting-all-protocols">
-                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span class="admin__text-checkbox-setting-all-protocols">Изменение свойств папки</span>
+                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span
+                    class="admin__text-checkbox-setting-all-protocols">Изменение свойств папки</span>
                 </div>
                 <div class="admin__wrapper-element-of-cotainer-setting-all-protocols">
-                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span class="admin__text-checkbox-setting-all-protocols">Перемещение папки</span>
+                  <input class="admin__checkbox-of-setting-all-protocols" type="checkbox" name="" id=""><span
+                    class="admin__text-checkbox-setting-all-protocols">Перемещение папки</span>
                 </div>
             </form>
           </div>
         </div>
-        <div class="admin__license" style="display: none;">
+        <div class="admin__license">
           <h2 class="admin__preview-license">Лицензирование</h2>
           <form class="admin__form-license" accept="" method="post">
             <div class="admin__container-license">
@@ -506,7 +529,7 @@
         </div>
       </div>
       <div class="settings__popups-container">
-        <div class="settings__popup-of-user-settings" style="display: none;">
+        <div class="settings__popup-of-user-settings">
           <div class="settings__popup-of-user-settings-preview-wrapper">
             <h2 class="settings__popup-of-user-settings-preview">Настройки пользователя</h2>
           </div>
@@ -517,14 +540,14 @@
             <button type="submit" class="settings__button-of-user-settings">Сохранить</button>
           </form>
         </div>
-        <div class="settings__popup-of-generalis-settings" style="display: none;">
+        <div class="settings__popup-of-generalis-settings">
           <h2 class="settings__preview-of-generalis-settings">Общие настройки</h2>
           <form action="settings__form-of-generalis-settings" method="post">
             <button class="settings__button-for-open-acta-of-generalis-settings" type="submit">Отправить журснал
               трассировки</button>
           </form>
         </div>
-        <div class="settings__popup-of-scanning-settings" style="display: none;">
+        <div class="settings__popup-of-scanning-settings">
           <h2 class="settings__preview-of-scanning-settings">Настройки сканирования</h2>
           <span class="settings__choice-scan-of-scanning-settings">Выбор сканера</span>
           <form class="settings__form-of-scanning-settings" action="" method="post">
