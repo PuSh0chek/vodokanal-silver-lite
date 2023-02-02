@@ -573,7 +573,7 @@
 .admin__content-container {}
 
 .admin__structure-of-the-enterprise {
-  display: none;
+  display: block;
 }
 
 .admin__preview-structure-of-the-enterprise {
@@ -701,7 +701,9 @@
   margin-right: 10px;
 }
 
-.admin__group-access {}
+.admin__group-access {
+  display: none;
+}
 
 .admin__wrapper-buttons-group-access {
   display: inline-block;
@@ -736,7 +738,9 @@
   height: 100%;
 }
 
-.admin__structure-folder {}
+.admin__structure-folder {
+  display: none;
+}
 
 .admin__preview-structure-folder {}
 
@@ -816,7 +820,9 @@
 
 .admin__main-table-rights-and-folders-structure-folder {}
 
-.admin__dictionaries {}
+.admin__dictionaries {
+  display: none;
+}
 
 .admin__preview-dictionaries {}
 
@@ -837,7 +843,9 @@
 
 .admin__table-of-dictionaries {}
 
-.admin__file-storage {}
+.admin__file-storage {
+  display: none;
+}
 
 .admin__preview-file-storage {}
 
@@ -861,7 +869,9 @@
 
 .admin__input-file-storage {}
 
-.admin__system-configuration {}
+.admin__system-configuration {
+  display: none;
+}
 
 .admin__preview-system-configuration {}
 
@@ -912,7 +922,7 @@
 }
 
 .admin__protocols {
-
+  display: none;
 }
 
 .admin__peview-protocols {}
@@ -954,7 +964,9 @@
 
 .admin__text-checkbox-setting-all-protocols {}
 
-.admin__license {}
+.admin__license {
+  display: none;
+}
 
 .admin__preview-license {}
 
@@ -1027,7 +1039,9 @@
 
 .settings__popups-container {}
 
-.settings__popup-of-user-settings {}
+.settings__popup-of-user-settings {
+  display: none;
+}
 
 .settings__popup-of-user-settings-preview-wrapper {}
 
@@ -1096,7 +1110,7 @@
 }
 
 .settings__popup-of-generalis-settings {
-  display: block;
+  display: none;
 }
 
 .settings__preview-of-generalis-settings {}
@@ -1116,7 +1130,7 @@
 }
 
 .settings__popup-of-scanning-settings {
-  display: flex;
+  display: none;
   flex-direction: column;
 }
 

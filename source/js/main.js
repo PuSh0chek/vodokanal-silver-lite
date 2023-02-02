@@ -161,7 +161,7 @@ buttonSettingsGeneralis.addEventListener('click', () => {
 buttonScanning.addEventListener('click', () => {
   settingsUser.style = 'display: none';
   generalisSettings.style = 'display: none';
-  scanningSettings.style = 'display: block';
+  scanningSettings.style = 'display: flex';
 });
 
 // Вызов окна о программе //
