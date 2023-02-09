@@ -16,3 +16,17 @@ export const getEvent = async () => {
     return err.message;
   }
 };
+
+export const getById = async (eventId) => {
+  try {
+    let pool = await sql.connect(sqlConfig.sql);
+    const sqlQueries = await utils.loadSqlQueries("events");
+    const oneEvent = await pool
+      .request()
+      .input("eventId", sql.Int, eventId)
+      .query(sqlQueries.eventbyid);
+    return oneEvent.recordset;
+  } catch (err) {
+    return err.message;
+  }
+};
