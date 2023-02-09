@@ -1,5 +1,6 @@
 {
   "name": "gulp",
+  "type": "module",
   "scripts": {
     "editorconfig": "editorconfig-cli",
     "stylelint": "stylelint \"source/sass/**/*.scss\" --syntax scss",
@@ -25,10 +26,10 @@
     "eslint-plugin-optimize-regex": "^1.2.1",
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-sonarjs": "^0.10.0",
-    "gulp": "^4.0.2",
+    "gulp": "^3.9.1",
     "gulp-babel": "^8.0.0",
     "gulp-htmlmin": "^5.0.1",
-    "gulp-imagemin": "^7.1.0",
+    "gulp-imagemin": "^4.1.0",
     "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^9.0.1",
     "gulp-rename": "^2.0.0",
@@ -36,7 +37,8 @@
     "gulp-sourcemaps": "^3.0.0",
     "gulp-svgstore": "^8.0.0",
     "gulp-terser": "^2.0.1",
-    "gulp-webp": "^4.0.1",
+    "gulp-webp": "^3.0.0",
+    "nodemon": "^2.0.20",
     "postcss-csso": "^5.0.1",
     "rollup-stream": "^1.24.1",
     "sass": "^1.38.2",
@@ -60,5 +62,15 @@
     "source/js/**/*.js",
     "source/img/**/*.svg",
     "source/sass/**/*.scss"
-  ]
+  ],
+  "dependencies": {
+    "async": "^3.2.4",
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "fs-extra": "^11.1.0",
+    "mssql": "^9.1.1",
+    "tedious": "^15.1.2"
+  }
 }
