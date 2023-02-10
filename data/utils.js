@@ -1,11 +1,9 @@
 "use strict";
 
 import fs from "fs-extra";
+
 import * as path from "path";
 import { join } from "path";
-
-//path.join('/foo', 'bar', 'baz/asdf', 'quux', '..');
-console.log(path.join("/foo", "bar", "baz/asdf", "quux", ".."));
 
 export const loadSqlQueries = async (folderName) => {
   const filePath = join(process.cwd(), "data", folderName);
@@ -17,8 +15,9 @@ export const loadSqlQueries = async (folderName) => {
     const query = await fs.readFileSync(join(filePath, sqlFile), {
       encoding: "utf-8",
     });
-    queries[(sqlFile.replace(".sql"), "")] = query;
+    queries[sqlFile.replace(".sql", "")] = query;
   }
+  console.log({ ...queries });
   return queries;
 };
 

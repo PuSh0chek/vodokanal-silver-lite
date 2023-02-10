@@ -6,11 +6,13 @@ import * as sql from "mssql";
 
 import { sqlConfig } from "../../dbconfig.js";
 
-export const getEvent = async () => {
+export const getEvents = async () => {
   try {
-    const pool = await sql.connect(sqlConfig.sql);
+    let pool = await sql.connect(sqlConfig.sql);
     const sqlQueries = await utils.loadSqlQueries("events");
-    const list = await pool.request().query(sqlQueries.eventlist);
+
+    console.message(pool.request());
+    const list = await pool.request().query(sqlQueries.eventslist);
     return list.recordset;
   } catch (err) {
     return err.message;

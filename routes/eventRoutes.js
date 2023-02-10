@@ -3,10 +3,8 @@
 import * as express from "express";
 import * as eventController from "../controllers/eventController.js";
 
-const router = express.Router();
-const { getEvent, getSameEvent } = eventController;
+export const router = express.Router();
+const { getEvents, getSameEvent } = eventController;
 
-router.get("/events", getEvent);
+router.get("/events", getEvents);
 router.get("/event/:id", getSameEvent);
-
-export { router as routes };

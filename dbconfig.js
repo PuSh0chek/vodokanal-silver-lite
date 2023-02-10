@@ -1,24 +1,12 @@
-"use strict";
+import * as dotenv from "dotenv";
+import assert from "node:assert/strict";
 
-import * as dotenv from "dotenv"; // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
-const result = dotenv.config({ debug: true });
-import express from "express";
-import assert from "assert/strict";
-
+dotenv.config();
 const { PORT, HOST, HOST_URL, SQL_USER, SQL_PWD, SQL_DATABASE, SQL_SERVER } =
   process.env;
 const sqlEncrypt = process.env.SQL_ENCRYPT === "true";
 
-console.log(result .parsed);
-
-// if (!sqlEncrypt) {
-//   console.error(
-//     '[error]: The "process.env.SQL_ENCRYPT" environment variable is required'
-//   );
-//   process.exit(1);
-// }
-
-assert(PORT, `PORT -> ${PORT} is required`);
+assert(PORT, "PORT is required");
 assert(HOST, "HOST is required");
 
 // Create connection to database

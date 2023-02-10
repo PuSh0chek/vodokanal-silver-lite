@@ -3,7 +3,7 @@ import express from "express";
 import { sqlConfig } from "./dbconfig.js";
 import cors from "cors";
 import bodyParser from "body-parser";
-import * as routes from "./routes/eventRoutes.js";
+import * as eventRoutes from "./routes/eventRoutes.js";
 
 const app = express();
 //
@@ -11,15 +11,16 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-app.use("/api", routes.routes);
+app.use("/api", eventRoutes.router);
+
+// app.use("/", (req, res) => {
+//   res.write("<h2> hello world </h2>");
+//   res.end(JSON.stringify(sqlConfig));
+// });
 
 app.listen(sqlConfig.port, () =>
   console.log(` Server is listening on http://localhost: ${sqlConfig.port}`)
 );
-
-(function () {
-  console.log("Hello world, This is an app to connect to sql server.");
-})();
 
 // app
 //   .createServer(function (req, res) {
