@@ -17,7 +17,9 @@ export const loadSqlQueries = async (folderName) => {
     });
     queries[sqlFile.replace(".sql", "")] = query;
   }
+  console.log("queries >> \n");
   console.log({ ...queries });
+  console.log("--------------------");
   return queries;
 };
 

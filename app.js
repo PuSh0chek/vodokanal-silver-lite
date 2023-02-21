@@ -13,10 +13,11 @@ app.use(bodyParser.json());
 
 app.use("/api", eventRoutes.router);
 
-// app.use("/", (req, res) => {
-//   res.write("<h2> hello world </h2>");
-//   res.end(JSON.stringify(sqlConfig));
-// });
+app.use("/", (req, res) => {
+  res.write("<h2> app.use '/'</h2>");
+  res.write(JSON.stringify(sqlConfig));
+  res.end();
+});
 
 app.listen(sqlConfig.port, () =>
   console.log(` Server is listening on http://localhost: ${sqlConfig.port}`)
