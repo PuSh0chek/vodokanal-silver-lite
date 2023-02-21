@@ -1,6 +1,33 @@
 "use strict";
 
+const getHtmlTableBody = (registrationNumber, numberSubscriptionCasing, typeDocument, comment, numberAgreement, naming) => `<tr class="work-with-the-file__table-row">
+<td class="work-with-the-file__table-element">${registrationNumber}</td>
+<td class="work-with-the-file__table-element">${numberSubscriptionCasing}</td>
+<td class="work-with-the-file__table-element">${typeDocument}</td>
+<td class="work-with-the-file__table-element">${comment}</td>
+<td class="work-with-the-file__table-element">${numberAgreement}</td>
+<td class="work-with-the-file__table-element">${naming}</td>
+</tr>`;
+const getHtmlTableTh = () => `<tr class="work-with-the-file__table-head">
+<td class="work-with-the-file__table-head-element">Регистрационный номер</td>
+<td class="work-with-the-file__table-head-element">№ Абонентского дела</td>
+<td class="work-with-the-file__table-head-element">Тип документа</td>
+<td class="work-with-the-file__table-head-element">Комментарий</td>
+<td class="work-with-the-file__table-head-element">Номер договора</td>
+<td class="work-with-the-file__table-head-element">Наименование(ФИО)</td>
+</tr>`;
+
 // JSON как объект //
+const date = [{
+  'id': 341,
+  'id_element': 356,
+  'nember_register': 1,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}];
+
 // Переменнные //
 const archivePage = document.querySelector('.archive');
 const adminPage = document.querySelector('.admin');
@@ -163,8 +190,39 @@ buttonScanning.addEventListener('click', () => {
 buttonAbout.addEventListener('click', () => {
   getRequiredWindow(aboutProgrammPage, adminPage, settingsPage, archivePage, displayGrid, displayNone);
 });
-const tableBody = document.querySelector('.work-with-the-file__table-body');
 
+// Работа с таблицей //
+const tableBody = document.querySelector('.work-with-the-file__table-body');
+const archiveButtonOpen = document.querySelector('.header__button-of-archive-page');
+// Функция для загрузки дынных в таблицу //
+const q = Object.values(date[0]);
+console.log(q);
+const [registrationNumber, numberSubscriptionCasing, typeDocument, comment, numberAgreement, naming] = q;
+console.log(registrationNumber);
+// const getContent = (array) => {
+//   for (const element of array) {
+//     Object.values(element);
+//     // Object.values(element).forEach((item) => {
+//     //   // console.log(item);
+//     // });
+//   }
+// };
+// getContent(date);
+// console.log(getContent(date));
+// for(const key in date[0]) {
+//  console.log(date[0][key]);
+// }
+// console.log(Object.values(date[0]));
+// console.log(Object.entries(date[0]));
+
+// Слушатель события для создания таблицы //
+archiveButtonOpen.addEventListener('click', () => {
+  tableBody.innerHTML = getHtmlTableTh();
+  // Создание стррок //
+  for (let i = 0; i < date.length; i++) {
+    tableBody.innerHTML += getHtmlTableBody(registrationNumber, numberSubscriptionCasing, typeDocument, comment, numberAgreement, naming);
+  }
+});
 // Архив  //
 // Блок вызова функций //
 getCountLicen();

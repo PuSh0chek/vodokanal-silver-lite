@@ -1,3 +1,9 @@
+import {
+  getHtmlTableBody
+} from './views/row-table-body.js';
+import {
+  getHtmlTableTh
+} from './views/th-table-body.js';
 // JSON как объект //
 const date = [
   {
@@ -175,32 +181,37 @@ buttonAbout.addEventListener('click', () => {
 });
 
 // Работа с таблицей //
-// Функция генерирующая элемент //
-const createElementParent = (nameElement, nameClass, hisParent) => {
-  const tableElement = document.createElement(`${nameElement}`);
-  tableElement.classList.add(`${nameClass}`);
-};
-
-const createElementChild = (nameElement, nameClass, hisParent) => {
-  const tableElement = document.createElement(`${nameElement}`);
-  tableElement.classList.add(`${nameClass}`);
-  hisParent.appendChild(nameElement);
-};
-
-// Функция для вытаскивания контента //
-const getContent = (thisArray, wherePut) => {
-  for(let i = 0; i < thisArray.length; i++) for(thisArray[i] in thisArray[i]) wherePut.innerHTML = `${thisArray[i]}`;
-};
 const tableBody = document.querySelector('.work-with-the-file__table-body');
+const archiveButtonOpen = document.querySelector('.header__button-of-archive-page');
+// Функция для загрузки дынных в таблицу //
+const q = Object.values(date[0]);
+console.log(q);
+const [registrationNumber, numberSubscriptionCasing, typeDocument, comment, numberAgreement, naming] = q;
+console.log(registrationNumber);
+// const getContent = (array) => {
+//   for (const element of array) {
+//     Object.values(element);
+//     // Object.values(element).forEach((item) => {
+//     //   // console.log(item);
+//     // });
+//   }
+// };
+// getContent(date);
+// console.log(getContent(date));
+// for(const key in date[0]) {
+//  console.log(date[0][key]);
+// }
+// console.log(Object.values(date[0]));
+// console.log(Object.entries(date[0]));
 
-// Создание строки //
-const getRowTalbe = () => {
-  for(let i = 0; i < 5; i++) {
-    createElementChild(tr, table, tableBody);
-    getContent(date, tableBody);
+// Слушатель события для создания таблицы //
+archiveButtonOpen.addEventListener('click', () => {
+  tableBody.innerHTML = getHtmlTableTh();
+  // Создание стррок //
+  for (let i = 0; i < date.length; i++) {
+    tableBody.innerHTML += getHtmlTableBody(registrationNumber, numberSubscriptionCasing, typeDocument, comment, numberAgreement, naming);
   }
-};
-
+});
 // Архив  //
 // Блок вызова функций //
 getCountLicen();
