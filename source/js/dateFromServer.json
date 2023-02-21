@@ -1,0 +1,78 @@
+{
+  "recordsets": [
+      [
+
+      ]
+  ],
+  "recordset": [
+      {
+          "id": 34156,
+          "id_year": 1,
+          "number": 0,
+          "id_owner": -1,
+          "name": "Абонентские дела",
+          "comments": "",
+          "counter": 0,
+          "object_type": 0,
+          "tech_number": "",
+          "typeOb": -1,
+          "FldIndex": 2
+      },
+      {
+          "id": 34158,
+          "id_year": 1,
+          "number": 2,
+          "id_owner": 34156,
+          "name": "2-3",
+          "comments": "Отсканировано 91 лист",
+          "counter": 63342,
+          "object_type": 0,
+          "tech_number": "",
+          "typeOb": -1,
+          "FldIndex": 226
+      },
+      {
+          "id": 34159,
+          "id_year": 1,
+          "number": 3,
+          "id_owner": 34156,
+          "name": "6",
+          "comments": "179 л.",
+          "counter": 63342,
+          "object_type": 0,
+          "tech_number": "",
+          "typeOb": -1,
+          "FldIndex": 238
+      },
+      {
+          "id": 34161,
+          "id_year": 1,
+          "number": 5,
+          "id_owner": 34156,
+          "name": "4",
+          "comments": "Отсканировано 53 листа",
+          "counter": 63342,
+          "object_type": 0,
+          "tech_number": "",
+          "typeOb": -1,
+          "FldIndex": 230
+      },
+      {
+          "id": 34174,
+          "id_year": 1,
+          "number": 18,
+          "id_owner": 34156,
+          "name": "1",
+          "comments": "Нахичеванский переулок № 38. РГМИ\r\nОтсканировано 32 листа",
+          "counter": 63342,
+          "object_type": 0,
+          "tech_number": "",
+          "typeOb": -1,
+          "FldIndex": 225
+      }
+  ],
+  "output": {},
+  "rowsAffected": [
+      5
+  ]
+}

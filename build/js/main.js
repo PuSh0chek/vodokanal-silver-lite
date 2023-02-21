@@ -1,12 +1,6 @@
 "use strict";
 
-// Генератор табличек //
-// const generatOfTable = () => {
-//   let table = new Tabulator('.work-with-the-folder__table', {
-//     //
-//   });
-// };
-
+// JSON как объект //
 // Переменнные //
 const archivePage = document.querySelector('.archive');
 const adminPage = document.querySelector('.admin');
@@ -169,6 +163,9 @@ buttonScanning.addEventListener('click', () => {
 buttonAbout.addEventListener('click', () => {
   getRequiredWindow(aboutProgrammPage, adminPage, settingsPage, archivePage, displayGrid, displayNone);
 });
+const tableBody = document.querySelector('.work-with-the-file__table-body');
+
+// Архив  //
 // Блок вызова функций //
 getCountLicen();
 getVersionThisProgramm();

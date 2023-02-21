@@ -1,9 +1,15 @@
-// Генератор табличек //
-// const generatOfTable = () => {
-//   let table = new Tabulator('.work-with-the-folder__table', {
-//     //
-//   });
-// };
+// JSON как объект //
+const date = [
+  {
+    'id': 341,
+    'id_element': 356,
+    'nember_register': 1,
+    'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+    'comments': 'Заявление на опломбирование ',
+    'number__agreement': 12,
+    'name_object': 'Силенко И.П',
+  },
+];
 
 // Переменнные //
 const archivePage = document.querySelector('.archive');
@@ -167,6 +173,35 @@ buttonScanning.addEventListener('click', () => {
 buttonAbout.addEventListener('click', () => {
   getRequiredWindow(aboutProgrammPage, adminPage, settingsPage, archivePage, displayGrid, displayNone);
 });
+
+// Работа с таблицей //
+// Функция генерирующая элемент //
+const createElementParent = (nameElement, nameClass, hisParent) => {
+  const tableElement = document.createElement(`${nameElement}`);
+  tableElement.classList.add(`${nameClass}`);
+};
+
+const createElementChild = (nameElement, nameClass, hisParent) => {
+  const tableElement = document.createElement(`${nameElement}`);
+  tableElement.classList.add(`${nameClass}`);
+  hisParent.appendChild(nameElement);
+};
+
+// Функция для вытаскивания контента //
+const getContent = (thisArray, wherePut) => {
+  for(let i = 0; i < thisArray.length; i++) for(thisArray[i] in thisArray[i]) wherePut.innerHTML = `${thisArray[i]}`;
+};
+const tableBody = document.querySelector('.work-with-the-file__table-body');
+
+// Создание строки //
+const getRowTalbe = () => {
+  for(let i = 0; i < 5; i++) {
+    createElementChild(tr, table, tableBody);
+    getContent(date, tableBody);
+  }
+};
+
+// Архив  //
 // Блок вызова функций //
 getCountLicen();
 getVersionThisProgramm();
