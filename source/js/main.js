@@ -4,6 +4,9 @@ import {
 import {
   getHtmlTableTh
 } from './views/th-table-body.js';
+import {
+  getHtmlPopupOfArchiveChangeDocument
+} from './views/work-with-the-file-popup.js'
 // JSON как объект //
 const date = [
   {
@@ -15,10 +18,29 @@ const date = [
     'number__agreement': 12,
     'name_object': 'Силенко И.П',
   },
+  {
+    'id': 342,
+    'id_element': 356,
+    'nember_register': 2,
+    'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+    'comments': 'Заявление на опломбирование ',
+    'number__agreement': 12,
+    'name_object': 'Силенко И.П',
+  },
+  {
+    'id': 343,
+    'id_element': 356,
+    'nember_register': 2,
+    'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+    'comments': 'Заявление на опломбирование ',
+    'number__agreement': 12,
+    'name_object': 'Силенко И.П',
+  },
 ];
 
 // Переменнные //
 const archivePage = document.querySelector('.archive');
+const archivePagePopup = document.querySelector('.work-width-the-file__popup');
 const adminPage = document.querySelector('.admin');
 const settingsPage = document.querySelector('.settings');
 const aboutProgrammPage = document.querySelector('.about-programm');
@@ -31,7 +53,7 @@ const displayNone = 'none';
 const counterLicen = document.querySelector('.about-programm__count-licence-of-programm');
 const countLicen = 0;
 const versionContainer = document.querySelector('.about-programm__number-version-of-programm');
-const version = 0.376;
+const version = 0.555;
 const adminMainMenu = document.querySelector('.admin__container');
 const workersPopup = document.querySelector('.admin__structure-of-the-enterprise');
 const groupAccessPopup = document.querySelector('.admin__group-access');
@@ -71,6 +93,7 @@ const getVersionThisProgramm = () => {
 buttonArchive.addEventListener('click', () => {
   getRequiredWindow(archivePage, adminPage, settingsPage, aboutProgrammPage, displayGrid, displayNone);
 });
+
 // Вызов окна администрирование //
 buttonAdmin.addEventListener('click', () => {
   getRequiredWindow(adminPage, archivePage, settingsPage, aboutProgrammPage, displayGrid, displayNone);
@@ -183,34 +206,50 @@ buttonAbout.addEventListener('click', () => {
 // Работа с таблицей //
 const tableBody = document.querySelector('.work-with-the-file__table-body');
 const archiveButtonOpen = document.querySelector('.header__button-of-archive-page');
-// Функция для загрузки дынных в таблицу //
-const q = Object.values(date[0]);
-console.log(q);
-const [registrationNumber, numberSubscriptionCasing, typeDocument, comment, numberAgreement, naming] = q;
-console.log(registrationNumber);
+
 // const getContent = (array) => {
 //   for (const element of array) {
 //     Object.values(element);
-//     // Object.values(element).forEach((item) => {
-//     //   // console.log(item);
-//     // });
 //   }
 // };
 // getContent(date);
-// console.log(getContent(date));
 // for(const key in date[0]) {
-//  console.log(date[0][key]);
+//   console.log(date[0][key]);
 // }
 // console.log(Object.values(date[0]));
 // console.log(Object.entries(date[0]));
 
 // Слушатель события для создания таблицы //
 archiveButtonOpen.addEventListener('click', () => {
+  // Функция для загрузки дынных в таблицу //
   tableBody.innerHTML = getHtmlTableTh();
-  // Создание стррок //
   for (let i = 0; i < date.length; i++) {
-    tableBody.innerHTML += getHtmlTableBody(registrationNumber, numberSubscriptionCasing, typeDocument, comment, numberAgreement, naming);
-  }
+    const q = Object.values(date[i]);
+    const [idElement, registrationNumber, numberSubscriptionCasing, typeDocument, comment, numberAgreement, naming] = q;
+    for (let t = 0; t < q.length; t++) {
+      t = 0 ? q[0] = idElement : 'error idElement';
+      t = 0 ? q[1] = registrationNumber : 'error registrationNumber';
+      t = 1 ? q[2] = numberSubscriptionCasing : 'error numberSubscriptionCasing';
+      t = 2 ? q[3] = typeDocument : 'error typeDocument';
+      t = 3 ? q[4] = comment : 'error comment';
+      t = 4 ? q[5] = numberAgreement : 'error numberAgreement';
+      t = 5 ? q[6] = naming : 'error naming';
+    };
+    // Создание строк //
+    // Заливаем контент //
+    tableBody.innerHTML += getHtmlTableBody(idElement, registrationNumber, numberSubscriptionCasing, typeDocument, comment, numberAgreement, naming);
+  };
+  const rowOnTalbe = document.querySelectorAll('.work-with-the-file__table-row');
+  const buttonClosePopupArchive = document.querySelector('.work-width-the-file__button-close-up-info-popup');
+  // Слушаель события для вывода popup of archive //
+  Array.from(rowOnTalbe).forEach((item) => {
+    item.addEventListener('click', () => {
+      archivePagePopup.innerHTML += getHtmlPopupOfArchiveChangeDocument();
+      buttonClosePopupArchive.addEventListener('click', () => {
+        console.log(1);
+      });
+    });
+  });
 });
 // Архив  //
 // Блок вызова функций //
