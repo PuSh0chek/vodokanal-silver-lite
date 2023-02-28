@@ -202,7 +202,7 @@ const getLoadInformationInPopup = (item) => {
   const inputNumberHome = document.getElementById('number-home');
   const inputNumberBody = document.getElementById('doby');
   const inputNumberFlat = document.getElementById('flat');
-  inputNaming.value = getInformationFromElement(item)[0];
+  inputNaming.value = getInformationFromElement(item)[1];
   inputSity.value = getInformationFromElement(item)[0];
   inputStreet.value = getInformationFromElement(item)[0];
   inputNumberArgreement.value = getInformationFromElement(item)[0];
