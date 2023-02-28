@@ -1,8 +1,8 @@
-export const getHtmlPopupOfArchiveChangeDocument = () => `
+export const getHtmlPopupOfArchiveChangeDocument = (nameDocument, application) => `
 <div class="work-width-the-file__up-info-container-popup">
   <div class="work-width-the-file__container-preview-up-info-popup">
     <span class="work-width-the-file__preview-up-info-popup">Документ:</span>
-    <span class="work-width-the-file__up-info-popup"></span>
+    <span class="work-width-the-file__up-info-popup">${nameDocument}</span>
   </div>
   <button class="work-width-the-file__button-close-up-info-popup">X</button>
 </div>
@@ -14,20 +14,20 @@ export const getHtmlPopupOfArchiveChangeDocument = () => `
   <button class="work-width-the-file__button-popup">Протоколы печати</button>
 </div>
 <div class="work-width-the-file__information-document-popup">
-  <input class="work-width-the-file__indormaion-input-popup" type="number" placeholder="Регистрационный номер">
-  <input class="work-width-the-file__indormaion-input-popup" type="date">
-  <input class="work-width-the-file__indormaion-input-popup" type="text" placeholder="Номер абонентского дела">
-  <input class="work-width-the-file__indormaion-input-popup" type="text" placeholder="Тип документа">
+  <input class="work-width-the-file__indormaion-input-popup" id="" type="number" placeholder="Регистрационный номер">
+  <input class="work-width-the-file__indormaion-input-popup" id="" type="date">
+  <input class="work-width-the-file__indormaion-input-popup" id="" type="text" placeholder="Номер абонентского дела">
+  <input class="work-width-the-file__indormaion-input-popup" id="" type="text" placeholder="Тип документа">
 </div>
 <div class="work-width-the-file__wrapper-content-popup">
-  <input class="work-width-the-file__input-contentpopup" type="text" placeholder="ФИО">
-  <input class="work-width-the-file__input-contentpopup" type="text" placeholder="Город">
-  <input class="work-width-the-file__input-contentpopup" type="text" placeholder="Удица">
-  <input class="work-width-the-file__input-contentpopup" type="text" placeholder="Номер договара">
-  <input class="work-width-the-file__input-contentpopup" type="text" placeholder="Дом">
-  <input class="work-width-the-file__input-contentpopup" type="text" placeholder="Корпус">
-  <input class="work-width-the-file__input-contentpopup" type="text" placeholder="Квартира">
-  <textarea class="work-width-the-file__text-area-content-popup" name="" id="" cols="30" rows="10" placeholder="Заявление на опломбировку водомера"></textarea>
+  <input class="work-width-the-file__input-contentpopup" id="naming" type="text" placeholder="ФИО">
+  <input class="work-width-the-file__input-contentpopup" id="sity" type="text" placeholder="Город">
+  <input class="work-width-the-file__input-contentpopup" id="street" type="text" placeholder="Удица">
+  <input class="work-width-the-file__input-contentpopup" id="number-agreement" type="text" placeholder="Номер договара">
+  <input class="work-width-the-file__input-contentpopup" id="number-home" type="text" placeholder="Дом">
+  <input class="work-width-the-file__input-contentpopup" id="doby" type="text" placeholder="Корпус">
+  <input class="work-width-the-file__input-contentpopup" id="flat" type="text" placeholder="Квартира">
+  <textarea class="work-width-the-file__text-area-content-popup" name="" id="application" cols="30" rows="10" placeholder="Заявление на опломбировку водомера">${application}</textarea>
 </div>
 <div class="work-width-the-file__documents-and-controlls-container-popup">
   <table class="work-width-the-file__table-popup">

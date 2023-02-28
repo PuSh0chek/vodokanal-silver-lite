@@ -18,11 +18,11 @@ const getHtmlTableTh = () => `<tr class="work-with-the-file__table-head">
 <td class="work-with-the-file__table-head-element">Номер договора</td>
 <td class="work-with-the-file__table-head-element">Наименование(ФИО)</td>
 </tr>`;
-const getHtmlPopupOfArchiveChangeDocument = () => `
+const getHtmlPopupOfArchiveChangeDocument = (nameDocument, application) => `
 <div class="work-width-the-file__up-info-container-popup">
   <div class="work-width-the-file__container-preview-up-info-popup">
     <span class="work-width-the-file__preview-up-info-popup">Документ:</span>
-    <span class="work-width-the-file__up-info-popup"></span>
+    <span class="work-width-the-file__up-info-popup">${nameDocument}</span>
   </div>
   <button class="work-width-the-file__button-close-up-info-popup">X</button>
 </div>
@@ -34,20 +34,20 @@ const getHtmlPopupOfArchiveChangeDocument = () => `
   <button class="work-width-the-file__button-popup">Протоколы печати</button>
 </div>
 <div class="work-width-the-file__information-document-popup">
-  <input class="work-width-the-file__indormaion-input-popup" type="number" placeholder="Регистрационный номер">
-  <input class="work-width-the-file__indormaion-input-popup" type="date">
-  <input class="work-width-the-file__indormaion-input-popup" type="text" placeholder="Номер абонентского дела">
-  <input class="work-width-the-file__indormaion-input-popup" type="text" placeholder="Тип документа">
+  <input class="work-width-the-file__indormaion-input-popup" id="" type="number" placeholder="Регистрационный номер">
+  <input class="work-width-the-file__indormaion-input-popup" id="" type="date">
+  <input class="work-width-the-file__indormaion-input-popup" id="" type="text" placeholder="Номер абонентского дела">
+  <input class="work-width-the-file__indormaion-input-popup" id="" type="text" placeholder="Тип документа">
 </div>
 <div class="work-width-the-file__wrapper-content-popup">
-  <input class="work-width-the-file__input-contentpopup" type="text" placeholder="ФИО">
-  <input class="work-width-the-file__input-contentpopup" type="text" placeholder="Город">
-  <input class="work-width-the-file__input-contentpopup" type="text" placeholder="Удица">
-  <input class="work-width-the-file__input-contentpopup" type="text" placeholder="Номер договара">
-  <input class="work-width-the-file__input-contentpopup" type="text" placeholder="Дом">
-  <input class="work-width-the-file__input-contentpopup" type="text" placeholder="Корпус">
-  <input class="work-width-the-file__input-contentpopup" type="text" placeholder="Квартира">
-  <textarea class="work-width-the-file__text-area-content-popup" name="" id="" cols="30" rows="10" placeholder="Заявление на опломбировку водомера"></textarea>
+  <input class="work-width-the-file__input-contentpopup" id="naming" type="text" placeholder="ФИО">
+  <input class="work-width-the-file__input-contentpopup" id="sity" type="text" placeholder="Город">
+  <input class="work-width-the-file__input-contentpopup" id="street" type="text" placeholder="Удица">
+  <input class="work-width-the-file__input-contentpopup" id="number-agreement" type="text" placeholder="Номер договара">
+  <input class="work-width-the-file__input-contentpopup" id="number-home" type="text" placeholder="Дом">
+  <input class="work-width-the-file__input-contentpopup" id="doby" type="text" placeholder="Корпус">
+  <input class="work-width-the-file__input-contentpopup" id="flat" type="text" placeholder="Квартира">
+  <textarea class="work-width-the-file__text-area-content-popup" name="" id="application" cols="30" rows="10" placeholder="Заявление на опломбировку водомера">${application}</textarea>
 </div>
 <div class="work-width-the-file__documents-and-controlls-container-popup">
   <table class="work-width-the-file__table-popup">
@@ -693,21 +693,52 @@ buttonAbout.addEventListener('click', () => {
 const tableBody = document.querySelector('.work-with-the-file__table-body');
 const archiveButtonOpen = document.querySelector('.header__button-of-archive-page');
 
+// Выгрузка информации из строки для помещения в popup //
+const getInformationFromElement = item => {
+  const idDocument = item.children[0].innerHTML;
+  const registrationNumber = item.children[1].innerHTML;
+  const numberSubscriptionCasing = item.children[2].innerHTML;
+  const typeDocument = item.children[3].innerHTML;
+  const application = item.children[4].innerHTML;
+  const numberAgreement = item.children[5].innerHTML;
+  const nameObj = item.children[6].innerHTML;
+  return [idDocument, registrationNumber, numberSubscriptionCasing, typeDocument, application, numberAgreement, nameObj];
+};
+
+// Прорисоки pop и заполение его данными //
+const getLoadInformationInPopup = item => {
+  archivePagePopup.innerHTML += getHtmlPopupOfArchiveChangeDocument(getInformationFromElement(item)[0], getInformationFromElement(item)[4]);
+  const inputNaming = document.getElementById('naming');
+  const inputSity = document.getElementById('sity');
+  const inputStreet = document.getElementById('street');
+  const inputNumberArgreement = document.getElementById('number-agreement');
+  const inputNumberHome = document.getElementById('number-home');
+  const inputNumberBody = document.getElementById('doby');
+  const inputNumberFlat = document.getElementById('flat');
+  inputNaming.value = getInformationFromElement(item)[0];
+  inputSity.value = getInformationFromElement(item)[0];
+  inputStreet.value = getInformationFromElement(item)[0];
+  inputNumberArgreement.value = getInformationFromElement(item)[0];
+  inputNumberHome.value = getInformationFromElement(item)[0];
+  inputNumberBody.value = getInformationFromElement(item)[0];
+  inputNumberFlat.value = getInformationFromElement(item)[0];
+};
+
 // Слушатель события для создания таблицы //
 archiveButtonOpen.addEventListener('click', () => {
   // Функция для загрузки дынных в таблицу //
   tableBody.innerHTML = getHtmlTableTh();
   for (let i = 0; i < date.length; i++) {
-    const q = Object.values(date[i]);
-    const [idElement, registrationNumber, numberSubscriptionCasing, typeDocument, comment, numberAgreement, naming] = q;
-    for (let t = 0; t < q.length; t++) {
+    const elementOfArrayArchive = Object.values(date[i]);
+    const [idElement, registrationNumber, numberSubscriptionCasing, typeDocument, comment, numberAgreement, naming] = elementOfArrayArchive;
+    for (let t = 0; t < elementOfArrayArchive.length; t++) {
       t = 'error idElement';
       t = 'error registrationNumber';
-      t = q[2] = numberSubscriptionCasing;
-      t = q[3] = typeDocument;
-      t = q[4] = comment;
-      t = q[5] = numberAgreement;
-      t = q[6] = naming;
+      t = elementOfArrayArchive[2] = numberSubscriptionCasing;
+      t = elementOfArrayArchive[3] = typeDocument;
+      t = elementOfArrayArchive[4] = comment;
+      t = elementOfArrayArchive[5] = numberAgreement;
+      t = elementOfArrayArchive[6] = naming;
     }
     // Создание строк //
     // Заливаем контент //
@@ -717,14 +748,16 @@ archiveButtonOpen.addEventListener('click', () => {
   // Слушаель события для вывода popup of archive //
   Array.from(rowOnTalbe).forEach(item => {
     item.addEventListener('click', () => {
-      archivePagePopup.innerHTML += getHtmlPopupOfArchiveChangeDocument();
+      getLoadInformationInPopup(item);
       const buttonClosePopupArchive = document.querySelector('.work-width-the-file__button-close-up-info-popup');
+      // Слушатель события для закрытия popup //
       buttonClosePopupArchive.addEventListener('click', () => {
         archivePagePopup.innerHTML = '';
       });
     });
   });
 });
+
 // Архив  //
 // Блок вызова функций //
 getCountLicen();
