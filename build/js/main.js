@@ -20,9 +20,11 @@ const getHtmlTableTh = () => `<tr class="work-with-the-file__table-head">
 </tr>`;
 const getHtmlPopupOfArchiveChangeDocument = () => `
 <div class="work-width-the-file__up-info-container-popup">
-  <span class="work-width-the-file__preview-up-info-popup">Документ</span>
-  <span class="work-width-the-file__up-info-popup"></span>
-  <button class="work-width-the-file__button-close-up-info-popup">Закрыть</button>
+  <div class="work-width-the-file__container-preview-up-info-popup">
+    <span class="work-width-the-file__preview-up-info-popup">Документ:</span>
+    <span class="work-width-the-file__up-info-popup"></span>
+  </div>
+  <button class="work-width-the-file__button-close-up-info-popup">X</button>
 </div>
 <div class="work-width-the-file__wrapper-button-popup">
   <button class="work-width-the-file__button-popup">Взять на редактирование</button>
@@ -31,9 +33,8 @@ const getHtmlPopupOfArchiveChangeDocument = () => `
   <button class="work-width-the-file__button-popup">Взять на сканирование</button>
   <button class="work-width-the-file__button-popup">Протоколы печати</button>
 </div>
-<div class="work-width-the-file__infor
-mation-document-popup">
-  <input class="work-width-the-file__indormaion-input-popup" type="number">
+<div class="work-width-the-file__information-document-popup">
+  <input class="work-width-the-file__indormaion-input-popup" type="number" placeholder="Регистрационный номер">
   <input class="work-width-the-file__indormaion-input-popup" type="date">
   <input class="work-width-the-file__indormaion-input-popup" type="text" placeholder="Номер абонентского дела">
   <input class="work-width-the-file__indormaion-input-popup" type="text" placeholder="Тип документа">
@@ -50,23 +51,36 @@ mation-document-popup">
 </div>
 <div class="work-width-the-file__documents-and-controlls-container-popup">
   <table class="work-width-the-file__table-popup">
-    <th class="work-width-the-file__head-table-popup">
-      <tr class="work-width-the-file__row-head-table-popup">
-        <td class="work-width-the-file__element-head-popup">Имя файла</td>
-        <td class="work-width-the-file__element-head-popup">Тип</td>
-        <td class="work-width-the-file__element-head-popup">Размер</td>
-        <td class="work-width-the-file__element-head-popup">Автор</td>
-        <td class="work-width-the-file__element-head-popup">Дата публикации</td>
-      </tr>
-    </th>
     <tbody class="work-width-the-file__body-table-popup">
-
+      <tr class="work-width-the-file__head-table-popup">
+        <th class="work-width-the-file__element-head-popup">Имя файла</th>
+        <th class="work-width-the-file__element-head-popup">Тип</th>
+        <th class="work-width-the-file__element-head-popup">Размер</th>
+        <th class="work-width-the-file__element-head-popup">Автор</th>
+        <th class="work-width-the-file__element-head-popup">Дата публикации</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+      </tr>
     </tbody>
   </table>
-  <button class="work-width-the-file__button-documents-and-controlls-container-popup">Присоединить</button>
-  <button class="work-width-the-file__button-documents-and-controlls-container-popup">Показать</button>
-  <button class="work-width-the-file__button-documents-and-controlls-container-popup">Удалить</button>
-  <button class="work-width-the-file__button-documents-and-controlls-container-popup">Печать</button>
+  <div class="work-width-the-file__button-container-documents-and-controlls-container-popup">
+    <button class="work-width-the-file__button-documents-and-controlls-container-popup">Присоединить</button>
+    <button class="work-width-the-file__button-documents-and-controlls-container-popup">Показать</button>
+    <button class="work-width-the-file__button-documents-and-controlls-container-popup">Удалить</button>
+    <button class="work-width-the-file__button-documents-and-controlls-container-popup">Печать</button>
+  </div>
 </div>
 <div class="work-width-the-file__low-indormations-container-popup">
   <div class="work-width-the-file__registrator-container-popup">
@@ -94,7 +108,7 @@ const date = [{
   'name_object': 'Силенко И.П'
 }, {
   'id': 342,
-  'id_element': 356,
+  'id_element': 357,
   'nember_register': 2,
   'type_document': 'Доп.соглашение и документы об изменении преамбулы',
   'comments': 'Заявление на опломбирование ',
@@ -102,8 +116,408 @@ const date = [{
   'name_object': 'Силенко И.П'
 }, {
   'id': 343,
-  'id_element': 356,
-  'nember_register': 2,
+  'id_element': 358,
+  'nember_register': 3,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 344,
+  'id_element': 359,
+  'nember_register': 4,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 345,
+  'id_element': 360,
+  'nember_register': 5,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 346,
+  'id_element': 361,
+  'nember_register': 6,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 347,
+  'id_element': 362,
+  'nember_register': 7,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 348,
+  'id_element': 363,
+  'nember_register': 8,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 349,
+  'id_element': 364,
+  'nember_register': 9,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 350,
+  'id_element': 365,
+  'nember_register': 10,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы, Доп.соглашение и документы об изменении преамбулы, Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 351,
+  'id_element': 366,
+  'nember_register': 11,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование, Заявление на опломбирование, Заявление на опломбирование, Заявление на опломбирование',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 352,
+  'id_element': 367,
+  'nember_register': 12,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 353,
+  'id_element': 368,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 354,
+  'id_element': 369,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 355,
+  'id_element': 370,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 356,
+  'id_element': 371,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 357,
+  'id_element': 372,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 357,
+  'id_element': 372,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 357,
+  'id_element': 372,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 357,
+  'id_element': 372,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 357,
+  'id_element': 372,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 357,
+  'id_element': 372,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 357,
+  'id_element': 372,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 357,
+  'id_element': 372,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 357,
+  'id_element': 372,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 357,
+  'id_element': 372,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 357,
+  'id_element': 372,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 357,
+  'id_element': 372,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 357,
+  'id_element': 372,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 357,
+  'id_element': 372,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 357,
+  'id_element': 372,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 357,
+  'id_element': 372,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 357,
+  'id_element': 372,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 357,
+  'id_element': 372,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 357,
+  'id_element': 372,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 357,
+  'id_element': 372,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 357,
+  'id_element': 372,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 357,
+  'id_element': 372,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 357,
+  'id_element': 372,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 357,
+  'id_element': 372,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 357,
+  'id_element': 372,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 357,
+  'id_element': 372,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 357,
+  'id_element': 372,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 357,
+  'id_element': 372,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 357,
+  'id_element': 372,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 357,
+  'id_element': 372,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 357,
+  'id_element': 372,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 357,
+  'id_element': 372,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 357,
+  'id_element': 372,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 357,
+  'id_element': 372,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 357,
+  'id_element': 372,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 357,
+  'id_element': 372,
+  'nember_register': 13,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П'
+}, {
+  'id': 357,
+  'id_element': 372,
+  'nember_register': 13,
   'type_document': 'Доп.соглашение и документы об изменении преамбулы',
   'comments': 'Заявление на опломбирование ',
   'number__agreement': 12,
@@ -275,21 +689,9 @@ buttonAbout.addEventListener('click', () => {
   getRequiredWindow(aboutProgrammPage, adminPage, settingsPage, archivePage, displayGrid, displayNone);
 });
 
-// Работа с таблицей //
+// Работа с таблицей archive //
 const tableBody = document.querySelector('.work-with-the-file__table-body');
 const archiveButtonOpen = document.querySelector('.header__button-of-archive-page');
-
-// const getContent = (array) => {
-//   for (const element of array) {
-//     Object.values(element);
-//   }
-// };
-// getContent(date);
-// for(const key in date[0]) {
-//   console.log(date[0][key]);
-// }
-// console.log(Object.values(date[0]));
-// console.log(Object.entries(date[0]));
 
 // Слушатель события для создания таблицы //
 archiveButtonOpen.addEventListener('click', () => {
@@ -312,13 +714,13 @@ archiveButtonOpen.addEventListener('click', () => {
     tableBody.innerHTML += getHtmlTableBody(idElement, registrationNumber, numberSubscriptionCasing, typeDocument, comment, numberAgreement, naming);
   }
   const rowOnTalbe = document.querySelectorAll('.work-with-the-file__table-row');
-  const buttonClosePopupArchive = document.querySelector('.work-width-the-file__button-close-up-info-popup');
   // Слушаель события для вывода popup of archive //
   Array.from(rowOnTalbe).forEach(item => {
     item.addEventListener('click', () => {
       archivePagePopup.innerHTML += getHtmlPopupOfArchiveChangeDocument();
+      const buttonClosePopupArchive = document.querySelector('.work-width-the-file__button-close-up-info-popup');
       buttonClosePopupArchive.addEventListener('click', () => {
-        console.log(1);
+        archivePagePopup.innerHTML = '';
       });
     });
   });
