@@ -10,38 +10,38 @@ import {
 import {
   date
 } from './arrayOfArchive.js';
-
-// Переменнные //
-const archivePage = document.querySelector('.archive');
-const archivePagePopup = document.querySelector('.work-width-the-file__popup');
-const adminPage = document.querySelector('.admin');
-const settingsPage = document.querySelector('.settings');
-const aboutProgrammPage = document.querySelector('.about-programm');
-const buttonArchive = document.querySelector('.header__button-of-archive-page');
-const buttonAdmin = document.querySelector('.header__button-of-admin-page');
-const buttonSettings = document.querySelector('.header__button-of-settings-page');
-const buttonAbout = document.querySelector('.header__button-of-about-the-program-page');
-const displayGrid = 'grid';
-const displayNone = 'none';
-const counterLicen = document.querySelector('.about-programm__count-licence-of-programm');
-const countLicen = 0;
-const versionContainer = document.querySelector('.about-programm__number-version-of-programm');
-const version = 0.555;
-const adminMainMenu = document.querySelector('.admin__container');
-const workersPopup = document.querySelector('.admin__structure-of-the-enterprise');
-const groupAccessPopup = document.querySelector('.admin__group-access');
-const structureFolder = document.querySelector('.admin__structure-folder');
-const dictionaries = document.querySelector('.admin__dictionaries');
-const fileStorage = document.querySelector('.admin__file-storage');
-const systemCondiguration = document.querySelector('.admin__system-configuration');
-const protocols = document.querySelector('.admin__protocols');
-const license = document.querySelector('.admin__license');
-const settingsUser = document.querySelector('.settings__popup-of-user-settings');
-const generalisSettings = document.querySelector('.settings__popup-of-generalis-settings');
-const scanningSettings = document.querySelector('.settings__popup-of-scanning-settings');
-const buttonSettingsUser = document.querySelector('.settings__user-button');
-const buttonSettingsGeneralis = document.querySelector('.settings__generalis-button');
-const buttonScanning = document.querySelector('.settings__scanning');
+import {
+  archivePage,
+  archivePagePopup,
+  adminPage,
+  settingsPage,
+  aboutProgrammPage,
+  buttonArchive,
+  buttonAdmin,
+  buttonSettings,
+  buttonAbout,
+  displayGrid,
+  displayNone,
+  counterLicen,
+  countLicen,
+  versionContainer,
+  version,
+  adminMainMenu,
+  workersPopup,
+  groupAccessPopup,
+  structureFolder,
+  dictionaries,
+  fileStorage,
+  systemCondiguration,
+  protocols,
+  license,
+  settingsUser,
+  generalisSettings,
+  scanningSettings,
+  buttonSettingsUser,
+  buttonSettingsGeneralis,
+  buttonScanning
+} from './variables.js';
 
 // Универсальные функции //
 const getRequiredWindow = (showElement, removeElementOne, removeElementTwo, removeElementThree, displayShow, displayRemove) => {
@@ -204,9 +204,23 @@ const getInformationFromElement = (item) => {
   }
 };
 
-// Прорисоки pop и заполение его данными //
-const getLoadInformationInPopup = (item) => {
-  archivePagePopup.innerHTML += getHtmlPopupOfArchiveChangeDocument(getInformationFromElement(item)[0], getInformationFromElement(item)[4]);
+// Запрет на редактирование документа (input) //
+const getBlockEditingOfDocument = (array) => {
+  for(let i = 0; i < array.length; i++) {
+    array[i].disabled = true;
+  }
+};
+// Универсальная функция для разрешения и запрета редактирования документа //
+const getEditingRights = (array, listener, rights) => {
+  listener.addEventListener('click', () => {
+    for(let i = 0; i < array.length; i++) {
+      array[i].disabled = rights;
+    }
+  });
+};
+
+// Элементы popup //
+const getElementOfPopupDocumentArchive = () => {
   const inputTypeDocument = document.getElementById('type-document');
   const inputNumberRegister = document.getElementById('number-register');
   const inputIdElement = document.getElementById('id_element');
@@ -219,6 +233,14 @@ const getLoadInformationInPopup = (item) => {
   const inputNumberBody = document.getElementById('doby');
   const inputNumberFlat = document.getElementById('flat');
   const inputApplication = document.getElementById('application');
+  return [inputTypeDocument, inputNumberRegister, inputIdElement, inputDate, inputNaming, inputSity, inputStreet, inputNumberArgreement, inputNumberHome, inputNumberBody, inputNumberFlat, inputApplication];
+};
+
+// Прорисоки pop и заполение его данными //
+const getLoadInformationInPopup = (item) => {
+  const array = getElementOfPopupDocumentArchive();
+  console.log(array);
+  archivePagePopup.innerHTML += getHtmlPopupOfArchiveChangeDocument(getInformationFromElement(item)[0], getInformationFromElement(item)[4]);
   inputTypeDocument.value = getInformationFromElement(item)[3];
   inputDate.value = getInformationFromElement(item)[7];
   inputNumberRegister.value = getInformationFromElement(item)[2];
@@ -231,18 +253,7 @@ const getLoadInformationInPopup = (item) => {
   inputNumberBody.value = getInformationFromElement(item)[10];
   inputNumberFlat.value = getInformationFromElement(item)[11];
   inputTypeDocument.value = getInformationFromElement(item)[3];
-  inputDate.disabled = true;
-  inputNumberRegister.disabled = true;
-  inputIdElement.disabled = true;
-  inputNaming.disabled = true;
-  inputSity.disabled = true;
-  inputStreet.disabled = true;
-  inputNumberArgreement.disabled = true;
-  inputNumberHome.disabled = true;
-  inputNumberBody.disabled = true;
-  inputNumberFlat.disabled = true;
-  inputTypeDocument.disabled = true;
-  inputApplication.disabled = true;
+  getBlockEditingOfDocument([inputDate, inputNumberRegister, inputIdElement, inputNaming, inputSity, inputStreet, inputNumberArgreement, inputNumberHome, inputNumberBody, inputNumberBody, inputNumberFlat, inputTypeDocument, inputApplication]);
 };
 
 // Слушатель события для создания таблицы //
@@ -269,8 +280,12 @@ archiveButtonOpen.addEventListener('click', () => {
   // Слушаель события для вывода popup of archive //
   Array.from(rowOnTalbe).forEach((item) => {
     item.addEventListener('click', () => {
-      getLoadInformationInPopup(item);
+      const buttonAllowEditingOfDocument = document.querySelector('.work-width-the-file__button-popup');
       const buttonClosePopupArchive = document.querySelector('.work-width-the-file__button-close-up-info-popup');
+      const buttonSavePopupArchive = document.querySelector('.work-width-the-file__button-popup');
+      getLoadInformationInPopup(item);
+      getEditingRights(getElementOfPopupDocumentArchive(), buttonAllowEditingOfDocument, false);
+      getEditingRights(getElementOfPopupDocumentArchive(), buttonSavePopupArchive, true);
       // Слушатель события для закрытия popup //
       buttonClosePopupArchive.addEventListener('click', () => {
         archivePagePopup.innerHTML = '';

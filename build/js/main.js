@@ -308,9 +308,23 @@ const getInformationFromElement = item => {
   }
 };
 
-// Прорисоки pop и заполение его данными //
-const getLoadInformationInPopup = item => {
-  archivePagePopup.innerHTML += getHtmlPopupOfArchiveChangeDocument(getInformationFromElement(item)[0], getInformationFromElement(item)[4]);
+// Запрет на редактирование документа (input) //
+const getBlockEditingOfDocument = array => {
+  for (let i = 0; i < array.length; i++) {
+    array[i].disabled = true;
+  }
+};
+// Универсальная функция для разрешения и запрета редактирования документа //
+const getEditingRights = (array, listener, rights) => {
+  listener.addEventListener('click', () => {
+    for (let i = 0; i < array.length; i++) {
+      array[i].disabled = rights;
+    }
+  });
+};
+
+// Элементы popup //
+const getElementOfPopupDocumentArchive = () => {
   const inputTypeDocument = document.getElementById('type-document');
   const inputNumberRegister = document.getElementById('number-register');
   const inputIdElement = document.getElementById('id_element');
@@ -323,6 +337,14 @@ const getLoadInformationInPopup = item => {
   const inputNumberBody = document.getElementById('doby');
   const inputNumberFlat = document.getElementById('flat');
   const inputApplication = document.getElementById('application');
+  return [inputTypeDocument, inputNumberRegister, inputIdElement, inputDate, inputNaming, inputSity, inputStreet, inputNumberArgreement, inputNumberHome, inputNumberBody, inputNumberFlat, inputApplication];
+};
+
+// Прорисоки pop и заполение его данными //
+const getLoadInformationInPopup = item => {
+  const array = getElementOfPopupDocumentArchive();
+  console.log(array);
+  archivePagePopup.innerHTML += getHtmlPopupOfArchiveChangeDocument(getInformationFromElement(item)[0], getInformationFromElement(item)[4]);
   inputTypeDocument.value = getInformationFromElement(item)[3];
   inputDate.value = getInformationFromElement(item)[7];
   inputNumberRegister.value = getInformationFromElement(item)[2];
@@ -335,18 +357,7 @@ const getLoadInformationInPopup = item => {
   inputNumberBody.value = getInformationFromElement(item)[10];
   inputNumberFlat.value = getInformationFromElement(item)[11];
   inputTypeDocument.value = getInformationFromElement(item)[3];
-  inputDate.disabled = true;
-  inputNumberRegister.disabled = true;
-  inputIdElement.disabled = true;
-  inputNaming.disabled = true;
-  inputSity.disabled = true;
-  inputStreet.disabled = true;
-  inputNumberArgreement.disabled = true;
-  inputNumberHome.disabled = true;
-  inputNumberBody.disabled = true;
-  inputNumberFlat.disabled = true;
-  inputTypeDocument.disabled = true;
-  inputApplication.disabled = true;
+  getBlockEditingOfDocument([inputDate, inputNumberRegister, inputIdElement, inputNaming, inputSity, inputStreet, inputNumberArgreement, inputNumberHome, inputNumberBody, inputNumberBody, inputNumberFlat, inputTypeDocument, inputApplication]);
 };
 
 // Слушатель события для создания таблицы //
@@ -373,8 +384,12 @@ archiveButtonOpen.addEventListener('click', () => {
   // Слушаель события для вывода popup of archive //
   Array.from(rowOnTalbe).forEach(item => {
     item.addEventListener('click', () => {
-      getLoadInformationInPopup(item);
+      const buttonAllowEditingOfDocument = document.querySelector('.work-width-the-file__button-popup');
       const buttonClosePopupArchive = document.querySelector('.work-width-the-file__button-close-up-info-popup');
+      const buttonSavePopupArchive = document.querySelector('.work-width-the-file__button-popup');
+      getLoadInformationInPopup(item);
+      getEditingRights(getElementOfPopupDocumentArchive(), buttonAllowEditingOfDocument, false);
+      getEditingRights(getElementOfPopupDocumentArchive(), buttonSavePopupArchive, true);
       // Слушатель события для закрытия popup //
       buttonClosePopupArchive.addEventListener('click', () => {
         archivePagePopup.innerHTML = '';
