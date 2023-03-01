@@ -182,19 +182,35 @@ const archiveButtonOpen = document.querySelector('.header__button-of-archive-pag
 
 // Выгрузка информации из строки для помещения в popup //
 const getInformationFromElement = (item) => {
-  const idDocument = item.children[0].innerHTML;
-  const registrationNumber = item.children[1].innerHTML;
-  const numberSubscriptionCasing = item.children[2].innerHTML;
-  const typeDocument = item.children[3].innerHTML;
-  const application = item.children[4].innerHTML;
-  const numberAgreement = item.children[5].innerHTML;
-  const nameObj = item.children[6].innerHTML;
-  return [idDocument, registrationNumber, numberSubscriptionCasing, typeDocument, application, numberAgreement, nameObj];
+  for (let i = 0; i < date.length; i++) {
+    if (item.children[0].innerHTML = date[0].id) {
+      const idDocument = date[i].id;
+      const registrationNumber = date[i].id_element;
+      const numberSubscriptionCasing = date[i].number_register;
+      const typeDocument = date[i].type_document;
+      const application = date[i].comments;
+      const numberAgreement = date[i].number__agreement;
+      const nameObj = date[i].name_object;
+      const nameSity = date[i].name_sity;
+      const nameStreet = date[i].name_street;
+      const numberHome = date[i].number_home;
+      const numberBody = date[i].number_body;
+      const numberFlat = date[i].number_flat;
+      const documents = date[i].id_documents;
+      return [idDocument, registrationNumber, numberSubscriptionCasing, typeDocument, application, numberAgreement, nameObj, nameSity, nameStreet, numberHome, numberBody, numberFlat, documents];
+    } else {
+      continue;
+    }
+  }
 };
 
 // Прорисоки pop и заполение его данными //
 const getLoadInformationInPopup = (item) => {
   archivePagePopup.innerHTML += getHtmlPopupOfArchiveChangeDocument(getInformationFromElement(item)[0], getInformationFromElement(item)[4]);
+  const inputTypeDocument = document.getElementById('type-document');
+  const inputNumberRegister = document.getElementById('number-register');
+  const inputIdElement = document.getElementById('id_element');
+  const inputDate = document.getElementById('date');
   const inputNaming = document.getElementById('naming');
   const inputSity = document.getElementById('sity');
   const inputStreet = document.getElementById('street');
@@ -202,13 +218,31 @@ const getLoadInformationInPopup = (item) => {
   const inputNumberHome = document.getElementById('number-home');
   const inputNumberBody = document.getElementById('doby');
   const inputNumberFlat = document.getElementById('flat');
-  inputNaming.value = getInformationFromElement(item)[1];
-  inputSity.value = getInformationFromElement(item)[0];
-  inputStreet.value = getInformationFromElement(item)[0];
-  inputNumberArgreement.value = getInformationFromElement(item)[0];
-  inputNumberHome.value = getInformationFromElement(item)[0];
-  inputNumberBody.value = getInformationFromElement(item)[0];
-  inputNumberFlat.value = getInformationFromElement(item)[0];
+  const inputApplication = document.getElementById('application');
+  inputTypeDocument.value = getInformationFromElement(item)[3];
+  inputDate.value = getInformationFromElement(item)[7];
+  inputNumberRegister.value = getInformationFromElement(item)[2];
+  inputIdElement.value = getInformationFromElement(item)[1];
+  inputNaming.value = getInformationFromElement(item)[6];
+  inputSity.value = getInformationFromElement(item)[7];
+  inputStreet.value = getInformationFromElement(item)[8];
+  inputNumberArgreement.value = getInformationFromElement(item)[2];
+  inputNumberHome.value = getInformationFromElement(item)[9];
+  inputNumberBody.value = getInformationFromElement(item)[10];
+  inputNumberFlat.value = getInformationFromElement(item)[11];
+  inputTypeDocument.value = getInformationFromElement(item)[3];
+  inputDate.disabled = true;
+  inputNumberRegister.disabled = true;
+  inputIdElement.disabled = true;
+  inputNaming.disabled = true;
+  inputSity.disabled = true;
+  inputStreet.disabled = true;
+  inputNumberArgreement.disabled = true;
+  inputNumberHome.disabled = true;
+  inputNumberBody.disabled = true;
+  inputNumberFlat.disabled = true;
+  inputTypeDocument.disabled = true;
+  inputApplication.disabled = true;
 };
 
 // Слушатель события для создания таблицы //

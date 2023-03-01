@@ -14,10 +14,10 @@ export const getHtmlPopupOfArchiveChangeDocument = (nameDocument, application) =
   <button class="work-width-the-file__button-popup">Протоколы печати</button>
 </div>
 <div class="work-width-the-file__information-document-popup">
-  <input class="work-width-the-file__indormaion-input-popup" id="" type="number" placeholder="Регистрационный номер">
-  <input class="work-width-the-file__indormaion-input-popup" id="" type="date">
-  <input class="work-width-the-file__indormaion-input-popup" id="" type="text" placeholder="Номер абонентского дела">
-  <input class="work-width-the-file__indormaion-input-popup" id="" type="text" placeholder="Тип документа">
+  <input class="work-width-the-file__indormaion-input-popup" id="id_element" type="number" placeholder="Регистрационный номер">
+  <input class="work-width-the-file__indormaion-input-popup" id="date" type="date">
+  <input class="work-width-the-file__indormaion-input-popup" id="number-register" type="text" placeholder="Номер абонентского дела">
+  <input class="work-width-the-file__indormaion-input-popup" id="type-document" type="text" placeholder="Тип документа">
 </div>
 <div class="work-width-the-file__wrapper-content-popup">
   <input class="work-width-the-file__input-contentpopup" id="naming" type="text" placeholder="ФИО">
