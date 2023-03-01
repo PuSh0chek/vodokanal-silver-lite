@@ -204,6 +204,74 @@ const getInformationFromElement = (item) => {
   }
 };
 
+// функция для блокировки и разблокировки input's в popup //
+const changeRigthsforWorkWithElements = () => {
+  const inputTypeDocument = document.getElementById('type-document');
+  const inputNumberRegister = document.getElementById('number-register');
+  const inputIdElement = document.getElementById('id_element');
+  const inputDate = document.getElementById('date');
+  const inputNaming = document.getElementById('naming');
+  const inputSity = document.getElementById('sity');
+  const inputStreet = document.getElementById('street');
+  const inputNumberArgreement = document.getElementById('number-agreement');
+  const inputNumberHome = document.getElementById('number-home');
+  const inputNumberBody = document.getElementById('doby');
+  const inputNumberFlat = document.getElementById('flat');
+  const inputApplication = document.getElementById('application');
+  inputDate.disabled = false;
+  inputNumberRegister.disabled = false;
+  inputIdElement.disabled = false;
+  inputNaming.disabled = false;
+  inputSity.disabled = false;
+  inputStreet.disabled = false;
+  inputNumberArgreement.disabled = false;
+  inputNumberHome.disabled = false;
+  inputNumberBody.disabled = false;
+  inputNumberFlat.disabled = false;
+  inputTypeDocument.disabled = false;
+  inputApplication.disabled = false;
+};
+
+// функция сохранающая изменения в объект //
+const getChangeWithInputInArray = (item) => {
+  const inputTypeDocument = document.getElementById('type-document');
+  const inputNumberRegister = document.getElementById('number-register');
+  const inputIdElement = document.getElementById('id_element');
+  const inputDate = document.getElementById('date');
+  const inputNaming = document.getElementById('naming');
+  const inputSity = document.getElementById('sity');
+  const inputStreet = document.getElementById('street');
+  const inputNumberArgreement = document.getElementById('number-agreement');
+  const inputNumberHome = document.getElementById('number-home');
+  const inputNumberBody = document.getElementById('doby');
+  const inputNumberFlat = document.getElementById('flat');
+  const inputApplication = document.getElementById('application');
+  inputTypeDocument.value = getInformationFromElement(item)[3];
+  inputDate.value = getInformationFromElement(item)[7];
+  inputNumberRegister.value = getInformationFromElement(item)[2];
+  inputIdElement.value = getInformationFromElement(item)[1];
+  inputNaming.value = getInformationFromElement(item)[6];
+  inputSity.value = getInformationFromElement(item)[7];
+  inputStreet.value = getInformationFromElement(item)[8];
+  inputNumberArgreement.value = getInformationFromElement(item)[2];
+  inputNumberHome.value = getInformationFromElement(item)[9];
+  inputNumberBody.value = getInformationFromElement(item)[10];
+  inputNumberFlat.value = getInformationFromElement(item)[11];
+  inputTypeDocument.value = getInformationFromElement(item)[3];
+  inputDate.disabled = true;
+  inputNumberRegister.disabled = true;
+  inputIdElement.disabled = true;
+  inputNaming.disabled = true;
+  inputSity.disabled = true;
+  inputStreet.disabled = true;
+  inputNumberArgreement.disabled = true;
+  inputNumberHome.disabled = true;
+  inputNumberBody.disabled = true;
+  inputNumberFlat.disabled = true;
+  inputTypeDocument.disabled = true;
+  inputApplication.disabled = true;
+};
+
 // Прорисоки pop и заполение его данными //
 const getLoadInformationInPopup = (item) => {
   archivePagePopup.innerHTML += getHtmlPopupOfArchiveChangeDocument(getInformationFromElement(item)[0], getInformationFromElement(item)[4]);
@@ -219,7 +287,7 @@ const getLoadInformationInPopup = (item) => {
   const inputNumberBody = document.getElementById('doby');
   const inputNumberFlat = document.getElementById('flat');
   const inputApplication = document.getElementById('application');
-  inputTypeDocument.value = getInformationFromElement(item)[3];
+  inputTypeDocument.value += getInformationFromElement(item)[3];
   inputDate.value = getInformationFromElement(item)[7];
   inputNumberRegister.value = getInformationFromElement(item)[2];
   inputIdElement.value = getInformationFromElement(item)[1];
@@ -271,9 +339,17 @@ archiveButtonOpen.addEventListener('click', () => {
     item.addEventListener('click', () => {
       getLoadInformationInPopup(item);
       const buttonClosePopupArchive = document.querySelector('.work-width-the-file__button-close-up-info-popup');
+      const buttonChangeRigths = document.getElementById('qq');
+      const buttonSaveChange = document.getElementById('dd');
       // Слушатель события для закрытия popup //
       buttonClosePopupArchive.addEventListener('click', () => {
         archivePagePopup.innerHTML = '';
+      });
+      buttonChangeRigths.addEventListener('click', () => {
+        changeRigthsforWorkWithElements();
+      });
+      buttonSaveChange.addEventListener('click', () => {
+        getChangeWithInputInArray(item);
       });
     });
   });

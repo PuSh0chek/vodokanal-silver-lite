@@ -7,8 +7,8 @@ export const getHtmlPopupOfArchiveChangeDocument = (nameDocument, application) =
   <button class="work-width-the-file__button-close-up-info-popup">X</button>
 </div>
 <div class="work-width-the-file__wrapper-button-popup">
-  <button class="work-width-the-file__button-popup">Взять на редактирование</button>
-  <button class="work-width-the-file__button-popup">Сохранить</button>
+  <button class="work-width-the-file__button-popup" id="qq">Взять на редактирование</button>
+  <button class="work-width-the-file__button-popup" id="dd">Сохранить</button>
   <button class="work-width-the-file__button-popup">Печать</button>
   <button class="work-width-the-file__button-popup">Взять на сканирование</button>
   <button class="work-width-the-file__button-popup">Протоколы печати</button>
