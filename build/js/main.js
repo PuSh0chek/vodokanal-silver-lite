@@ -27,8 +27,8 @@ const getHtmlPopupOfArchiveChangeDocument = (nameDocument, application) => `
   <button class="work-width-the-file__button-close-up-info-popup">X</button>
 </div>
 <div class="work-width-the-file__wrapper-button-popup">
-  <button class="work-width-the-file__button-popup" id="qq">Взять на редактирование</button>
-  <button class="work-width-the-file__button-popup" id="dd">Сохранить</button>
+  <button class="work-width-the-file__button-popup" id="buttonChangeRigths">Взять на редактирование</button>
+  <button class="work-width-the-file__button-popup" id="buttonSaveChange">Сохранить</button>
   <button class="work-width-the-file__button-popup">Печать</button>
   <button class="work-width-the-file__button-popup">Взять на сканирование</button>
   <button class="work-width-the-file__button-popup">Протоколы печати</button>
@@ -302,8 +302,6 @@ const getInformationFromElement = item => {
       const numberFlat = date[i].number_flat;
       const documents = date[i].id_documents;
       return [idDocument, registrationNumber, numberSubscriptionCasing, typeDocument, application, numberAgreement, nameObj, nameSity, nameStreet, numberHome, numberBody, numberFlat, documents];
-    } else {
-      continue;
     }
   }
 };
@@ -337,7 +335,7 @@ const changeRigthsforWorkWithElements = () => {
 };
 
 // функция для блокировки input's в popup //
-const changeRigthsOnBlocked = () => {
+const changeRigthsOnBlocked = item => {
   const inputTypeDocument = document.getElementById('type-document');
   const inputNumberRegister = document.getElementById('number-register');
   const inputIdElement = document.getElementById('id_element');
@@ -350,6 +348,17 @@ const changeRigthsOnBlocked = () => {
   const inputNumberBody = document.getElementById('doby');
   const inputNumberFlat = document.getElementById('flat');
   const inputApplication = document.getElementById('application');
+  inputTypeDocument.value = getInformationFromElement(item)[3];
+  inputDate.value = getInformationFromElement(item)[7];
+  inputNumberRegister.value = getInformationFromElement(item)[2];
+  inputIdElement.value = getInformationFromElement(item)[1];
+  inputNaming.value = getInformationFromElement(item)[6];
+  inputSity.value = getInformationFromElement(item)[7];
+  inputStreet.value = getInformationFromElement(item)[8];
+  inputNumberArgreement.value = getInformationFromElement(item)[2];
+  inputNumberHome.value = getInformationFromElement(item)[9];
+  inputNumberBody.value = getInformationFromElement(item)[10];
+  inputNumberFlat.value = getInformationFromElement(item)[11];
   inputDate.disabled = true;
   inputNumberRegister.disabled = true;
   inputIdElement.disabled = true;
@@ -390,7 +399,6 @@ const getLoadInformationInPopup = item => {
   inputNumberHome.value = getInformationFromElement(item)[9];
   inputNumberBody.value = getInformationFromElement(item)[10];
   inputNumberFlat.value = getInformationFromElement(item)[11];
-  inputTypeDocument.value = getInformationFromElement(item)[3];
   inputDate.disabled = true;
   inputNumberRegister.disabled = true;
   inputIdElement.disabled = true;
@@ -431,8 +439,8 @@ archiveButtonOpen.addEventListener('click', () => {
     item.addEventListener('click', () => {
       getLoadInformationInPopup(item);
       const buttonClosePopupArchive = document.querySelector('.work-width-the-file__button-close-up-info-popup');
-      const buttonChangeRigths = document.getElementById('qq');
-      const buttonSaveChange = document.getElementById('dd');
+      const buttonChangeRigths = document.getElementById('buttonChangeRigths');
+      const buttonSaveChange = document.getElementById('buttonSaveChange');
       // Слушатель события для закрытия popup //
       buttonClosePopupArchive.addEventListener('click', () => {
         archivePagePopup.innerHTML = '';
@@ -441,12 +449,11 @@ archiveButtonOpen.addEventListener('click', () => {
         changeRigthsforWorkWithElements();
       });
       buttonSaveChange.addEventListener('click', () => {
-        changeRigthsOnBlocked();
+        changeRigthsOnBlocked(item);
       });
     });
   });
 });
-
 // Архив  //
 // Блок вызова функций //
 getCountLicen();
