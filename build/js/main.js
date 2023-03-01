@@ -308,7 +308,7 @@ const getInformationFromElement = item => {
   }
 };
 
-// функция для блокировки и разблокировки input's в popup //
+// функция для разблокировки input's в popup //
 const changeRigthsforWorkWithElements = () => {
   const inputTypeDocument = document.getElementById('type-document');
   const inputNumberRegister = document.getElementById('number-register');
@@ -336,8 +336,8 @@ const changeRigthsforWorkWithElements = () => {
   inputApplication.disabled = false;
 };
 
-// функция сохранающая изменения в объект //
-const getChangeWithInputInArray = item => {
+// функция для блокировки input's в popup //
+const changeRigthsOnBlocked = () => {
   const inputTypeDocument = document.getElementById('type-document');
   const inputNumberRegister = document.getElementById('number-register');
   const inputIdElement = document.getElementById('id_element');
@@ -350,18 +350,6 @@ const getChangeWithInputInArray = item => {
   const inputNumberBody = document.getElementById('doby');
   const inputNumberFlat = document.getElementById('flat');
   const inputApplication = document.getElementById('application');
-  inputTypeDocument.value = getInformationFromElement(item)[3];
-  inputDate.value = getInformationFromElement(item)[7];
-  inputNumberRegister.value = getInformationFromElement(item)[2];
-  inputIdElement.value = getInformationFromElement(item)[1];
-  inputNaming.value = getInformationFromElement(item)[6];
-  inputSity.value = getInformationFromElement(item)[7];
-  inputStreet.value = getInformationFromElement(item)[8];
-  inputNumberArgreement.value = getInformationFromElement(item)[2];
-  inputNumberHome.value = getInformationFromElement(item)[9];
-  inputNumberBody.value = getInformationFromElement(item)[10];
-  inputNumberFlat.value = getInformationFromElement(item)[11];
-  inputTypeDocument.value = getInformationFromElement(item)[3];
   inputDate.disabled = true;
   inputNumberRegister.disabled = true;
   inputIdElement.disabled = true;
@@ -391,7 +379,7 @@ const getLoadInformationInPopup = item => {
   const inputNumberBody = document.getElementById('doby');
   const inputNumberFlat = document.getElementById('flat');
   const inputApplication = document.getElementById('application');
-  inputTypeDocument.value += getInformationFromElement(item)[3];
+  inputTypeDocument.value = getInformationFromElement(item)[3];
   inputDate.value = getInformationFromElement(item)[7];
   inputNumberRegister.value = getInformationFromElement(item)[2];
   inputIdElement.value = getInformationFromElement(item)[1];
@@ -453,7 +441,7 @@ archiveButtonOpen.addEventListener('click', () => {
         changeRigthsforWorkWithElements();
       });
       buttonSaveChange.addEventListener('click', () => {
-        getChangeWithInputInArray(item);
+        changeRigthsOnBlocked();
       });
     });
   });
