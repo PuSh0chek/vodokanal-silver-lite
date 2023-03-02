@@ -10,10 +10,13 @@ import {
 import {
   date
 } from './arrayOfArchive.js';
-
+import {
+  getHtmlPopupNewDocument
+} from './views/work-width-the-file-popup-create-element.js';
 // Переменнные //
 const archivePage = document.querySelector('.archive');
 const archivePagePopup = document.querySelector('.work-width-the-file__popup');
+const buttonOpenPopupForCreateElementInArray = document.querySelector('.work-with-the-file__button-append-file');
 const adminPage = document.querySelector('.admin');
 const settingsPage = document.querySelector('.settings');
 const aboutProgrammPage = document.querySelector('.about-programm');
@@ -183,7 +186,7 @@ const archiveButtonOpen = document.querySelector('.header__button-of-archive-pag
 // Выгрузка информации из строки для помещения в popup //
 const getInformationFromElement = (item) => {
   for (let i = 0; i < date.length; i++) {
-    if (item.children[0].innerHTML = date[0].id) {
+    if (item.children[0].innerHTML = date[i].id) {
       const idDocument = date[i].id;
       const registrationNumber = date[i].id_element;
       const numberSubscriptionCasing = date[i].number_register;
@@ -230,8 +233,8 @@ const changeRigthsforWorkWithElements = () => {
   inputApplication.disabled = false;
 };
 
-// функция для блокировки input's в popup //
-const changeRigthsOnBlocked = (item) => {
+// функция для блокировки и соханение input's в popup //
+const changeRigthsOnBlocked = () => {
   const inputTypeDocument = document.getElementById('type-document');
   const inputNumberRegister = document.getElementById('number-register');
   const inputIdElement = document.getElementById('id_element');
@@ -244,17 +247,17 @@ const changeRigthsOnBlocked = (item) => {
   const inputNumberBody = document.getElementById('doby');
   const inputNumberFlat = document.getElementById('flat');
   const inputApplication = document.getElementById('application');
-  inputTypeDocument.value = getInformationFromElement(item)[3];
-  inputDate.value = getInformationFromElement(item)[7];
-  inputNumberRegister.value = getInformationFromElement(item)[2];
-  inputIdElement.value = getInformationFromElement(item)[1];
-  inputNaming.value = getInformationFromElement(item)[6];
-  inputSity.value = getInformationFromElement(item)[7];
-  inputStreet.value = getInformationFromElement(item)[8];
-  inputNumberArgreement.value = getInformationFromElement(item)[2];
-  inputNumberHome.value = getInformationFromElement(item)[9];
-  inputNumberBody.value = getInformationFromElement(item)[10];
-  inputNumberFlat.value = getInformationFromElement(item)[11];
+  date[0].type_document = inputTypeDocument.value;
+  date[0].date_registration = inputDate.value;
+  date[0].number_register = inputNumberRegister.value;
+  date[0].id_element = inputIdElement.value;
+  date[0].name_object = inputNaming.value;
+  date[0].name_sity = inputSity.value;
+  date[0].name_street = inputStreet.value ;
+  date[0].number__agreement = inputNumberArgreement.value;
+  date[0].number_home = inputNumberHome.value;
+  date[0].number_body = inputNumberBody.value;
+  date[0].number_flat = inputNumberFlat.value;
   inputDate.disabled = true;
   inputNumberRegister.disabled = true;
   inputIdElement.disabled = true;
@@ -345,11 +348,30 @@ archiveButtonOpen.addEventListener('click', () => {
         changeRigthsforWorkWithElements();
       });
       buttonSaveChange.addEventListener('click', () => {
-        changeRigthsOnBlocked(item);
+        changeRigthsOnBlocked();
       });
     });
   });
 });
+
+// Вызвать popup для создания нового объекта массива //
+buttonOpenPopupForCreateElementInArray.addEventListener('click', () => {
+  archivePagePopup.innerHTML = getHtmlPopupNewDocument();
+  const buttonClowPopup = document.querySelector('.work-width-the-file-popup-create-element__button-close-up-info-popup');
+  // Слушатель события для закрытия popup //
+  buttonClowPopup.addEventListener('click', () => {
+    archivePagePopup.innerHTML = '';
+  });
+});
+const getPopupForCreateNewObj = () => {
+
+};
+
+// Добавить новый объект в массив(документ) //
+const createNewObjInArray = () =>{
+
+};
+
 // Архив  //
 // Блок вызова функций //
 getCountLicen();

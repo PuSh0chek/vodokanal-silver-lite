@@ -114,10 +114,83 @@ const date = [{
   'number_flat': 5,
   'id_documents': [1, 2, 3]
 }];
+const getHtmlPopupNewDocument = () => `
+<div class="work-width-the-file-popup-create-element__up-info-container-popup">
+  <div class="work-width-the-file-popup-create-element__container-preview-up-info-popup">
+    <span class="work-width-the-file-popup-create-element__preview-up-info-popup">Документ:</span>
+    <span class="work-width-the-file-popup-create-element__up-info-popup"></span>
+  </div>
+  <button class="work-width-the-file-popup-create-element__button-close-up-info-popup">X</button>
+</div>
+<div class="work-width-the-file-popup-create-element__wrapper-button-popup">
+  <button class="work-width-the-file-popup-create-element__button-popup" id="buttonSaveChange">Сохранить</button>
+</div>
+<div class="work-width-the-file-popup-create-element__information-document-popup">
+  <input class="work-width-the-file-popup-create-element__indormaion-input-popup" id="id_element" type="number" placeholder="Регистрационный номер">
+  <input class="work-width-the-file-popup-create-element__indormaion-input-popup" id="date" type="date">
+  <input class="work-width-the-file-popup-create-element__indormaion-input-popup" id="number-register" type="text" placeholder="Номер абонентского дела">
+  <input class="work-width-the-file-popup-create-element__indormaion-input-popup" id="type-document" type="text" placeholder="Тип документа">
+</div>
+<div class="work-width-the-file-popup-create-element__wrapper-content-popup">
+  <input class="work-width-the-file-popup-create-element__input-contentpopup" id="naming" type="text" placeholder="ФИО">
+  <input class="work-width-the-file-popup-create-element__input-contentpopup" id="sity" type="text" placeholder="Город">
+  <input class="work-width-the-file-popup-create-element__input-contentpopup" id="street" type="text" placeholder="Удица">
+  <input class="work-width-the-file-popup-create-element__input-contentpopup" id="number-agreement" type="text" placeholder="Номер договара">
+  <input class="work-width-the-file-popup-create-element__input-contentpopup" id="number-home" type="text" placeholder="Дом">
+  <input class="work-width-the-file-popup-create-element__input-contentpopup" id="doby" type="text" placeholder="Корпус">
+  <input class="work-width-the-file-popup-create-element__input-contentpopup" id="flat" type="text" placeholder="Квартира">
+  <textarea class="work-width-the-file-popup-create-element__text-area-content-popup" name="" id="application" cols="30" rows="10" placeholder="Заявление на опломбировку водомера"></textarea>
+</div>
+<div class="work-width-the-file-popup-create-element__documents-and-controlls-container-popup">
+  <table class="work-width-the-file-popup-create-element__table-popup">
+    <tbody class="work-width-the-file-popup-create-element__body-table-popup">
+      <tr class="work-width-the-file-popup-create-element__head-table-popup">
+        <th class="work-width-the-file-popup-create-element__element-head-popup">Имя файла</th>
+        <th class="work-width-the-file-popup-create-element__element-head-popup">Тип</th>
+        <th class="work-width-the-file-popup-create-element__element-head-popup">Размер</th>
+        <th class="work-width-the-file-popup-create-element__element-head-popup">Автор</th>
+        <th class="work-width-the-file-popup-create-element__element-head-popup">Дата публикации</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="work-width-the-file-popup-create-element__button-container-documents-and-controlls-container-popup">
+    <button class="work-width-the-file-popup-create-element__button-documents-and-controlls-container-popup">Присоединить</button>
+    <button class="work-width-the-file-popup-create-element__button-documents-and-controlls-container-popup">Удалить</button>
+  </div>
+</div>
+<div class="work-width-the-file-popup-create-element__low-indormations-container-popup">
+  <div class="work-width-the-file-popup-create-element__registrator-container-popup">
+    <span class="work-width-the-file-popup-create-element__registrator-popup">Регистратор:</span>
+    <span class="work-width-the-file-popup-create-element__content-registrator-popup"></span>
+  </div>
+  <div class="work-width-the-file-popup-create-element__date-last-reg-of-container-popup">
+    <span class="work-width-the-file-popup-create-element__preview-date-last-reg-popup">Дата последнего заполнения:</span>
+    <span class="work-width-the-file-popup-create-element__date-lst-reg-popup"></span>
+  </div>
+  <div class="work-width-the-file-popup-create-element__position-container-of-popup">
+    <span class="work-width-the-file-popup-create-element__preview-position-popup">Папка:</span>
+    <span class="work-width-the-file-popup-create-element__position-popup"></span>
+  </div>
+</div>`;
 
 // Переменнные //
 const archivePage = document.querySelector('.archive');
 const archivePagePopup = document.querySelector('.work-width-the-file__popup');
+const buttonOpenPopupForCreateElementInArray = document.querySelector('.work-with-the-file__button-append-file');
 const adminPage = document.querySelector('.admin');
 const settingsPage = document.querySelector('.settings');
 const aboutProgrammPage = document.querySelector('.about-programm');
@@ -287,7 +360,7 @@ const archiveButtonOpen = document.querySelector('.header__button-of-archive-pag
 // Выгрузка информации из строки для помещения в popup //
 const getInformationFromElement = item => {
   for (let i = 0; i < date.length; i++) {
-    if (item.children[0].innerHTML = date[0].id) {
+    if (item.children[0].innerHTML = date[i].id) {
       const idDocument = date[i].id;
       const registrationNumber = date[i].id_element;
       const numberSubscriptionCasing = date[i].number_register;
@@ -334,8 +407,8 @@ const changeRigthsforWorkWithElements = () => {
   inputApplication.disabled = false;
 };
 
-// функция для блокировки input's в popup //
-const changeRigthsOnBlocked = item => {
+// функция для блокировки и соханение input's в popup //
+const changeRigthsOnBlocked = () => {
   const inputTypeDocument = document.getElementById('type-document');
   const inputNumberRegister = document.getElementById('number-register');
   const inputIdElement = document.getElementById('id_element');
@@ -348,17 +421,17 @@ const changeRigthsOnBlocked = item => {
   const inputNumberBody = document.getElementById('doby');
   const inputNumberFlat = document.getElementById('flat');
   const inputApplication = document.getElementById('application');
-  inputTypeDocument.value = getInformationFromElement(item)[3];
-  inputDate.value = getInformationFromElement(item)[7];
-  inputNumberRegister.value = getInformationFromElement(item)[2];
-  inputIdElement.value = getInformationFromElement(item)[1];
-  inputNaming.value = getInformationFromElement(item)[6];
-  inputSity.value = getInformationFromElement(item)[7];
-  inputStreet.value = getInformationFromElement(item)[8];
-  inputNumberArgreement.value = getInformationFromElement(item)[2];
-  inputNumberHome.value = getInformationFromElement(item)[9];
-  inputNumberBody.value = getInformationFromElement(item)[10];
-  inputNumberFlat.value = getInformationFromElement(item)[11];
+  date[0].type_document = inputTypeDocument.value;
+  date[0].date_registration = inputDate.value;
+  date[0].number_register = inputNumberRegister.value;
+  date[0].id_element = inputIdElement.value;
+  date[0].name_object = inputNaming.value;
+  date[0].name_sity = inputSity.value;
+  date[0].name_street = inputStreet.value;
+  date[0].number__agreement = inputNumberArgreement.value;
+  date[0].number_home = inputNumberHome.value;
+  date[0].number_body = inputNumberBody.value;
+  date[0].number_flat = inputNumberFlat.value;
   inputDate.disabled = true;
   inputNumberRegister.disabled = true;
   inputIdElement.disabled = true;
@@ -449,9 +522,19 @@ archiveButtonOpen.addEventListener('click', () => {
         changeRigthsforWorkWithElements();
       });
       buttonSaveChange.addEventListener('click', () => {
-        changeRigthsOnBlocked(item);
+        changeRigthsOnBlocked();
       });
     });
+  });
+});
+
+// Вызвать popup для создания нового объекта массива //
+buttonOpenPopupForCreateElementInArray.addEventListener('click', () => {
+  archivePagePopup.innerHTML = getHtmlPopupNewDocument();
+  const buttonClowPopup = document.querySelector('.work-width-the-file-popup-create-element__button-close-up-info-popup');
+  // Слушатель события для закрытия popup //
+  buttonClowPopup.addEventListener('click', () => {
+    archivePagePopup.innerHTML = '';
   });
 });
 // Архив  //
