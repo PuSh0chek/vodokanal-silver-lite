@@ -1,8 +1,8 @@
-export const getHtmlPopupNewDocument = () => `
+export const getHtmlPopupNewDocument = (idNewElement) => `
 <div class="work-width-the-file-popup-create-element__up-info-container-popup">
   <div class="work-width-the-file-popup-create-element__container-preview-up-info-popup">
     <span class="work-width-the-file-popup-create-element__preview-up-info-popup">Документ:</span>
-    <span class="work-width-the-file-popup-create-element__up-info-popup"></span>
+    <span class="work-width-the-file-popup-create-element__up-info-popup">${idNewElement}</span>
   </div>
   <button class="work-width-the-file-popup-create-element__button-close-up-info-popup">X</button>
 </div>

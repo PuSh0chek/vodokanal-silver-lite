@@ -354,23 +354,58 @@ archiveButtonOpen.addEventListener('click', () => {
   });
 });
 
+// Добавить новый объект в массив(date) //
+const createNewObjInArray = () =>{
+  const inputTypeDocument = document.getElementById('type-document');
+  const inputNumberRegister = document.getElementById('number-register');
+  const inputIdElement = document.getElementById('id_element');
+  const inputDate = document.getElementById('date');
+  const inputNaming = document.getElementById('naming');
+  const inputSity = document.getElementById('sity');
+  const inputStreet = document.getElementById('street');
+  const inputNumberArgreement = document.getElementById('number-agreement');
+  const inputNumberHome = document.getElementById('number-home');
+  const inputNumberBody = document.getElementById('doby');
+  const inputNumberFlat = document.getElementById('flat');
+  const inputApplication = document.getElementById('application');
+  const newObj = {
+    'id': date[date.length - 1].id + 1,
+    'id_element': inputIdElement.value,
+    'number_register': inputNumberRegister.value,
+    'type_document': inputTypeDocument.value,
+    'comments': inputApplication.value,
+    'number__agreement': inputNumberArgreement.value,
+    'name_object': inputNaming.value,
+    'date_registration': inputDate.value,
+    'name_sity': inputSity.value,
+    'name_street': inputStreet.value,
+    'number_home': inputNumberHome.value,
+    'number_body': inputNumberBody.value,
+    'number_flat': inputNumberFlat.value,
+    'id_documents': [],
+  };
+  date.push(newObj);
+};
+
+// Удалить объект из массива(Archive) //
+const deleteElementOfArray = () => {
+
+};
+
 // Вызвать popup для создания нового объекта массива //
 buttonOpenPopupForCreateElementInArray.addEventListener('click', () => {
-  archivePagePopup.innerHTML = getHtmlPopupNewDocument();
+  const idNewElement = date[date.length - 1].id + 1;
+  archivePagePopup.innerHTML = getHtmlPopupNewDocument(idNewElement);
   const buttonClowPopup = document.querySelector('.work-width-the-file-popup-create-element__button-close-up-info-popup');
+  const buttonSaveElement = document.querySelector('.work-width-the-file-popup-create-element__button-popup');
   // Слушатель события для закрытия popup //
   buttonClowPopup.addEventListener('click', () => {
     archivePagePopup.innerHTML = '';
   });
+  buttonSaveElement.addEventListener('click', () => {
+    createNewObjInArray();
+  });
 });
-const getPopupForCreateNewObj = () => {
-
-};
-
-// Добавить новый объект в массив(документ) //
-const createNewObjInArray = () =>{
-
-};
 
 // Архив  //
 // Блок вызова функций //
