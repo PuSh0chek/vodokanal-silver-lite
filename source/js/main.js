@@ -412,9 +412,6 @@ buttonDeleteElementOfArrayArchive.addEventListener('click', () => {
     }
   });
 });
-// const deleteElementOfArray = () => {
-
-// };
 
 // Вызвать popup для создания нового объекта массива //
 buttonOpenPopupForCreateElementInArray.addEventListener('click', () => {
