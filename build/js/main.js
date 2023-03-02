@@ -113,6 +113,36 @@ const date = [{
   'number_body': 5,
   'number_flat': 5,
   'id_documents': [1, 2, 3]
+}, {
+  'id': 342,
+  'id_element': 3556456,
+  'number_register': 1,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П',
+  'date_registration': '01.02.2025',
+  'name_sity': 'Ростов-На-Дону',
+  'name_street': 'Льва Толстого',
+  'number_home': 5,
+  'number_body': 5,
+  'number_flat': 5,
+  'id_documents': [1, 2, 3]
+}, {
+  'id': 343,
+  'id_element': 3556456,
+  'number_register': 1,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П',
+  'date_registration': '01.02.2025',
+  'name_sity': 'Ростов-На-Дону',
+  'name_street': 'Льва Толстого',
+  'number_home': 5,
+  'number_body': 5,
+  'number_flat': 5,
+  'id_documents': [1, 2, 3]
 }];
 const getHtmlPopupNewDocument = idNewElement => `
 <div class="work-width-the-file-popup-create-element__up-info-container-popup">
@@ -186,11 +216,20 @@ const getHtmlPopupNewDocument = idNewElement => `
     <span class="work-width-the-file-popup-create-element__position-popup"></span>
   </div>
 </div>`;
+const getHtmlPopupDeleteElementInDocument = () => `<div class="work-width-the-file__delete-element-wrapper-popup">
+<div class="work-width-the-file__container-delete-element-popup">
+  <h3 class="work-width-the-file__text-delete-element-popup">Введите ID документа для его удаления</h3>
+  <input type="number" name="" id="" class="work-width-the-file__input-delete-element-popup">
+  <button class="work-width-the-file__button-delete-delete-element-popup">Удалить</button>
+</div>
+<button class="work-width-the-file__button-close-delete-element-popup">X</button>
+</div>`;
 
 // Переменнные //
 const archivePage = document.querySelector('.archive');
 const archivePagePopup = document.querySelector('.work-width-the-file__popup');
 const buttonOpenPopupForCreateElementInArray = document.querySelector('.work-with-the-file__button-append-file');
+const buttonDeleteElementOfArrayArchive = document.querySelector('.work-with-the-file__button-remove');
 const adminPage = document.querySelector('.admin');
 const settingsPage = document.querySelector('.settings');
 const aboutProgrammPage = document.querySelector('.about-programm');
@@ -560,6 +599,30 @@ const createNewObjInArray = () => {
   };
   date.push(newObj);
 };
+
+// Вывод POPUP 'Удалить объект из массива(Archive)' //
+buttonDeleteElementOfArrayArchive.addEventListener('click', () => {
+  archivePagePopup.innerHTML = getHtmlPopupDeleteElementInDocument();
+  const buttonDeleteElementOfArray = document.querySelector('.work-width-the-file__button-delete-delete-element-popup');
+  const buttonClosePopup = document.querySelector('.work-width-the-file__button-close-delete-element-popup');
+  const inputDeleteElementOfArray = document.querySelector('.work-width-the-file__input-delete-element-popup');
+  // Закрыть popup delete element archive //
+  buttonClosePopup.addEventListener('click', () => {
+    archivePagePopup.innerHTML = '';
+  });
+  // Удалить объект из массива(Archive) //
+  buttonDeleteElementOfArray.addEventListener('click', () => {
+    for (let i = 0; i < date.length; i++) {
+      if (String(inputDeleteElementOfArray.value) === String(date[i].id)) {
+        delete date[i];
+        break;
+      }
+    }
+  });
+});
+// const deleteElementOfArray = () => {
+
+// };
 
 // Вызвать popup для создания нового объекта массива //
 buttonOpenPopupForCreateElementInArray.addEventListener('click', () => {

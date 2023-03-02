@@ -13,10 +13,15 @@ import {
 import {
   getHtmlPopupNewDocument
 } from './views/work-width-the-file-popup-create-element.js';
+import {
+  getHtmlPopupDeleteElementInDocument
+} from './views/work-width-the-file__delete-element-wrapper-popup';
+
 // Переменнные //
 const archivePage = document.querySelector('.archive');
 const archivePagePopup = document.querySelector('.work-width-the-file__popup');
 const buttonOpenPopupForCreateElementInArray = document.querySelector('.work-with-the-file__button-append-file');
+const buttonDeleteElementOfArrayArchive = document.querySelector('.work-with-the-file__button-remove');
 const adminPage = document.querySelector('.admin');
 const settingsPage = document.querySelector('.settings');
 const aboutProgrammPage = document.querySelector('.about-programm');
@@ -387,10 +392,29 @@ const createNewObjInArray = () =>{
   date.push(newObj);
 };
 
-// Удалить объект из массива(Archive) //
-const deleteElementOfArray = () => {
+// Вывод POPUP 'Удалить объект из массива(Archive)' //
+buttonDeleteElementOfArrayArchive.addEventListener('click', () => {
+  archivePagePopup.innerHTML = getHtmlPopupDeleteElementInDocument();
+  const buttonDeleteElementOfArray = document.querySelector('.work-width-the-file__button-delete-delete-element-popup');
+  const buttonClosePopup = document.querySelector('.work-width-the-file__button-close-delete-element-popup');
+  const inputDeleteElementOfArray = document.querySelector('.work-width-the-file__input-delete-element-popup');
+  // Закрыть popup delete element archive //
+  buttonClosePopup.addEventListener('click', () => {
+    archivePagePopup.innerHTML = '';
+  });
+  // Удалить объект из массива(Archive) //
+  buttonDeleteElementOfArray.addEventListener('click', () => {
+    for(let i = 0; i < date.length; i++) {
+      if(String(inputDeleteElementOfArray.value) === String(date[i].id)) {
+        delete date[i];
+        break;
+      }
+    }
+  });
+});
+// const deleteElementOfArray = () => {
 
-};
+// };
 
 // Вызвать popup для создания нового объекта массива //
 buttonOpenPopupForCreateElementInArray.addEventListener('click', () => {

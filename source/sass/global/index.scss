@@ -1531,3 +1531,52 @@
 }
 .work-width-the-file-popup-create-element__position-popup {
 }
+
+// DELETE ELEMENT OF ARRAY (POPUP)  //
+
+.work-width-the-file__delete-element-wrapper-popup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.work-width-the-file__container-delete-element-popup {
+  margin: 20px;
+}
+.work-width-the-file__text-delete-element-popup {
+  font-size: 20px;
+}
+.work-width-the-file__input-delete-element-popup {
+  width: 210px;
+  margin-left: 33px;
+}
+.work-width-the-file__button-delete-delete-element-popup {
+  width: 120px;
+  border: 1px solid rgb(0, 0, 0);
+  color: white;
+  background-color: rgb(0, 0, 0);
+  transition: .4s;
+  &:hover {
+    border: 1px solid white;
+    background-color: white;
+    color: black;
+    transition: .4s;
+    cursor: pointer;
+  }
+}
+.work-width-the-file__button-close-delete-element-popup {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  border: 1px solid rgb(0, 0, 0);
+  color: white;
+  background-color: rgb(0, 0, 0);
+  transition: .4s;
+  &:hover {
+    border: 1px solid white;
+    border-radius: 25%;
+    background-color: white;
+    color: black;
+    transition: .4s;
+    cursor: pointer;
+  }
+}
