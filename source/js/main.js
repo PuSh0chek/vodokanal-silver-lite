@@ -50,6 +50,7 @@ const scanningSettings = document.querySelector('.settings__popup-of-scanning-se
 const buttonSettingsUser = document.querySelector('.settings__user-button');
 const buttonSettingsGeneralis = document.querySelector('.settings__generalis-button');
 const buttonScanning = document.querySelector('.settings__scanning');
+let filtredArrayOfArchiveDocument = [];
 
 // Универсальные функции //
 const getRequiredWindow = (showElement, removeElementOne, removeElementTwo, removeElementThree, displayShow, displayRemove) => {
@@ -404,8 +405,20 @@ buttonDeleteElementOfArrayArchive.addEventListener('click', () => {
   });
   // Удалить объект из массива(Archive) //
   buttonDeleteElementOfArray.addEventListener('click', () => {
-    date.splice(inputDeleteElementOfArray.value, inputDeleteElementOfArray.value);
+    const allRowOnTalbe = document.querySelectorAll('.work-with-the-file__table-row');
+    Array.from(allRowOnTalbe).forEach((item) => {
+      for(let i = 0; i < date.length; i++) {
+        if(Number(item.children[0].textContent) === Number(inputDeleteElementOfArray.value)) {
+          filtredArrayOfArchiveDocument = date.filter((element) => element.id !== Number(inputDeleteElementOfArray.value));
+          console.log('filtredArrayOfArchiveDocument', filtredArrayOfArchiveDocument);
+          break;
+        }
+      }
+    });
+    console.log('filtredArrayOfArchiveDocument', filtredArrayOfArchiveDocument);
+    console.log('date',date);
   });
+  console.log('filtredArrayOfArchiveDocument',filtredArrayOfArchiveDocument);
 });
 
 // Вызвать popup для создания нового объекта массива //
