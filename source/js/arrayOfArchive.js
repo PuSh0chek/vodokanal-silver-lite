@@ -2,7 +2,7 @@
 export const date = [
   {
     'id': 341,
-    'id_element': 3556456,
+    'id_element': 3,
     'number_register': 1,
     'type_document': 'Доп.соглашение и документы об изменении преамбулы',
     'comments': 'Заявление на опломбирование ',
@@ -18,7 +18,7 @@ export const date = [
   },
   {
     'id': 342,
-    'id_element': 3556456,
+    'id_element': 2,
     'number_register': 1,
     'type_document': 'Доп.соглашение и документы об изменении преамбулы',
     'comments': 'Заявление на опломбирование ',
@@ -34,7 +34,7 @@ export const date = [
   },
   {
     'id': 343,
-    'id_element': 3556456,
+    'id_element': 1,
     'number_register': 1,
     'type_document': 'Доп.соглашение и документы об изменении преамбулы',
     'comments': 'Заявление на опломбирование ',

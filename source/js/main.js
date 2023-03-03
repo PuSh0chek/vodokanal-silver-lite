@@ -252,17 +252,17 @@ const changeRigthsOnBlocked = () => {
   const inputNumberBody = document.getElementById('doby');
   const inputNumberFlat = document.getElementById('flat');
   const inputApplication = document.getElementById('application');
-  date[0].type_document = inputTypeDocument.value;
-  date[0].date_registration = inputDate.value;
-  date[0].number_register = inputNumberRegister.value;
-  date[0].id_element = inputIdElement.value;
-  date[0].name_object = inputNaming.value;
-  date[0].name_sity = inputSity.value;
-  date[0].name_street = inputStreet.value ;
-  date[0].number__agreement = inputNumberArgreement.value;
-  date[0].number_home = inputNumberHome.value;
-  date[0].number_body = inputNumberBody.value;
-  date[0].number_flat = inputNumberFlat.value;
+  // date[0].type_document = inputTypeDocument.value;
+  // date[0].date_registration = inputDate.value;
+  // date[0].number_register = inputNumberRegister.value;
+  // date[0].id_element = inputIdElement.value;
+  // date[0].name_object = inputNaming.value;
+  // date[0].name_sity = inputSity.value;
+  // date[0].name_street = inputStreet.value ;
+  // date[0].number__agreement = inputNumberArgreement.value;
+  // date[0].number_home = inputNumberHome.value;
+  // date[0].number_body = inputNumberBody.value;
+  // date[0].number_flat = inputNumberFlat.value;
   inputDate.disabled = true;
   inputNumberRegister.disabled = true;
   inputIdElement.disabled = true;
@@ -404,12 +404,7 @@ buttonDeleteElementOfArrayArchive.addEventListener('click', () => {
   });
   // Удалить объект из массива(Archive) //
   buttonDeleteElementOfArray.addEventListener('click', () => {
-    for(let i = 0; i < date.length; i++) {
-      if(String(inputDeleteElementOfArray.value) === String(date[i].id)) {
-        delete date[i];
-        break;
-      }
-    }
+    date.splice(inputDeleteElementOfArray.value, inputDeleteElementOfArray.value);
   });
 });
 
