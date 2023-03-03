@@ -399,7 +399,7 @@ const archiveButtonOpen = document.querySelector('.header__button-of-archive-pag
 // Выгрузка информации из строки для помещения в popup //
 const getInformationFromElement = item => {
   for (let i = 0; i < date.length; i++) {
-    if (item.children[0].innerHTML = date[i].id) {
+    if (Number(item.path[1].children[0].textContent) === Number(date[i].id)) {
       const idDocument = date[i].id;
       const registrationNumber = date[i].id_element;
       const numberSubscriptionCasing = date[i].number_register;
@@ -460,17 +460,17 @@ const changeRigthsOnBlocked = () => {
   const inputNumberBody = document.getElementById('doby');
   const inputNumberFlat = document.getElementById('flat');
   const inputApplication = document.getElementById('application');
-  // date[0].type_document = inputTypeDocument.value;
-  // date[0].date_registration = inputDate.value;
-  // date[0].number_register = inputNumberRegister.value;
-  // date[0].id_element = inputIdElement.value;
-  // date[0].name_object = inputNaming.value;
-  // date[0].name_sity = inputSity.value;
-  // date[0].name_street = inputStreet.value ;
-  // date[0].number__agreement = inputNumberArgreement.value;
-  // date[0].number_home = inputNumberHome.value;
-  // date[0].number_body = inputNumberBody.value;
-  // date[0].number_flat = inputNumberFlat.value;
+  date[0].type_document = inputTypeDocument.value;
+  date[0].date_registration = inputDate.value;
+  date[0].number_register = inputNumberRegister.value;
+  date[0].id_element = inputIdElement.value;
+  date[0].name_object = inputNaming.value;
+  date[0].name_sity = inputSity.value;
+  date[0].name_street = inputStreet.value;
+  date[0].number__agreement = inputNumberArgreement.value;
+  date[0].number_home = inputNumberHome.value;
+  date[0].number_body = inputNumberBody.value;
+  date[0].number_flat = inputNumberFlat.value;
   inputDate.disabled = true;
   inputNumberRegister.disabled = true;
   inputIdElement.disabled = true;
@@ -547,8 +547,8 @@ archiveButtonOpen.addEventListener('click', () => {
   }
   const rowOnTalbe = document.querySelectorAll('.work-with-the-file__table-row');
   // Слушаель события для вывода popup of archive //
-  Array.from(rowOnTalbe).forEach(item => {
-    item.addEventListener('click', () => {
+  Array.from(rowOnTalbe).forEach(element => {
+    element.addEventListener('click', item => {
       getLoadInformationInPopup(item);
       const buttonClosePopupArchive = document.querySelector('.work-width-the-file__button-close-up-info-popup');
       const buttonChangeRigths = document.getElementById('buttonChangeRigths');
@@ -626,6 +626,7 @@ buttonOpenPopupForCreateElementInArray.addEventListener('click', () => {
   buttonClowPopup.addEventListener('click', () => {
     archivePagePopup.innerHTML = '';
   });
+  // Слушатель событий для сохванения изменений //
   buttonSaveElement.addEventListener('click', () => {
     createNewObjInArray();
   });
