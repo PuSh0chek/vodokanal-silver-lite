@@ -361,7 +361,7 @@ archiveButtonOpen.addEventListener('click', () => {
 });
 
 // Добавить новый объект в массив(date) //
-const createNewObjInArray = () =>{
+const createNewObjInArray = () => {
   const inputTypeDocument = document.getElementById('type-document');
   const inputNumberRegister = document.getElementById('number-register');
   const inputIdElement = document.getElementById('id_element');
@@ -396,29 +396,35 @@ const createNewObjInArray = () =>{
 // Вывод POPUP 'Удалить объект из массива(Archive)' //
 buttonDeleteElementOfArrayArchive.addEventListener('click', () => {
   archivePagePopup.innerHTML = getHtmlPopupDeleteElementInDocument();
+  const allRowOnTalbe = document.querySelectorAll('.work-with-the-file__table-row');
   const buttonDeleteElementOfArray = document.querySelector('.work-width-the-file__button-delete-delete-element-popup');
   const buttonClosePopup = document.querySelector('.work-width-the-file__button-close-delete-element-popup');
   const inputDeleteElementOfArray = document.querySelector('.work-width-the-file__input-delete-element-popup');
-  // Закрыть popup delete element archive //
+  // Закрыть popup delete element of archive //
   buttonClosePopup.addEventListener('click', () => {
     archivePagePopup.innerHTML = '';
   });
   // Удалить объект из массива(Archive) //
   buttonDeleteElementOfArray.addEventListener('click', () => {
-    const allRowOnTalbe = document.querySelectorAll('.work-with-the-file__table-row');
     Array.from(allRowOnTalbe).forEach((item) => {
+      // Проходимся по массиву и фильтруем элементы //
       for(let i = 0; i < date.length; i++) {
         if(Number(item.children[0].textContent) === Number(inputDeleteElementOfArray.value)) {
+          // фильтрация массива //
           filtredArrayOfArchiveDocument = date.filter((element) => element.id !== Number(inputDeleteElementOfArray.value));
-          console.log('filtredArrayOfArchiveDocument', filtredArrayOfArchiveDocument);
+          // Очистка старого массива //
+          date.length = 0;
+          // Заливаем фильтрованный массив в отчищенный старый //
+          for (let n = 0; n < filtredArrayOfArchiveDocument.length; n++) {
+            date.push(filtredArrayOfArchiveDocument[n]);
+          }
           break;
         }
       }
+      // Закрытие popup //
+      archivePagePopup.innerHTML = '';
     });
-    console.log('filtredArrayOfArchiveDocument', filtredArrayOfArchiveDocument);
-    console.log('date',date);
   });
-  console.log('filtredArrayOfArchiveDocument',filtredArrayOfArchiveDocument);
 });
 
 // Вызвать popup для создания нового объекта массива //
