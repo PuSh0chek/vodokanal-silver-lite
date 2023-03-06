@@ -359,6 +359,7 @@ const getDocuments = () => {
     const author = arrayDocumentsOfArchive[i].authorsName;
     const dateCreated = arrayDocumentsOfArchive[i].dateOfSublication;
     const way = arrayDocumentsOfArchive[i].way;
+    // Проверка по условию привязанного документа по id //
     if(arrayDocumentsOfArchive[i].idParent === arrayDocumentsOfArchive[i].idDocument){
       // Загрузка документа в таблицу //
       tableDocumentPopup.innerHTML += getHtmlRowTalbeOfDocumentArchive(nameDocument, typeDocument, weight, author, dateCreated);
