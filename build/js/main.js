@@ -560,6 +560,7 @@ const getNewContent = () => {
 // Загрузка документов в таблицу popup'a //
 const getDocuments = () => {
   const tableDocumentPopup = document.querySelector('.work-width-the-file__body-table-popup');
+  // Проходимся циколом по массиву объектов //
   for (let i = 0; i < arrayDocumentsOfArchive.length; i++) {
     const nameDocument = arrayDocumentsOfArchive[i].name;
     const typeDocument = arrayDocumentsOfArchive[i].typeOfDocument;
@@ -567,6 +568,7 @@ const getDocuments = () => {
     const author = arrayDocumentsOfArchive[i].authorsName;
     const dateCreated = arrayDocumentsOfArchive[i].dateOfSublication;
     if (arrayDocumentsOfArchive[i].idParent === arrayDocumentsOfArchive[i].idDocument) {
+      // Загрузка документа в таблицу //
       tableDocumentPopup.innerHTML += getHtmlRowTalbeOfDocumentArchive(nameDocument, typeDocument, weight, author, dateCreated);
     }
   }
