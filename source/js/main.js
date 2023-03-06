@@ -259,7 +259,7 @@ const changeRigthsOnBlocked = () => {
   date[0].id_element = inputIdElement.value;
   date[0].name_object = inputNaming.value;
   date[0].name_sity = inputSity.value;
-  date[0].name_street = inputStreet.value ;
+  date[0].name_street = inputStreet.value;
   date[0].number__agreement = inputNumberArgreement.value;
   date[0].number_home = inputNumberHome.value;
   date[0].number_body = inputNumberBody.value;
@@ -318,10 +318,10 @@ const getLoadInformationInPopup = (item) => {
   inputApplication.disabled = true;
 };
 
-// Слушатель события для создания таблицы //
-archiveButtonOpen.addEventListener('click', () => {
-  // Функция для загрузки дынных в таблицу //
+// Обновить, залить новый контент //
+const getNewContent = () => {
   tableBody.innerHTML = getHtmlTableTh();
+  // Проходимся по массиву //
   for (let i = 0; i < date.length; i++) {
     const elementOfArrayArchive = Object.values(date[i]);
     const [idElement, registrationNumber, numberSubscriptionCasing, typeDocument, comment, numberAgreement, naming] = elementOfArrayArchive;
@@ -338,6 +338,12 @@ archiveButtonOpen.addEventListener('click', () => {
     // Заливаем контент //
     tableBody.innerHTML += getHtmlTableBody(idElement, registrationNumber, numberSubscriptionCasing, typeDocument, comment, numberAgreement, naming);
   };
+};
+
+// Слушатель события для создания таблицы //
+archiveButtonOpen.addEventListener('click', () => {
+  // Функция для загрузки дынных в таблицу //
+  getNewContent();
   const rowOnTalbe = document.querySelectorAll('.work-with-the-file__table-row');
   // Слушаель события для вывода popup of archive //
   Array.from(rowOnTalbe).forEach((element) => {
@@ -408,8 +414,8 @@ buttonDeleteElementOfArrayArchive.addEventListener('click', () => {
   buttonDeleteElementOfArray.addEventListener('click', () => {
     Array.from(allRowOnTalbe).forEach((item) => {
       // Проходимся по массиву и фильтруем элементы //
-      for(let i = 0; i < date.length; i++) {
-        if(Number(item.children[0].textContent) === Number(inputDeleteElementOfArray.value)) {
+      for (let i = 0; i < date.length; i++) {
+        if (Number(item.children[0].textContent) === Number(inputDeleteElementOfArray.value)) {
           // фильтрация массива //
           filtredArrayOfArchiveDocument = date.filter((element) => element.id !== Number(inputDeleteElementOfArray.value));
           // Очистка старого массива //
@@ -423,6 +429,8 @@ buttonDeleteElementOfArrayArchive.addEventListener('click', () => {
       }
       // Закрытие popup //
       archivePagePopup.innerHTML = '';
+      // Обновит таблицу //
+      getNewContent();
     });
   });
 });
@@ -439,7 +447,12 @@ buttonOpenPopupForCreateElementInArray.addEventListener('click', () => {
   });
   // Слушатель событий для сохванения изменений //
   buttonSaveElement.addEventListener('click', () => {
+    // Загркзит новый объект в массив //
     createNewObjInArray();
+    // Обновит контент //
+    getNewContent();
+    // Закроет popup //
+    archivePagePopup.innerHTML = '';
   });
 });
 

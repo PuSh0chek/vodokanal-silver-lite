@@ -526,10 +526,10 @@ const getLoadInformationInPopup = item => {
   inputApplication.disabled = true;
 };
 
-// Слушатель события для создания таблицы //
-archiveButtonOpen.addEventListener('click', () => {
-  // Функция для загрузки дынных в таблицу //
+// Обновить, залить новый контент //
+const getNewContent = () => {
   tableBody.innerHTML = getHtmlTableTh();
+  // Проходимся по массиву //
   for (let i = 0; i < date.length; i++) {
     const elementOfArrayArchive = Object.values(date[i]);
     const [idElement, registrationNumber, numberSubscriptionCasing, typeDocument, comment, numberAgreement, naming] = elementOfArrayArchive;
@@ -546,6 +546,12 @@ archiveButtonOpen.addEventListener('click', () => {
     // Заливаем контент //
     tableBody.innerHTML += getHtmlTableBody(idElement, registrationNumber, numberSubscriptionCasing, typeDocument, comment, numberAgreement, naming);
   }
+};
+
+// Слушатель события для создания таблицы //
+archiveButtonOpen.addEventListener('click', () => {
+  // Функция для загрузки дынных в таблицу //
+  getNewContent();
   const rowOnTalbe = document.querySelectorAll('.work-with-the-file__table-row');
   // Слушаель события для вывода popup of archive //
   Array.from(rowOnTalbe).forEach(element => {
@@ -631,6 +637,8 @@ buttonDeleteElementOfArrayArchive.addEventListener('click', () => {
       }
       // Закрытие popup //
       archivePagePopup.innerHTML = '';
+      // Обновит таблицу //
+      getNewContent();
     });
   });
 });
@@ -647,7 +655,12 @@ buttonOpenPopupForCreateElementInArray.addEventListener('click', () => {
   });
   // Слушатель событий для сохванения изменений //
   buttonSaveElement.addEventListener('click', () => {
+    // Загркзит новый объект в массив //
     createNewObjInArray();
+    // Обновит контент //
+    getNewContent();
+    // Закроет popup //
+    archivePagePopup.innerHTML = '';
   });
 });
 
