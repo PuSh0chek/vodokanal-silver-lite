@@ -1,21 +1,27 @@
 import {
   getHtmlTableBody
-} from './views/row-table-body.js';
+} from './views/row-table-body';
 import {
   getHtmlTableTh
-} from './views/th-table-body.js';
+} from './views/th-table-body';
 import {
   getHtmlPopupOfArchiveChangeDocument
-} from './views/work-with-the-file-popup.js';
+} from './views/work-with-the-file-popup';
 import {
   date
-} from './arrayOfArchive.js';
+} from './arrayOfArchive';
 import {
   getHtmlPopupNewDocument
-} from './views/work-width-the-file-popup-create-element.js';
+} from './views/work-width-the-file-popup-create-element';
 import {
   getHtmlPopupDeleteElementInDocument
 } from './views/work-width-the-file__delete-element-wrapper-popup';
+import {
+  getHtmlRowTalbeOfDocumentArchive
+} from './views/row-doc-element-popup';
+import {
+  arrayDocumentsOfArchive
+} from './arrayDocumentsOfArchive';
 
 // Переменнные //
 const archivePage = document.querySelector('.archive');
@@ -340,6 +346,24 @@ const getNewContent = () => {
   };
 };
 
+// Загрузка документов в таблицу popup'a //
+const getDocuments = () => {
+  const tableDocumentPopup = document.querySelector('.work-width-the-file__body-table-popup');
+  for(let i = 0; i < arrayDocumentsOfArchive.length; i++) {
+    const idDocument = arrayDocumentsOfArchive[i].idDocument;
+    const parent = arrayDocumentsOfArchive[i].idParent;
+    const nameDocument = arrayDocumentsOfArchive[i].name;
+    const typeDocument = arrayDocumentsOfArchive[i].typeOfDocument;
+    const weight = arrayDocumentsOfArchive[i].sizeOfDocument;
+    const author = arrayDocumentsOfArchive[i].authorsName;
+    const dateCreated = arrayDocumentsOfArchive[i].dateOfSublication;
+    const way = arrayDocumentsOfArchive[i].way;
+    if(arrayDocumentsOfArchive[i].idParent === arrayDocumentsOfArchive[i].idDocument){
+      tableDocumentPopup.innerHTML += getHtmlRowTalbeOfDocumentArchive(nameDocument, typeDocument, weight, author, dateCreated);
+    }
+  }
+};
+
 // Слушатель события для создания таблицы //
 archiveButtonOpen.addEventListener('click', () => {
   // Функция для загрузки дынных в таблицу //
@@ -352,6 +376,8 @@ archiveButtonOpen.addEventListener('click', () => {
       const buttonClosePopupArchive = document.querySelector('.work-width-the-file__button-close-up-info-popup');
       const buttonChangeRigths = document.getElementById('buttonChangeRigths');
       const buttonSaveChange = document.getElementById('buttonSaveChange');
+      // Заполнить таблицу документами //
+      getDocuments();
       // Слушатель события для закрытия popup //
       buttonClosePopupArchive.addEventListener('click', () => {
         archivePagePopup.innerHTML = '';

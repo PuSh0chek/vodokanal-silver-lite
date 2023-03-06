@@ -59,20 +59,7 @@ const getHtmlPopupOfArchiveChangeDocument = (nameDocument, application) => `
         <th class="work-width-the-file__element-head-popup">Автор</th>
         <th class="work-width-the-file__element-head-popup">Дата публикации</th>
       </tr>
-      <tr>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-      </tr>
+      
     </tbody>
   </table>
   <div class="work-width-the-file__button-container-documents-and-controlls-container-popup">
@@ -181,20 +168,7 @@ const getHtmlPopupNewDocument = idNewElement => `
         <th class="work-width-the-file-popup-create-element__element-head-popup">Автор</th>
         <th class="work-width-the-file-popup-create-element__element-head-popup">Дата публикации</th>
       </tr>
-      <tr>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-      </tr>
+
     </tbody>
   </table>
   <div class="work-width-the-file-popup-create-element__button-container-documents-and-controlls-container-popup">
@@ -224,6 +198,41 @@ const getHtmlPopupDeleteElementInDocument = () => `<div class="work-width-the-fi
 </div>
 <button class="work-width-the-file__button-close-delete-element-popup">X</button>
 </div>`;
+const getHtmlRowTalbeOfDocumentArchive = (nameDocument, typeDocument, weight, author, dateCreated) => `<tr class="work-width-the-file-popup-create-element__row-doc-element-popup">
+  <td>${nameDocument}</td>
+  <td>${typeDocument}</td>
+  <td>${weight}</td>
+  <td>${author}</td>
+  <td>${dateCreated}</td>
+</tr>`;
+const arrayDocumentsOfArchive = [{
+  idDocument: 1,
+  idParent: 1,
+  name: 'doc',
+  typeOfDocument: '2',
+  sizeOfDocument: '2',
+  authorsName: 'Силенко П.П',
+  dateOfSublication: '2',
+  way: '/2'
+}, {
+  idDocument: 2,
+  idParent: 1,
+  name: 'doc2',
+  typeOfDocument: '3',
+  sizeOfDocument: '3',
+  authorsName: 'Силенко П.П',
+  dateOfSublication: '3',
+  way: '/2'
+}, {
+  idDocument: 3,
+  idParent: 1,
+  name: 'doc3',
+  typeOfDocument: '4',
+  sizeOfDocument: '4',
+  authorsName: 'Силенко П.П',
+  dateOfSublication: '5',
+  way: '/2'
+}];
 
 // Переменнные //
 const archivePage = document.querySelector('.archive');
@@ -548,6 +557,21 @@ const getNewContent = () => {
   }
 };
 
+// Загрузка документов в таблицу popup'a //
+const getDocuments = () => {
+  const tableDocumentPopup = document.querySelector('.work-width-the-file__body-table-popup');
+  for (let i = 0; i < arrayDocumentsOfArchive.length; i++) {
+    const nameDocument = arrayDocumentsOfArchive[i].name;
+    const typeDocument = arrayDocumentsOfArchive[i].typeOfDocument;
+    const weight = arrayDocumentsOfArchive[i].sizeOfDocument;
+    const author = arrayDocumentsOfArchive[i].authorsName;
+    const dateCreated = arrayDocumentsOfArchive[i].dateOfSublication;
+    if (arrayDocumentsOfArchive[i].idParent === arrayDocumentsOfArchive[i].idDocument) {
+      tableDocumentPopup.innerHTML += getHtmlRowTalbeOfDocumentArchive(nameDocument, typeDocument, weight, author, dateCreated);
+    }
+  }
+};
+
 // Слушатель события для создания таблицы //
 archiveButtonOpen.addEventListener('click', () => {
   // Функция для загрузки дынных в таблицу //
@@ -560,6 +584,8 @@ archiveButtonOpen.addEventListener('click', () => {
       const buttonClosePopupArchive = document.querySelector('.work-width-the-file__button-close-up-info-popup');
       const buttonChangeRigths = document.getElementById('buttonChangeRigths');
       const buttonSaveChange = document.getElementById('buttonSaveChange');
+      // Заполнить таблицу документами //
+      getDocuments();
       // Слушатель события для закрытия popup //
       buttonClosePopupArchive.addEventListener('click', () => {
         archivePagePopup.innerHTML = '';

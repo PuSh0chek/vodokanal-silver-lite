@@ -35,20 +35,7 @@ export const getHtmlPopupNewDocument = (idNewElement) => `
         <th class="work-width-the-file-popup-create-element__element-head-popup">Автор</th>
         <th class="work-width-the-file-popup-create-element__element-head-popup">Дата публикации</th>
       </tr>
-      <tr>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-      </tr>
+
     </tbody>
   </table>
   <div class="work-width-the-file-popup-create-element__button-container-documents-and-controlls-container-popup">
