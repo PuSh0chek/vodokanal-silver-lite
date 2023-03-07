@@ -231,6 +231,7 @@ const changeRigthsforWorkWithElements = () => {
   const inputNumberBody = document.getElementById('doby');
   const inputNumberFlat = document.getElementById('flat');
   const inputApplication = document.getElementById('application');
+  const tableDocumentsOfArchive = document.querySelector('.work-width-the-file__table-popup');
   inputDate.disabled = false;
   inputNumberRegister.disabled = false;
   inputIdElement.disabled = false;
@@ -243,6 +244,7 @@ const changeRigthsforWorkWithElements = () => {
   inputNumberFlat.disabled = false;
   inputTypeDocument.disabled = false;
   inputApplication.disabled = false;
+  tableDocumentsOfArchive.style = 'user-select: all';
 };
 
 // функция для блокировки и соханение input's в popup //
@@ -259,6 +261,7 @@ const changeRigthsOnBlocked = () => {
   const inputNumberBody = document.getElementById('doby');
   const inputNumberFlat = document.getElementById('flat');
   const inputApplication = document.getElementById('application');
+  const tableDocumentsOfArchive = document.querySelector('.work-width-the-file__table-popup');
   date[0].type_document = inputTypeDocument.value;
   date[0].date_registration = inputDate.value;
   date[0].number_register = inputNumberRegister.value;
@@ -282,6 +285,7 @@ const changeRigthsOnBlocked = () => {
   inputNumberFlat.disabled = true;
   inputTypeDocument.disabled = true;
   inputApplication.disabled = true;
+  tableDocumentsOfArchive.style = 'user-select: none';
 };
 
 // Прорисоки pop и заполение его данными //
@@ -299,6 +303,7 @@ const getLoadInformationInPopup = (item) => {
   const inputNumberBody = document.getElementById('doby');
   const inputNumberFlat = document.getElementById('flat');
   const inputApplication = document.getElementById('application');
+  const tableDocumentsOfArchive = document.querySelector('.work-width-the-file__table-popup');
   inputTypeDocument.value = getInformationFromElement(item)[3];
   inputDate.value = getInformationFromElement(item)[7];
   inputNumberRegister.value = getInformationFromElement(item)[2];
@@ -322,6 +327,7 @@ const getLoadInformationInPopup = (item) => {
   inputNumberFlat.disabled = true;
   inputTypeDocument.disabled = true;
   inputApplication.disabled = true;
+  tableDocumentsOfArchive.style = 'user-select: none';
 };
 
 // Обновить, залить новый контент //
@@ -360,9 +366,11 @@ const getDocuments = () => {
     const dateCreated = arrayDocumentsOfArchive[i].dateOfSublication;
     const way = arrayDocumentsOfArchive[i].way;
     // Проверка по условию привязанного документа по id //
-    if(arrayDocumentsOfArchive[i].idParent === arrayDocumentsOfArchive[i].idDocument){
-      // Загрузка документа в таблицу //
-      tableDocumentPopup.innerHTML += getHtmlRowTalbeOfDocumentArchive(nameDocument, typeDocument, weight, author, dateCreated);
+    for(let n = 0; n < date[i].id_documents.length; n++) {
+      if(arrayDocumentsOfArchive[i].idParent === date[i].id){
+        // Загрузка документа в таблицу //
+        tableDocumentPopup.innerHTML += getHtmlRowTalbeOfDocumentArchive(nameDocument, typeDocument, weight, author, dateCreated);
+      }
     }
   }
 };

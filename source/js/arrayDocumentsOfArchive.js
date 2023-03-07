@@ -11,7 +11,7 @@ export const arrayDocumentsOfArchive = [
   },
   {
     idDocument: 2,
-    idParent: 1,
+    idParent: 2,
     name: 'doc2',
     typeOfDocument: '3',
     sizeOfDocument: '3',
@@ -21,7 +21,7 @@ export const arrayDocumentsOfArchive = [
   },
   {
     idDocument: 3,
-    idParent: 1,
+    idParent: 3,
     name: 'doc3',
     typeOfDocument: '4',
     sizeOfDocument: '4',
