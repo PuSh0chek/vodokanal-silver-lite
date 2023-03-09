@@ -59,10 +59,11 @@ const getHtmlPopupOfArchiveChangeDocument = (nameDocument, application) => `
         <th class="work-width-the-file__element-head-popup">Автор</th>
         <th class="work-width-the-file__element-head-popup">Дата публикации</th>
       </tr>
-      
+
     </tbody>
   </table>
   <div class="work-width-the-file__button-container-documents-and-controlls-container-popup">
+    <input type="file" class="work-width-the-file__button-documents-and-controlls-container-popup"></ш>
     <button class="work-width-the-file__button-documents-and-controlls-container-popup">Присоединить</button>
     <button class="work-width-the-file__button-documents-and-controlls-container-popup">Показать</button>
     <button class="work-width-the-file__button-documents-and-controlls-container-popup">Удалить</button>
@@ -87,8 +88,8 @@ const getHtmlPopupOfArchiveChangeDocument = (nameDocument, application) => `
 // JSON как объект //
 const date = [{
   'id': 341,
-  'id_element': 3,
-  'number_register': 1,
+  'number_register': 4,
+  'id_subscriber': 4,
   'type_document': 'Доп.соглашение и документы об изменении преамбулы',
   'comments': 'Заявление на опломбирование ',
   'number__agreement': 12,
@@ -99,11 +100,11 @@ const date = [{
   'number_home': 5,
   'number_body': 5,
   'number_flat': 5,
-  'id_documents': [1, 2, 3]
+  'id_documents': [3, 4]
 }, {
   'id': 342,
-  'id_element': 2,
-  'number_register': 1,
+  'number_register': 3,
+  'id_subscriber': 3,
   'type_document': 'Доп.соглашение и документы об изменении преамбулы',
   'comments': 'Заявление на опломбирование ',
   'number__agreement': 12,
@@ -114,11 +115,11 @@ const date = [{
   'number_home': 5,
   'number_body': 5,
   'number_flat': 5,
-  'id_documents': [1, 2, 3]
+  'id_documents': [2]
 }, {
   'id': 343,
-  'id_element': 1,
-  'number_register': 1,
+  'number_register': 2,
+  'id_subscriber': 2,
   'type_document': 'Доп.соглашение и документы об изменении преамбулы',
   'comments': 'Заявление на опломбирование ',
   'number__agreement': 12,
@@ -129,7 +130,22 @@ const date = [{
   'number_home': 5,
   'number_body': 5,
   'number_flat': 5,
-  'id_documents': [1, 2, 3]
+  'id_documents': [1]
+}, {
+  'id': 344,
+  'number_register': 1,
+  'id_subscriber': 1,
+  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П',
+  'date_registration': '01.02.2025',
+  'name_sity': 'Ростов-На-Дону',
+  'name_street': 'Льва Толстого',
+  'number_home': 5,
+  'number_body': 5,
+  'number_flat': 5,
+  'id_documents': []
 }];
 const getHtmlPopupNewDocument = idNewElement => `
 <div class="work-width-the-file-popup-create-element__up-info-container-popup">
@@ -172,6 +188,7 @@ const getHtmlPopupNewDocument = idNewElement => `
     </tbody>
   </table>
   <div class="work-width-the-file-popup-create-element__button-container-documents-and-controlls-container-popup">
+    <input type="file" class="work-width-the-file-popup-create-element__button-documents-and-controlls-container-popup"></input>
     <button class="work-width-the-file-popup-create-element__button-documents-and-controlls-container-popup">Присоединить</button>
     <button class="work-width-the-file-popup-create-element__button-documents-and-controlls-container-popup">Удалить</button>
   </div>
@@ -207,7 +224,7 @@ const getHtmlRowTalbeOfDocumentArchive = (nameDocument, typeDocument, weight, au
 </tr>`;
 const arrayDocumentsOfArchive = [{
   idDocument: 1,
-  idParent: 1,
+  idParent: 343,
   name: 'doc',
   typeOfDocument: '2',
   sizeOfDocument: '2',
@@ -216,7 +233,7 @@ const arrayDocumentsOfArchive = [{
   way: '/2'
 }, {
   idDocument: 2,
-  idParent: 2,
+  idParent: 342,
   name: 'doc2',
   typeOfDocument: '3',
   sizeOfDocument: '3',
@@ -225,15 +242,44 @@ const arrayDocumentsOfArchive = [{
   way: '/2'
 }, {
   idDocument: 3,
-  idParent: 3,
+  idParent: 341,
   name: 'doc3',
   typeOfDocument: '4',
   sizeOfDocument: '4',
   authorsName: 'Силенко П.П',
   dateOfSublication: '5',
   way: '/2'
+}, {
+  idDocument: 4,
+  idParent: 341,
+  name: 'doc4',
+  typeOfDocument: '4',
+  sizeOfDocument: '4',
+  authorsName: 'Силенко П.П',
+  dateOfSublication: '5',
+  way: '/2'
 }];
+const folderThree = [{
+  'idFolter': 1,
+  'nameFilder': 'Абонентское дело'
+}, {
+  'idFolter': 2,
+  'nameFilder': 'Проектно-техническая документация'
+}];
+const getHtmlRowOfWorkFolderInTheTalbe = (name, number) => `<tr class="work-with-the-folder__row-table">
+  <td class="work-with-the-folder__element-table">${name}</td>
+  <td class="work-with-the-folder__element-table">${number}</td>
+</tr>`;
 
+// const ez = fetch('http://172.201.234.149:5000/d', {
+//   mode: 'no-cors',
+//   method: 'post',
+//   headers: {
+//     'Content-Type': 'application/json',
+//   },
+//   body: JSON.stringify(ob),
+// });
+// console.log(ez);
 // Переменнные //
 const archivePage = document.querySelector('.archive');
 const archivePagePopup = document.querySelector('.work-width-the-file__popup');
@@ -267,6 +313,7 @@ const scanningSettings = document.querySelector('.settings__popup-of-scanning-se
 const buttonSettingsUser = document.querySelector('.settings__user-button');
 const buttonSettingsGeneralis = document.querySelector('.settings__generalis-button');
 const buttonScanning = document.querySelector('.settings__scanning');
+const tableOfFolderThree = document.querySelector('.work-with-the-folder__table');
 let filtredArrayOfArchiveDocument = [];
 
 // Универсальные функции //
@@ -564,21 +611,30 @@ const getNewContent = () => {
 };
 
 // Загрузка документов в таблицу popup'a //
-const getDocuments = () => {
+const getDocuments = item => {
   const tableDocumentPopup = document.querySelector('.work-width-the-file__body-table-popup');
   // Проходимся циколом по массиву объектов //
-  for (let i = 0; i < arrayDocumentsOfArchive.length; i++) {
-    const nameDocument = arrayDocumentsOfArchive[i].name;
-    const typeDocument = arrayDocumentsOfArchive[i].typeOfDocument;
-    const weight = arrayDocumentsOfArchive[i].sizeOfDocument;
-    const author = arrayDocumentsOfArchive[i].authorsName;
-    const dateCreated = arrayDocumentsOfArchive[i].dateOfSublication;
-    for (let n = 0; n < date[i].id_documents.length; n++) {
-      if (arrayDocumentsOfArchive[i].idParent === date[i].id) {
-        // Загрузка документа в таблицу //
-        tableDocumentPopup.innerHTML += getHtmlRowTalbeOfDocumentArchive(nameDocument, typeDocument, weight, author, dateCreated);
+  if (item.path[1].children[0].textContent !== undefined && item.path[1].children[0].textContent !== null && arrayDocumentsOfArchive.length !== 0) {
+    for (let i = 0; i < arrayDocumentsOfArchive.length; i++) {
+      const parent = arrayDocumentsOfArchive[i].idParent;
+      const nameDocument = arrayDocumentsOfArchive[i].name;
+      const typeDocument = arrayDocumentsOfArchive[i].typeOfDocument;
+      const weight = arrayDocumentsOfArchive[i].sizeOfDocument;
+      const author = arrayDocumentsOfArchive[i].authorsName;
+      const dateCreated = arrayDocumentsOfArchive[i].dateOfSublication;
+      for (let n = 0; n < date[n].id_documents.length; n++) {
+        // Проверка по условию привязанного документа по id родителя //
+        if (Number(item.path[1].children[0].textContent) === Number(parent)) {
+          // Загрузка документа в таблицу //
+          tableDocumentPopup.innerHTML += getHtmlRowTalbeOfDocumentArchive(nameDocument, typeDocument, weight, author, dateCreated);
+        } else {
+          // tableDocumentPopup.innerHTML = 'Привязанная документация отсутствует';
+          // break;
+        }
       }
     }
+  } else if (item.path[1].children[0].textContent === undefined || item.path[1].children[0].textContent === null) {
+    tableDocumentPopup.innerHTML += 'При выводе документации произошла ошибка.';
   }
 };
 
@@ -595,7 +651,7 @@ archiveButtonOpen.addEventListener('click', () => {
       const buttonChangeRigths = document.getElementById('buttonChangeRigths');
       const buttonSaveChange = document.getElementById('buttonSaveChange');
       // Заполнить таблицу документами //
-      getDocuments();
+      getDocuments(item);
       // Слушатель события для закрытия popup //
       buttonClosePopupArchive.addEventListener('click', () => {
         archivePagePopup.innerHTML = '';
@@ -700,6 +756,19 @@ buttonOpenPopupForCreateElementInArray.addEventListener('click', () => {
   });
 });
 
+// Работа с таблицей для вывода древа папок //
+const getTalbeOfFaldersThree = (name, number) => {
+  tableOfFolderThree.innerHTML += getHtmlRowOfWorkFolderInTheTalbe();
+  const rowTableFoldersThree = document.querySelectorAll('.work-with-the-folder__row-table');
+  for (let i = 0; i < folderThree.length; i++) {
+    folderThree[i] = [name, number];
+    Array.from(rowTableFoldersThree.children).forEach(item => {
+      item[0] = name;
+      item[1] = number;
+    });
+  }
+};
+getTalbeOfFaldersThree();
 // Архив  //
 // Блок вызова функций //
 getCountLicen();

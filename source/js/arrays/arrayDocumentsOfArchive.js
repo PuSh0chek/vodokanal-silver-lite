@@ -1,7 +1,7 @@
 export const arrayDocumentsOfArchive = [
   {
     idDocument: 1,
-    idParent: 1,
+    idParent: 343,
     name: 'doc',
     typeOfDocument: '2',
     sizeOfDocument: '2',
@@ -11,7 +11,7 @@ export const arrayDocumentsOfArchive = [
   },
   {
     idDocument: 2,
-    idParent: 2,
+    idParent: 342,
     name: 'doc2',
     typeOfDocument: '3',
     sizeOfDocument: '3',
@@ -21,8 +21,18 @@ export const arrayDocumentsOfArchive = [
   },
   {
     idDocument: 3,
-    idParent: 3,
+    idParent: 341,
     name: 'doc3',
+    typeOfDocument: '4',
+    sizeOfDocument: '4',
+    authorsName: 'Силенко П.П',
+    dateOfSublication: '5',
+    way: '/2',
+  },
+  {
+    idDocument: 4,
+    idParent: 341,
+    name: 'doc4',
     typeOfDocument: '4',
     sizeOfDocument: '4',
     authorsName: 'Силенко П.П',

@@ -39,10 +39,11 @@ export const getHtmlPopupOfArchiveChangeDocument = (nameDocument, application) =
         <th class="work-width-the-file__element-head-popup">Автор</th>
         <th class="work-width-the-file__element-head-popup">Дата публикации</th>
       </tr>
-      
+
     </tbody>
   </table>
   <div class="work-width-the-file__button-container-documents-and-controlls-container-popup">
+    <input type="file" class="work-width-the-file__button-documents-and-controlls-container-popup"></ш>
     <button class="work-width-the-file__button-documents-and-controlls-container-popup">Присоединить</button>
     <button class="work-width-the-file__button-documents-and-controlls-container-popup">Показать</button>
     <button class="work-width-the-file__button-documents-and-controlls-container-popup">Удалить</button>

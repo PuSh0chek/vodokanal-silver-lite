@@ -39,6 +39,7 @@ export const getHtmlPopupNewDocument = (idNewElement) => `
     </tbody>
   </table>
   <div class="work-width-the-file-popup-create-element__button-container-documents-and-controlls-container-popup">
+    <input type="file" class="work-width-the-file-popup-create-element__button-documents-and-controlls-container-popup"></input>
     <button class="work-width-the-file-popup-create-element__button-documents-and-controlls-container-popup">Присоединить</button>
     <button class="work-width-the-file-popup-create-element__button-documents-and-controlls-container-popup">Удалить</button>
   </div>

@@ -9,7 +9,7 @@ import {
 } from './views/work-with-the-file-popup';
 import {
   date
-} from './arrayOfArchive';
+} from './arrays/arrayOfArchive';
 import {
   getHtmlPopupNewDocument
 } from './views/work-width-the-file-popup-create-element';
@@ -21,8 +21,24 @@ import {
 } from './views/row-doc-element-popup';
 import {
   arrayDocumentsOfArchive
-} from './arrayDocumentsOfArchive';
+} from './arrays/arrayDocumentsOfArchive';
+import {
+  folderThree
+} from './arrays/arrayOfFolderTree';
+import {
+  getHtmlRowOfWorkFolderInTheTalbe
+} from './views/work-width-the-folder-row';
 
+
+// const ez = fetch('http://172.201.234.149:5000/d', {
+//   mode: 'no-cors',
+//   method: 'post',
+//   headers: {
+//     'Content-Type': 'application/json',
+//   },
+//   body: JSON.stringify(ob),
+// });
+// console.log(ez);
 // Переменнные //
 const archivePage = document.querySelector('.archive');
 const archivePagePopup = document.querySelector('.work-width-the-file__popup');
@@ -56,6 +72,7 @@ const scanningSettings = document.querySelector('.settings__popup-of-scanning-se
 const buttonSettingsUser = document.querySelector('.settings__user-button');
 const buttonSettingsGeneralis = document.querySelector('.settings__generalis-button');
 const buttonScanning = document.querySelector('.settings__scanning');
+const tableOfFolderThree = document.querySelector('.work-with-the-folder__table');
 let filtredArrayOfArchiveDocument = [];
 
 // Универсальные функции //
@@ -353,25 +370,33 @@ const getNewContent = () => {
 };
 
 // Загрузка документов в таблицу popup'a //
-const getDocuments = () => {
+const getDocuments = (item) => {
   const tableDocumentPopup = document.querySelector('.work-width-the-file__body-table-popup');
   // Проходимся циколом по массиву объектов //
-  for(let i = 0; i < arrayDocumentsOfArchive.length; i++) {
-    const idDocument = arrayDocumentsOfArchive[i].idDocument;
-    const parent = arrayDocumentsOfArchive[i].idParent;
-    const nameDocument = arrayDocumentsOfArchive[i].name;
-    const typeDocument = arrayDocumentsOfArchive[i].typeOfDocument;
-    const weight = arrayDocumentsOfArchive[i].sizeOfDocument;
-    const author = arrayDocumentsOfArchive[i].authorsName;
-    const dateCreated = arrayDocumentsOfArchive[i].dateOfSublication;
-    const way = arrayDocumentsOfArchive[i].way;
-    // Проверка по условию привязанного документа по id //
-    for(let n = 0; n < date[i].id_documents.length; n++) {
-      if(arrayDocumentsOfArchive[i].idParent === date[i].id){
-        // Загрузка документа в таблицу //
-        tableDocumentPopup.innerHTML += getHtmlRowTalbeOfDocumentArchive(nameDocument, typeDocument, weight, author, dateCreated);
-      }
-    }
+  if(item.path[1].children[0].textContent !== undefined && item.path[1].children[0].textContent !== null && arrayDocumentsOfArchive.length !== 0) {
+    for(let i = 0; i < arrayDocumentsOfArchive.length; i++) {
+      const idDocument = arrayDocumentsOfArchive[i].idDocument;
+      const parent = arrayDocumentsOfArchive[i].idParent;
+      const nameDocument = arrayDocumentsOfArchive[i].name;
+      const typeDocument = arrayDocumentsOfArchive[i].typeOfDocument;
+      const weight = arrayDocumentsOfArchive[i].sizeOfDocument;
+      const author = arrayDocumentsOfArchive[i].authorsName;
+      const dateCreated = arrayDocumentsOfArchive[i].dateOfSublication;
+      const way = arrayDocumentsOfArchive[i].way;
+      // Проходимся по массиву присвоенных документов //
+      for(let n = 0; n < date[n].id_documents.length; n++) {
+        // Проверка по условию привязанного документа по id родителя //
+        if(Number(item.path[1].children[0].textContent) === Number(parent)){
+          // Загрузка документа в таблицу //
+          tableDocumentPopup.innerHTML += getHtmlRowTalbeOfDocumentArchive(nameDocument, typeDocument, weight, author, dateCreated);
+        } else {
+          // tableDocumentPopup.innerHTML = 'Привязанная документация отсутствует';
+          // break;
+        };
+      };
+    };
+  } else if(item.path[1].children[0].textContent === undefined || item.path[1].children[0].textContent === null) {
+    tableDocumentPopup.innerHTML += 'При выводе документации произошла ошибка.';
   }
 };
 
@@ -388,7 +413,7 @@ archiveButtonOpen.addEventListener('click', () => {
       const buttonChangeRigths = document.getElementById('buttonChangeRigths');
       const buttonSaveChange = document.getElementById('buttonSaveChange');
       // Заполнить таблицу документами //
-      getDocuments();
+      getDocuments(item);
       // Слушатель события для закрытия popup //
       buttonClosePopupArchive.addEventListener('click', () => {
         archivePagePopup.innerHTML = '';
@@ -493,6 +518,19 @@ buttonOpenPopupForCreateElementInArray.addEventListener('click', () => {
   });
 });
 
+// Работа с таблицей для вывода древа папок //
+const getTalbeOfFaldersThree = (name, number) => {
+  tableOfFolderThree.innerHTML += getHtmlRowOfWorkFolderInTheTalbe();
+  const rowTableFoldersThree = document.querySelectorAll('.work-with-the-folder__row-table');
+  for (let i = 0; i < folderThree.length; i++) {
+    folderThree[i] = [name, number];
+    Array.from(rowTableFoldersThree.children).forEach((item) => {
+      item[0] = name;
+      item[1] = number;
+    });
+  }
+};
+getTalbeOfFaldersThree();
 // Архив  //
 // Блок вызова функций //
 getCountLicen();
