@@ -214,6 +214,7 @@ const archiveButtonOpen = document.querySelector('.header__button-of-archive-pag
 
 // Выгрузка информации из строки для помещения в popup //
 const getInformationFromElement = (item) => {
+  console.log(item);
   for (let i = 0; i < date.length; i++) {
     if (Number(item.path[1].children[0].textContent) === Number(date[i].id)) {
       const idDocument = date[i].id;
@@ -386,7 +387,7 @@ const getDocuments = (item) => {
       // Проходимся по массиву присвоенных документов //
       for(let n = 0; n < date[n].id_documents.length; n++) {
         // Проверка по условию привязанного документа по id родителя //
-        if(Number(item.path[1].children[0].textContent) === Number(parent)){
+        if(Number(item.path[1].children[0].textContent) === Number(parent)) {
           // Загрузка документа в таблицу //
           tableDocumentPopup.innerHTML += getHtmlRowTalbeOfDocumentArchive(nameDocument, typeDocument, weight, author, dateCreated);
         } else {
@@ -400,7 +401,7 @@ const getDocuments = (item) => {
   }
 };
 
-// Слушатель события для создания таблицы //
+// СлушательgetDocuments события для создания таблицы //
 archiveButtonOpen.addEventListener('click', () => {
   // Функция для загрузки дынных в таблицу //
   getNewContent();
@@ -519,14 +520,23 @@ buttonOpenPopupForCreateElementInArray.addEventListener('click', () => {
 });
 
 // Работа с таблицей для вывода древа папок //
-const getTalbeOfFaldersThree = (name, number) => {
-  tableOfFolderThree.innerHTML += getHtmlRowOfWorkFolderInTheTalbe();
+const qq = (id, name, number) => {
+  tableOfFolderThree.innerHTML += getHtmlRowOfWorkFolderInTheTalbe(id, name, number);
   const rowTableFoldersThree = document.querySelectorAll('.work-with-the-folder__row-table');
+};
+
+const getTalbeOfFaldersThree = () => {
   for (let i = 0; i < folderThree.length; i++) {
-    folderThree[i] = [name, number];
+    const id = 0;
+    const name = 0;
+    const number = 0;
+    qq(id, name, number);
+    console.log(rowTableFoldersThree);
     Array.from(rowTableFoldersThree.children).forEach((item) => {
-      item[0] = name;
-      item[1] = number;
+      id = folderThree.length;
+      name = item[1];
+      number = item[2];
+      folderThree[i] = [id, name, number];
     });
   }
 };

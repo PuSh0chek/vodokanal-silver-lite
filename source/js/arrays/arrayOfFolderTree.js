@@ -1,10 +1,12 @@
 export const folderThree = [
   {
     'idFolter': 1,
-    'nameFilder': 'Абонентское дело',
+    'nameFolder': 'Абонентское дело',
+    'nameFilder': 1,
   },
   {
     'idFolter': 2,
-    'nameFilder': 'Проектно-техническая документация',
+    'nameFolder': 'Проектно-техническая документация',
+    'numberFolder': 2,
   },
 ];

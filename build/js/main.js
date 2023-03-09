@@ -261,12 +261,15 @@ const arrayDocumentsOfArchive = [{
 }];
 const folderThree = [{
   'idFolter': 1,
-  'nameFilder': 'Абонентское дело'
+  'nameFolder': 'Абонентское дело',
+  'nameFilder': 1
 }, {
   'idFolter': 2,
-  'nameFilder': 'Проектно-техническая документация'
+  'nameFolder': 'Проектно-техническая документация',
+  'numberFolder': 2
 }];
-const getHtmlRowOfWorkFolderInTheTalbe = (name, number) => `<tr class="work-with-the-folder__row-table">
+const getHtmlRowOfWorkFolderInTheTalbe = (id, name, number) => `<tr class="work-with-the-folder__row-table">
+  <td class="work-with-the-folder__element-table">${id}</td>
   <td class="work-with-the-folder__element-table">${name}</td>
   <td class="work-with-the-folder__element-table">${number}</td>
 </tr>`;
@@ -455,6 +458,7 @@ const archiveButtonOpen = document.querySelector('.header__button-of-archive-pag
 
 // Выгрузка информации из строки для помещения в popup //
 const getInformationFromElement = item => {
+  console.log(item);
   for (let i = 0; i < date.length; i++) {
     if (Number(item.path[1].children[0].textContent) === Number(date[i].id)) {
       const idDocument = date[i].id;
@@ -638,7 +642,7 @@ const getDocuments = item => {
   }
 };
 
-// Слушатель события для создания таблицы //
+// СлушательgetDocuments события для создания таблицы //
 archiveButtonOpen.addEventListener('click', () => {
   // Функция для загрузки дынных в таблицу //
   getNewContent();
@@ -757,14 +761,22 @@ buttonOpenPopupForCreateElementInArray.addEventListener('click', () => {
 });
 
 // Работа с таблицей для вывода древа папок //
-const getTalbeOfFaldersThree = (name, number) => {
-  tableOfFolderThree.innerHTML += getHtmlRowOfWorkFolderInTheTalbe();
+const qq = (id, name, number) => {
+  tableOfFolderThree.innerHTML += getHtmlRowOfWorkFolderInTheTalbe(id, name, number);
   const rowTableFoldersThree = document.querySelectorAll('.work-with-the-folder__row-table');
+};
+const getTalbeOfFaldersThree = () => {
   for (let i = 0; i < folderThree.length; i++) {
-    folderThree[i] = [name, number];
+    const id = 0;
+    const name = 0;
+    const number = 0;
+    qq(id, name, number);
+    console.log(rowTableFoldersThree);
     Array.from(rowTableFoldersThree.children).forEach(item => {
-      item[0] = name;
-      item[1] = number;
+      id = folderThree.length;
+      name = item[1];
+      number = item[2];
+      folderThree[i] = [id, name, number];
     });
   }
 };
