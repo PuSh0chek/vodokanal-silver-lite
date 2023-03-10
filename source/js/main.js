@@ -29,7 +29,6 @@ import {
   getHtmlRowOfWorkFolderInTheTalbe
 } from './views/work-width-the-folder-row';
 
-
 // const ez = fetch('http://172.201.234.149:5000/d', {
 //   mode: 'no-cors',
 //   method: 'post',
@@ -97,6 +96,16 @@ const getVersionThisProgramm = () => {
 // Вызов архива //
 buttonArchive.addEventListener('click', () => {
   getRequiredWindow(archivePage, adminPage, settingsPage, aboutProgrammPage, displayGrid, displayNone);
+  // Работа с таблицей для вывода древа папок //
+  const getTalbeOfFaldersThree = () => {
+    for(let i = 0; i < folderThree.length; i++) {
+      
+      tableOfFolderThree.innerHTML += getHtmlRowOfWorkFolderInTheTalbe(id, name, number);
+    }
+    const rowTableFoldersThree = document.querySelector('.work-with-the-folder__row-table');
+    Array.from(rowTableFoldersThree.children).forEach((item) => console.log("🚀 ~ file: main.js:106 ~ getTalbeOfFaldersThree ~ item:", item))
+  };
+  getTalbeOfFaldersThree();
 });
 
 // Вызов окна администрирование //
@@ -182,10 +191,12 @@ Array.from(adminMainMenu.children).forEach((item) => {
     }
   });
 });
+
 // Вызов окна настроек //
 buttonSettings.addEventListener('click', () => {
   getRequiredWindow(settingsPage, adminPage, archivePage, aboutProgrammPage, displayGrid, displayNone);
 });
+
 // Вывод popup's settings //
 buttonSettingsUser.addEventListener('click', () => {
   settingsUser.style = 'display: block';
@@ -214,7 +225,6 @@ const archiveButtonOpen = document.querySelector('.header__button-of-archive-pag
 
 // Выгрузка информации из строки для помещения в popup //
 const getInformationFromElement = (item) => {
-  console.log(item);
   for (let i = 0; i < date.length; i++) {
     if (Number(item.path[1].children[0].textContent) === Number(date[i].id)) {
       const idDocument = date[i].id;
@@ -519,28 +529,6 @@ buttonOpenPopupForCreateElementInArray.addEventListener('click', () => {
   });
 });
 
-// Работа с таблицей для вывода древа папок //
-const qq = (id, name, number) => {
-  tableOfFolderThree.innerHTML += getHtmlRowOfWorkFolderInTheTalbe(id, name, number);
-  const rowTableFoldersThree = document.querySelectorAll('.work-with-the-folder__row-table');
-};
-
-const getTalbeOfFaldersThree = () => {
-  for (let i = 0; i < folderThree.length; i++) {
-    const id = 0;
-    const name = 0;
-    const number = 0;
-    qq(id, name, number);
-    console.log(rowTableFoldersThree);
-    Array.from(rowTableFoldersThree.children).forEach((item) => {
-      id = folderThree.length;
-      name = item[1];
-      number = item[2];
-      folderThree[i] = [id, name, number];
-    });
-  }
-};
-getTalbeOfFaldersThree();
 // Архив  //
 // Блок вызова функций //
 getCountLicen();
