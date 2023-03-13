@@ -260,19 +260,36 @@ const arrayDocumentsOfArchive = [{
   way: '/2'
 }];
 const folderThree = [{
-  'idFolter': 1,
+  'idFolter': 0,
+  'idParent': null,
   'nameFolder': 'Абонентское дело',
-  'nameFilder': 1
+  'numberFolder': 1,
+  'folderLevel': 0
 }, {
-  'idFolter': 2,
+  'idFolter': 1,
+  'idParent': null,
   'nameFolder': 'Проектно-техническая документация',
-  'numberFolder': 2
+  'numberFolder': 2,
+  'folderLevel': 0
 }];
 const getHtmlRowOfWorkFolderInTheTalbe = (id, name, number) => `<tr class="work-with-the-folder__row-table">
   <td class="work-with-the-folder__element-table">${id}</td>
   <td class="work-with-the-folder__element-table">${name}</td>
   <td class="work-with-the-folder__element-table">${number}</td>
 </tr>`;
+const arrayChildrenOfFilderThree = [{
+  'idFolter': 0,
+  'idParent': 0,
+  'nameFolder': 'Новая папка абонентских дел',
+  'numberFolder': 1,
+  'folderLevel': 1
+}, {
+  'idFolter': 1,
+  'idParent': 1,
+  'nameFolder': 'Абонентское дело',
+  'numberFolder': 2,
+  'folderLevel': 1
+}];
 
 // const ez = fetch('http://172.201.234.149:5000/d', {
 //   mode: 'no-cors',
@@ -317,6 +334,11 @@ const buttonSettingsUser = document.querySelector('.settings__user-button');
 const buttonSettingsGeneralis = document.querySelector('.settings__generalis-button');
 const buttonScanning = document.querySelector('.settings__scanning');
 const tableOfFolderThree = document.querySelector('.work-with-the-folder__table');
+const buttonLevelUpOfFolder = document.querySelector('.work-with-the-folder__button-up');
+const selectOfLevelOfFolder = document.querySelector('.work-with-the-folder__faster-search');
+const tableBody = document.querySelector('.work-with-the-file__table-body');
+const archiveButtonOpen = document.querySelector('.header__button-of-archive-page');
+let levelFolder = 0;
 let filtredArrayOfArchiveDocument = [];
 
 // Универсальные функции //
@@ -337,17 +359,67 @@ const getVersionThisProgramm = () => {
   versionContainer.innerHTML = version;
 };
 
+// Функция для погружения в папку //
+const getDownFolder = (array, arrayDown, table) => {
+  Array.from(array).forEach(item => {
+    // слулушатель события для погружения в папку //
+    item.addEventListener('click', () => {
+      levelFolder++;
+      for (let m = 0; m < arrayDown.length; m++) {
+        if (Number(item.children[0].innerHTML) === Number(arrayDown[m].idParent)) {
+          table.innerHTML = '';
+          const idNewElement = arrayDown[m].idFolter;
+          const nameNewElement = arrayDown[m].nameFolder;
+          const numberNewElement = arrayDown[m].numberFolder;
+          // Передача значений и вывод элементов в таблицу //
+          table.innerHTML += getHtmlRowOfWorkFolderInTheTalbe(idNewElement, nameNewElement, numberNewElement);
+          // Отчистка таблицы файлов //
+          tableBody.innerHTML = '';
+          tableBody.innerHTML += getHtmlTableTh();
+        }
+      }
+    });
+  });
+};
+
+// Слушатель события для поднятия на папку уровенем выше //
+buttonLevelUpOfFolder.addEventListener('click', item => {
+  const rowTableFolders = document.querySelectorAll('.work-with-the-folder__row-table');
+  if (levelFolder !== 0) {
+    for (let i = 0; i < arrayChildrenOfFilderThree.length; i++) {
+      if (arrayChildrenOfFilderThree[i].levelFolder === levelFolder) {
+        tableOfFolderThree.innerHTML = '';
+        const idNewElement = arrayChildrenOfFilderThree[i].idFolter;
+        const nameNewElement = arrayChildrenOfFilderThree[i].nameFolder;
+        const numberNewElement = arrayChildrenOfFilderThree[i].numberFolder;
+        // Передача значений и вывод элементов в таблицу //
+        tableOfFolderThree.innerHTML += getHtmlRowOfWorkFolderInTheTalbe(idNewElement, nameNewElement, numberNewElement);
+        // Отчистка таблицы файлов //
+        tableBody.innerHTML = '';
+        tableBody.innerHTML += getHtmlTableTh();
+      }
+    }
+  }
+  levelFolder--;
+});
+
 // Блок кода появление POPUP'S //
 // Вызов архива //
 buttonArchive.addEventListener('click', () => {
   getRequiredWindow(archivePage, adminPage, settingsPage, aboutProgrammPage, displayGrid, displayNone);
-  // Работа с таблицей для вывода древа папок //
+  // Вывести левую таблицу папок //
   const getTalbeOfFaldersThree = () => {
+    tableOfFolderThree.innerHTML = '';
     for (let i = 0; i < folderThree.length; i++) {
-      tableOfFolderThree.innerHTML += getHtmlRowOfWorkFolderInTheTalbe(id, name, number);
+      const idElement = folderThree[i].idFolter;
+      const nameElement = folderThree[i].nameFolder;
+      const numberElement = folderThree[i].numberFolder;
+      // Передача значений и вывод элементов в таблицу //
+      tableOfFolderThree.innerHTML += getHtmlRowOfWorkFolderInTheTalbe(idElement, nameElement, numberElement);
+      const rowTableFoldersThree = document.querySelectorAll('.work-with-the-folder__row-table');
+      // Функция для погружения в папку //
+      getDownFolder(rowTableFoldersThree, arrayChildrenOfFilderThree, tableOfFolderThree);
     }
-    const rowTableFoldersThree = document.querySelector('.work-with-the-folder__row-table');
-    Array.from(rowTableFoldersThree.children).forEach(item => console.log("🚀 ~ file: main.js:106 ~ getTalbeOfFaldersThree ~ item:", item));
   };
   getTalbeOfFaldersThree();
 });
@@ -464,9 +536,6 @@ buttonAbout.addEventListener('click', () => {
 });
 
 // Работа с таблицей archive //
-const tableBody = document.querySelector('.work-with-the-file__table-body');
-const archiveButtonOpen = document.querySelector('.header__button-of-archive-page');
-
 // Выгрузка информации из строки для помещения в popup //
 const getInformationFromElement = item => {
   for (let i = 0; i < date.length; i++) {

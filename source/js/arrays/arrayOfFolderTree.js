@@ -1,12 +1,16 @@
 export const folderThree = [
   {
-    'idFolter': 1,
+    'idFolter': 0,
+    'idParent': null,
     'nameFolder': 'Абонентское дело',
-    'nameFilder': 1,
+    'numberFolder': 1,
+    'folderLevel': 0,
   },
   {
-    'idFolter': 2,
+    'idFolter': 1,
+    'idParent': null,
     'nameFolder': 'Проектно-техническая документация',
     'numberFolder': 2,
+    'folderLevel': 0,
   },
 ];
