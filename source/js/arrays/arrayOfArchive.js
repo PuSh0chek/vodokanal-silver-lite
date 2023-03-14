@@ -15,6 +15,7 @@ export const date = [
     'number_body': 5,
     'number_flat': 5,
     'id_documents': [3, 4],
+    'id_parent': 0,
   },
   {
     'id': 342,
@@ -31,6 +32,7 @@ export const date = [
     'number_body': 5,
     'number_flat': 5,
     'id_documents': [2],
+    'id_parent': 0,
   },
   {
     'id': 343,
@@ -47,6 +49,7 @@ export const date = [
     'number_body': 5,
     'number_flat': 5,
     'id_documents': [1],
+    'id_parent': 1,
   },
   {
     'id': 344,
@@ -63,5 +66,6 @@ export const date = [
     'number_body': 5,
     'number_flat': 5,
     'id_documents': [],
+    'id_parent': 2,
   },
 ];

@@ -1580,3 +1580,24 @@
     cursor: pointer;
   }
 }
+
+// CREATE NEW FOLDER (POPUP) //
+.work-with-the-folder__title-popup-of-new-folder {
+  font-size: 20px;
+  margin-left: 62px;
+}
+.work-with-the-folder__popup-of-new-folder {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.work-with-the-folder__input-of-new-folder {
+  margin-bottom: 20px;
+}
+.work-with-the-folder__wrapper-button-of-new-folder {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 200px;
+  margin-bottom: 20px;
+}
+.work-with-the-folder__button-of-new-folder {}

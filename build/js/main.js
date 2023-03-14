@@ -100,7 +100,8 @@ const date = [{
   'number_home': 5,
   'number_body': 5,
   'number_flat': 5,
-  'id_documents': [3, 4]
+  'id_documents': [3, 4],
+  'id_parent': 0
 }, {
   'id': 342,
   'number_register': 3,
@@ -115,7 +116,8 @@ const date = [{
   'number_home': 5,
   'number_body': 5,
   'number_flat': 5,
-  'id_documents': [2]
+  'id_documents': [2],
+  'id_parent': 0
 }, {
   'id': 343,
   'number_register': 2,
@@ -130,7 +132,8 @@ const date = [{
   'number_home': 5,
   'number_body': 5,
   'number_flat': 5,
-  'id_documents': [1]
+  'id_documents': [1],
+  'id_parent': 1
 }, {
   'id': 344,
   'number_register': 1,
@@ -145,7 +148,8 @@ const date = [{
   'number_home': 5,
   'number_body': 5,
   'number_flat': 5,
-  'id_documents': []
+  'id_documents': [],
+  'id_parent': 2
 }];
 const getHtmlPopupNewDocument = idNewElement => `
 <div class="work-width-the-file-popup-create-element__up-info-container-popup">
@@ -285,21 +289,28 @@ const arrayChildrenOfFilderThree = [{
   'folderLevel': 1
 }, {
   'idFolter': 1,
+  'idParent': 0,
+  'nameFolder': 'Новая папка абонентских дел',
+  'numberFolder': 1,
+  'folderLevel': 1
+}, {
+  'idFolter': 2,
   'idParent': 1,
   'nameFolder': 'Абонентское дело',
   'numberFolder': 2,
   'folderLevel': 1
 }];
+const getHtmlPopupOfNewFolder = () => `<h3 class="work-with-the-folder__title-popup-of-new-folder">Новая папка</h3>
+<div class="work-with-the-folder__popup-of-new-folder">
+  <input class="work-with-the-folder__input-of-new-folder" type="text" class="text" placeholder="Номер договора">
+  <input class="work-with-the-folder__input-of-new-folder" type="text" class="text" placeholder="Абоненткий номер">
+  <input class="work-with-the-folder__input-of-new-folder" type="text" class="text" placeholder="Комментарий">
+  <div class="work-with-the-folder__wrapper-button-of-new-folder">
+    <button class="work-with-the-folder__button-of-new-folder">Сохранить</button>
+    <button class="work-with-the-folder__button-of-new-folder">Назад</button>
+  </div>
+</div>`;
 
-// const ez = fetch('http://172.201.234.149:5000/d', {
-//   mode: 'no-cors',
-//   method: 'post',
-//   headers: {
-//     'Content-Type': 'application/json',
-//   },
-//   body: JSON.stringify(ob),
-// });
-// console.log(ez);
 // Переменнные //
 const archivePage = document.querySelector('.archive');
 const archivePagePopup = document.querySelector('.work-width-the-file__popup');
@@ -338,10 +349,11 @@ const buttonLevelUpOfFolder = document.querySelector('.work-with-the-folder__but
 const selectOfLevelOfFolder = document.querySelector('.work-with-the-folder__faster-search');
 const tableBody = document.querySelector('.work-with-the-file__table-body');
 const archiveButtonOpen = document.querySelector('.header__button-of-archive-page');
-let levelFolder = 0;
+const newFolder = document.querySelector('.work-with-the-folder__button-new-folder');
+let levelFolderCounter = 0;
 let filtredArrayOfArchiveDocument = [];
 
-// Универсальные функции //
+// Функция стилизации //
 const getRequiredWindow = (showElement, removeElementOne, removeElementTwo, removeElementThree, displayShow, displayRemove) => {
   showElement.style = `display: ${displayShow}`;
   removeElementOne.style = `display: ${displayRemove}`;
@@ -359,36 +371,24 @@ const getVersionThisProgramm = () => {
   versionContainer.innerHTML = version;
 };
 
-// Функция для погружения в папку //
-const getDownFolder = (array, arrayDown, table) => {
-  Array.from(array).forEach(item => {
-    // слулушатель события для погружения в папку //
-    item.addEventListener('click', () => {
-      levelFolder++;
-      for (let m = 0; m < arrayDown.length; m++) {
-        if (Number(item.children[0].innerHTML) === Number(arrayDown[m].idParent)) {
-          table.innerHTML = '';
-          const idNewElement = arrayDown[m].idFolter;
-          const nameNewElement = arrayDown[m].nameFolder;
-          const numberNewElement = arrayDown[m].numberFolder;
-          // Передача значений и вывод элементов в таблицу //
-          table.innerHTML += getHtmlRowOfWorkFolderInTheTalbe(idNewElement, nameNewElement, numberNewElement);
-          // Отчистка таблицы файлов //
-          tableBody.innerHTML = '';
-          tableBody.innerHTML += getHtmlTableTh();
-        }
-      }
-    });
-  });
-};
-
-// Слушатель события для поднятия на папку уровенем выше //
-buttonLevelUpOfFolder.addEventListener('click', item => {
-  const rowTableFolders = document.querySelectorAll('.work-with-the-folder__row-table');
-  if (levelFolder !== 0) {
+// Функция для поднятия на папку уровнем выше //
+const getFolderLevelUp = () => {
+  tableOfFolderThree.innerHTML = '';
+  levelFolderCounter--;
+  if (levelFolderCounter === 0) {
+    for (let i = 0; i < folderThree.length; i++) {
+      const idNewElement = folderThree[i].idFolter;
+      const nameNewElement = folderThree[i].nameFolder;
+      const numberNewElement = folderThree[i].numberFolder;
+      // Передача значений и вывод элементов в таблицу //
+      tableOfFolderThree.innerHTML += getHtmlRowOfWorkFolderInTheTalbe(idNewElement, nameNewElement, numberNewElement);
+      // Отчистка таблицы файлов //
+      tableBody.innerHTML = '';
+      tableBody.innerHTML += getHtmlTableTh();
+    }
+  } else {
     for (let i = 0; i < arrayChildrenOfFilderThree.length; i++) {
-      if (arrayChildrenOfFilderThree[i].levelFolder === levelFolder) {
-        tableOfFolderThree.innerHTML = '';
+      if (Number(arrayChildrenOfFilderThree[i].folderLevel) === Number(levelFolderCounter)) {
         const idNewElement = arrayChildrenOfFilderThree[i].idFolter;
         const nameNewElement = arrayChildrenOfFilderThree[i].nameFolder;
         const numberNewElement = arrayChildrenOfFilderThree[i].numberFolder;
@@ -400,28 +400,89 @@ buttonLevelUpOfFolder.addEventListener('click', item => {
       }
     }
   }
-  levelFolder--;
+};
+
+// Функция со слушателем события для погружения на папку уровнем ниже //
+const getFolderLevelDown = (item, arrayDown, table) => {
+  // слулушатель события для погружения в папку //
+  item.addEventListener('click', () => {
+    table.innerHTML = '';
+    for (let m = 0; m < arrayDown.length; m++) {
+      if (Number(item.children[0].innerHTML) === Number(arrayDown[m].idParent)) {
+        const idNewElement = arrayDown[m].idFolter;
+        const nameNewElement = arrayDown[m].nameFolder;
+        const numberNewElement = arrayDown[m].numberFolder;
+        // Передача значений и вывод элементов в таблицу //
+        table.innerHTML += getHtmlRowOfWorkFolderInTheTalbe(idNewElement, nameNewElement, numberNewElement);
+        // Отчистка таблицы файлов //
+        tableBody.innerHTML = '';
+        tableBody.innerHTML += getHtmlTableTh();
+      }
+      for (let i = 0; i < date.length; i++) {
+        if (folderThree.folderLevel !== 0 && date[i].id_parent === arrayChildrenOfFilderThree[m].idFolter) {
+          // console.log(date[i].id_parent);
+          // console.log(arrayChildrenOfFilderThree[m]);
+          const id = date[m].id;
+          const registr = date[m].number_register;
+          const subscr = date[m].id_subscriber;
+          const type = date[m].type_document;
+          const comments = date[m].comments;
+          const agreement = date[m].number__agreement;
+          const nameObj = date[m].name_object;
+          tableBody.innerHTML += getHtmlTableBody(id, registr, subscr, type, comments, agreement, nameObj);
+        }
+      }
+    }
+    levelFolderCounter++;
+  });
+};
+
+// Функция для погружения в папку //
+const getDownFolder = (array, arrayDown, table) => {
+  Array.from(array).forEach(item => {
+    getFolderLevelDown(item, arrayDown, table);
+  });
+};
+
+// Слушатель события для поднятия на папку уровенем выше //
+buttonLevelUpOfFolder.addEventListener('click', () => {
+  getFolderLevelUp();
 });
+
+// Слушатель события для вывода popup СОЗДАНИЕ ПАПКИ //
+newFolder.addEventListener('click', () => {
+  archivePagePopup.innerHTML = getHtmlPopupOfNewFolder();
+  // Закрыть popup СОЗДАНИЯ ПАПКИ //
+});
+
+// Слушатель события для создания новой папки //
+// newFolder.addEventListener('click', () => {
+
+//   const newFolder = {
+//     'idFolter': 0,
+//     'idParent': 0,
+//     'nameFolder': 0,
+//     'numberFolder': 0,
+//     'folderLevel': 0,
+//   };
+// });
 
 // Блок кода появление POPUP'S //
 // Вызов архива //
 buttonArchive.addEventListener('click', () => {
   getRequiredWindow(archivePage, adminPage, settingsPage, aboutProgrammPage, displayGrid, displayNone);
   // Вывести левую таблицу папок //
-  const getTalbeOfFaldersThree = () => {
-    tableOfFolderThree.innerHTML = '';
-    for (let i = 0; i < folderThree.length; i++) {
-      const idElement = folderThree[i].idFolter;
-      const nameElement = folderThree[i].nameFolder;
-      const numberElement = folderThree[i].numberFolder;
-      // Передача значений и вывод элементов в таблицу //
-      tableOfFolderThree.innerHTML += getHtmlRowOfWorkFolderInTheTalbe(idElement, nameElement, numberElement);
-      const rowTableFoldersThree = document.querySelectorAll('.work-with-the-folder__row-table');
-      // Функция для погружения в папку //
-      getDownFolder(rowTableFoldersThree, arrayChildrenOfFilderThree, tableOfFolderThree);
-    }
-  };
-  getTalbeOfFaldersThree();
+  tableOfFolderThree.innerHTML = '';
+  for (let i = 0; i < folderThree.length; i++) {
+    const idElement = folderThree[i].idFolter;
+    const nameElement = folderThree[i].nameFolder;
+    const numberElement = folderThree[i].numberFolder;
+    // Передача значений и вывод элементов в таблицу //
+    tableOfFolderThree.innerHTML += getHtmlRowOfWorkFolderInTheTalbe(idElement, nameElement, numberElement);
+    const rowTableFoldersThree = document.querySelectorAll('.work-with-the-folder__row-table');
+    // Функция для погружения в папку //
+    getDownFolder(rowTableFoldersThree, arrayChildrenOfFilderThree, tableOfFolderThree);
+  }
 });
 
 // Вызов окна администрирование //
