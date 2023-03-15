@@ -1604,8 +1604,25 @@
 
 // POPUP OF DELETE FOLDER //
 .work-width-the-file__title-popup-of-delete-folder {
+  font-size: 20px;
+  text-align: center;
+  padding-bottom: 40px;
 }
 .work-width-the-file__input-popup-of-delete-folder {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+}
+.work-width-the-file__wrapper-button-popup-of-delete-folder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
 }
 .work-width-the-file__button-popup-of-delete-folder {
+  width: 150px;
+  margin-left: 5px;
 }
