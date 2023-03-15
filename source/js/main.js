@@ -34,6 +34,9 @@ import {
 import {
   getHtmlPopupOfNewFolder
 } from './views/popup-of-new-folder';
+import {
+  getHtmlDeleteFolderOfPopup
+} from './views/delete-folder-of-popup';
 
 
 // Переменнные //
@@ -75,6 +78,7 @@ const selectOfLevelOfFolder = document.querySelector('.work-with-the-folder__fas
 const tableBody = document.querySelector('.work-with-the-file__table-body');
 const archiveButtonOpen = document.querySelector('.header__button-of-archive-page');
 const newFolder = document.querySelector('.work-with-the-folder__button-new-folder');
+const buttonDeleteOfFolder = document.querySelector('.work-with-the-folder__button-remove');
 let levelFolderCounter = 0;
 let filtredArrayOfArchiveDocument = [];
 
@@ -145,8 +149,6 @@ const getFolderLevelDown = (item, arrayDown, table) => {
       }
       for(let i = 0; i < date.length; i++) {
         if(folderThree.folderLevel !== 0 && date[i].id_parent === arrayChildrenOfFilderThree[m].idFolter) {
-          // console.log(date[i].id_parent);
-          // console.log(arrayChildrenOfFilderThree[m]);
           const id = date[m].id;
           const registr = date[m].number_register;
           const subscr = date[m].id_subscriber;
@@ -179,18 +181,66 @@ const getNewFolder = (elements, arrayForPush) => {
   const inputDate = [];
   Array.from(elements).forEach((item) => {
     inputDate.push(item.value);
-    console.log('🚀 ~ file: main.js:183 ~ Array.from ~ inputDate:', inputDate);
   });
-  const newFolder = {
+  const objOfNewFolder = {
     'idFolter': arrayChildrenOfFilderThree.length,
     'idParent': arrayChildrenOfFilderThree[0].idParent,
     'nameFolder': inputDate[2],
     'numberFolder': inputDate[1],
     'folderLevel': levelFolderCounter,
   };
-  arrayForPush.push(newFolder);
-  console.log("🚀 ~ file: main.js:192 ~ getNewFolder ~ arrayForPush:", arrayForPush)
+  arrayForPush.push(objOfNewFolder);
 };
+
+// Функция для удаления папки и ее детей(фулючая файлы в лежащие в них) //
+const getDeleteFolder = (arrayOfFolders, arrayOfDocument, arrayOfFiles, idElement) => {
+  const filtredChildrenArray = arrayOfFolders.filter((item) => item.idFolter !== Number(idElement));
+  for(let i = 0; i < arrayOfDocument.length; i++) {
+    if(arrayOfDocument[i].id_documents.length !== 0) {
+      for(let p = 0; p < arrayOfFolders.length; p++) {
+        if(arrayOfDocument[i].id_parent === arrayOfFolders[p].idFolter) {
+          arrayOfFolders.length = 0;
+          for(let n = 0; n < filtredChildrenArray.length; n++) {
+            arrayOfFolders.push(filtredChildrenArray[n]);
+          };
+          for(let j = 0; j < arrayOfFiles.length; j++) {
+            for(let m = 0; m < arrayOfDocument[i].id_documents; m++) {
+              if(arrayOfFiles[j].idDocument === arrayOfDocument[i].id_documents[m]) {
+                const arrayFiltredOfFiles = arrayOfFiles.filter((item) => item.idDocument !== arrayOfDocument[i].id_documents[m]);
+                arrayOfFiles.length = 0;
+                for(let n = 0; n < arrayOfDocument[i].id_documents.length; n++) {
+                  arrayOfFiles.push(arrayFiltredOfFiles[n]);
+                };
+                const arrayFiltredOfDocuments = arrayOfDocument.filter((item) => item.id !== arrayOfDocument[i].id);
+                arrayOfDocument.length = 0;
+                for(let f = 0; f < arrayFiltredOfDocuments.length; f++) {
+                  arrayOfDocument.push(arrayFiltredOfDocuments[f]);
+                };
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
+// Солушатель событий для удаления ПАПКИ //
+buttonDeleteOfFolder.addEventListener('click', () => {
+  archivePagePopup.innerHTML += getHtmlDeleteFolderOfPopup();
+  const inputFromPopupOfDeleteFolder = document.querySelector('.work-width-the-file__input-popup-of-delete-folder');
+  const buttonsFromPopupOfDeleteFolder = document.querySelectorAll('.work-width-the-file__button-popup-of-delete-folder');
+  Array.from(buttonsFromPopupOfDeleteFolder).forEach((item) => {
+    item.addEventListener('click', () => {
+      if(item.id === 'dutton-of-delete-folder') {
+        getDeleteFolder(arrayChildrenOfFilderThree, date, arrayDocumentsOfArchive, inputFromPopupOfDeleteFolder.value);
+        console.log(item);
+      } else {
+        archivePagePopup.innerHTML = '';
+      };
+    });
+  });
+});
 
 // Слушатель события для вывода popup СОЗДАНИЕ ПАПКИ //
 newFolder.addEventListener('click', () => {
@@ -529,7 +579,7 @@ const getDocuments = (item) => {
   }
 };
 
-// СлушательgetDocuments события для создания таблицы //
+// Слушатель getDocuments события для создания таблицы //
 archiveButtonOpen.addEventListener('click', () => {
   // Функция для загрузки дынных в таблицу //
   getNewContent();
