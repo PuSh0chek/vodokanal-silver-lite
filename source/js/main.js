@@ -174,23 +174,42 @@ buttonLevelUpOfFolder.addEventListener('click', () => {
   getFolderLevelUp();
 });
 
+// Функция для создания новой папки //
+const getNewFolder = (elements, arrayForPush) => {
+  const inputDate = [];
+  Array.from(elements).forEach((item) => {
+    inputDate.push(item.value);
+    console.log('🚀 ~ file: main.js:183 ~ Array.from ~ inputDate:', inputDate);
+  });
+  const newFolder = {
+    'idFolter': arrayChildrenOfFilderThree.length,
+    'idParent': arrayChildrenOfFilderThree[0].idParent,
+    'nameFolder': inputDate[2],
+    'numberFolder': inputDate[1],
+    'folderLevel': levelFolderCounter,
+  };
+  arrayForPush.push(newFolder);
+  console.log("🚀 ~ file: main.js:192 ~ getNewFolder ~ arrayForPush:", arrayForPush)
+};
+
 // Слушатель события для вывода popup СОЗДАНИЕ ПАПКИ //
 newFolder.addEventListener('click', () => {
   archivePagePopup.innerHTML = getHtmlPopupOfNewFolder();
+  const inputsOfNewFolder = document.querySelectorAll('.work-with-the-folder__input-of-new-folder');
+  const buttonsOfNewFolder = document.querySelectorAll('.work-with-the-folder__button-of-new-folder');
   // Закрыть popup СОЗДАНИЯ ПАПКИ //
+  Array.from(buttonsOfNewFolder).forEach((item) => {
+    item.addEventListener('click', () => {
+      // Слушатель события для создания новой папки //
+      if(item.id === 'buttonSaveFolder') {
+        getNewFolder(inputsOfNewFolder, arrayChildrenOfFilderThree);
+        // Слушатель события для закрытия popup //
+      } else {
+        archivePagePopup.innerHTML = '';
+      }
+    });
+  });
 });
-
-// Слушатель события для создания новой папки //
-// newFolder.addEventListener('click', () => {
-
-//   const newFolder = {
-//     'idFolter': 0,
-//     'idParent': 0,
-//     'nameFolder': 0,
-//     'numberFolder': 0,
-//     'folderLevel': 0,
-//   };
-// });
 
 // Блок кода появление POPUP'S //
 // Вызов архива //
