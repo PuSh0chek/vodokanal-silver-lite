@@ -358,6 +358,7 @@ const tableBody = document.querySelector('.work-with-the-file__table-body');
 const archiveButtonOpen = document.querySelector('.header__button-of-archive-page');
 const newFolder = document.querySelector('.work-with-the-folder__button-new-folder');
 const buttonDeleteOfFolder = document.querySelector('.work-with-the-folder__button-remove');
+const buttonOfUpdateContent = document.querySelector('.work-with-the-folder__button-renovate');
 let levelFolderCounter = 0;
 let filtredArrayOfArchiveDocument = [];
 
@@ -471,7 +472,7 @@ const getNewFolder = (elements, arrayForPush) => {
   arrayForPush.push(objOfNewFolder);
 };
 
-// Функция для удаления папки и ее детей(фулючая файлы в лежащие в них) //
+// Функция для удаления папки и ее детей(И файлы в лежащие в них) //
 const getDeleteFolder = (arrayOfFolders, arrayOfDocument, arrayOfFiles, idElement) => {
   const filtredChildrenArray = arrayOfFolders.filter(item => item.idFolter !== Number(idElement));
   for (let i = 0; i < arrayOfDocument.length; i++) {
@@ -972,6 +973,9 @@ buttonOpenPopupForCreateElementInArray.addEventListener('click', () => {
     archivePagePopup.innerHTML = '';
   });
 });
+
+// Слушатель события для обновления контента //
+buttonOfUpdateContent.addEventListener('click', () => {});
 
 // Архив  //
 // Блок вызова функций //
