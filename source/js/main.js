@@ -91,6 +91,26 @@ const getRequiredWindow = (showElement, removeElementOne, removeElementTwo, remo
   removeElementThree.style = `display: ${displayRemove}`;
 };
 
+// Функция для обновления контента //
+const getUpdateCotent = () => {
+  levelFolderCounter = 0;
+  tableBody.innerHTML = '';
+  tableBody.innerHTML = getHtmlTableTh();
+  tableOfFolderThree.innerHTML = '';
+  for(let i = 0; i < folderThree.length; i++) {
+    const idNewElement = folderThree[i].idFolter;
+    const nameNewElement = folderThree[i].nameFolder;
+    const numberNewElement = folderThree[i].numberFolder;
+    // Передача значений и вывод элементов в таблицу //
+    tableOfFolderThree.innerHTML += getHtmlRowOfWorkFolderInTheTalbe(idNewElement, nameNewElement, numberNewElement);
+  };
+};
+
+// Слушатель события для обновления контента //
+buttonOfUpdateContent.addEventListener('click', () => {
+  getUpdateCotent();
+});
+
 // Количество лицензий на данный момент //
 const getCountLicen = () => {
   counterLicen.innerHTML = countLicen;
@@ -696,16 +716,6 @@ buttonOpenPopupForCreateElementInArray.addEventListener('click', () => {
     // Закроет popup //
     archivePagePopup.innerHTML = '';
   });
-});
-
-// Функция для обновления контента //
-const getUpdateCotent = () => {
-
-};
-
-// Слушатель события для обновления контента //
-buttonOfUpdateContent.addEventListener('click', () => {
-  getUpdateCotent();
 });
 
 // Архив  //
