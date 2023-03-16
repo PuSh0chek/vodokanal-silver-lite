@@ -412,6 +412,10 @@ const buttonOfUpdateContent = document.querySelector('.work-with-the-folder__but
 const buttonOfShowDocuments = document.querySelector('.work-with-the-file__button-of-documents');
 const buttonSearchResultOfDocuments = document.querySelector('.work-with-the-file__button-of-search-result');
 const buttonSearchOfDocuments = document.querySelector('.work-with-the-file__button-search');
+const errorOfLoadDocumentation = 'При выводе документации произошла ошибка.';
+const textOnButtonOfSearchPopup = 'Поиск';
+const voidElement = '';
+const numberZero = 0;
 let levelFolderCounter = 0;
 let filtredArrayOfArchiveDocument = [];
 
@@ -421,10 +425,8 @@ const getSearchDate = () => {
   const buttonsOfSearchPopup = document.querySelectorAll('.work-width-the-file__button-of-search-popup');
   Array.from(buttonsOfSearchPopup).forEach(item => {
     item.addEventListener('click', () => {
-      if (item.textContent === 'Поиск') {
-        console.log(1);
-      } else {
-        archivePagePopup.innerHTML = '';
+      if (item.textContent === textOnButtonOfSearchPopup) {} else {
+        archivePagePopup.innerHTML = voidElement;
       }
     });
   });
@@ -437,13 +439,13 @@ buttonSearchOfDocuments.addEventListener('click', () => {
 
 // Слущатель события ПОКАЗАТЬ ТАБЛИЦУ АБОНЕНТСКИЕ ДЕЛА //
 buttonOfShowDocuments.addEventListener('click', () => {
-  tableBody.innerHTML = '';
+  tableBody.innerHTML = voidElement;
   tableBody.innerHTML = getHtmlTableTh();
 });
 
 // Слущатель события ПОКАЗАТЬ РЕЗУЛЬТАТЫ ПОИСКА //
 buttonSearchResultOfDocuments.addEventListener('click', () => {
-  tableBody.innerHTML = '';
+  tableBody.innerHTML = voidElement;
   tableBody.innerHTML = getHtmlTableTh();
 });
 
@@ -457,11 +459,11 @@ const getRequiredWindow = (showElement, removeElementOne, removeElementTwo, remo
 
 // Функция для обновления контента //
 const getUpdateCotent = () => {
-  levelFolderCounter = 0;
-  tableBody.innerHTML = '';
+  levelFolderCounter = numberZero;
+  tableBody.innerHTML = voidElement;
   tableBody.innerHTML = getHtmlTableTh();
-  tableOfFolderThree.innerHTML = '';
-  for (let i = 0; i < folderThree.length; i++) {
+  tableOfFolderThree.innerHTML = voidElement;
+  for (let i = numberZero; i < folderThree.length; i++) {
     const idNewElement = folderThree[i].idFolter;
     const nameNewElement = folderThree[i].nameFolder;
     const numberNewElement = folderThree[i].numberFolder;
@@ -487,21 +489,21 @@ const getVersionThisProgramm = () => {
 
 // Функция для поднятия на папку уровнем выше //
 const getFolderLevelUp = () => {
-  tableOfFolderThree.innerHTML = '';
+  tableOfFolderThree.innerHTML = voidElement;
   levelFolderCounter--;
-  if (levelFolderCounter === 0) {
-    for (let i = 0; i < folderThree.length; i++) {
+  if (levelFolderCounter === numberZero) {
+    for (let i = numberZero; i < folderThree.length; i++) {
       const idNewElement = folderThree[i].idFolter;
       const nameNewElement = folderThree[i].nameFolder;
       const numberNewElement = folderThree[i].numberFolder;
       // Передача значений и вывод элементов в таблицу //
       tableOfFolderThree.innerHTML += getHtmlRowOfWorkFolderInTheTalbe(idNewElement, nameNewElement, numberNewElement);
       // Отчистка таблицы файлов //
-      tableBody.innerHTML = '';
+      tableBody.innerHTML = voidElement;
       tableBody.innerHTML += getHtmlTableTh();
     }
   } else {
-    for (let i = 0; i < arrayChildrenOfFilderThree.length; i++) {
+    for (let i = numberZero; i < arrayChildrenOfFilderThree.length; i++) {
       if (Number(arrayChildrenOfFilderThree[i].folderLevel) === Number(levelFolderCounter)) {
         const idNewElement = arrayChildrenOfFilderThree[i].idFolter;
         const nameNewElement = arrayChildrenOfFilderThree[i].nameFolder;
@@ -509,7 +511,7 @@ const getFolderLevelUp = () => {
         // Передача значений и вывод элементов в таблицу //
         tableOfFolderThree.innerHTML += getHtmlRowOfWorkFolderInTheTalbe(idNewElement, nameNewElement, numberNewElement);
         // Отчистка таблицы файлов //
-        tableBody.innerHTML = '';
+        tableBody.innerHTML = voidElement;
         tableBody.innerHTML += getHtmlTableTh();
       }
     }
@@ -520,20 +522,20 @@ const getFolderLevelUp = () => {
 const getFolderLevelDown = (item, arrayDown, table) => {
   // слулушатель события для погружения в папку //
   item.addEventListener('click', () => {
-    table.innerHTML = '';
-    for (let m = 0; m < arrayDown.length; m++) {
-      if (Number(item.children[0].innerHTML) === Number(arrayDown[m].idParent)) {
+    table.innerHTML = voidElement;
+    for (let m = numberZero; m < arrayDown.length; m++) {
+      if (Number(item.children[numberZero].innerHTML) === Number(arrayDown[m].idParent)) {
         const idNewElement = arrayDown[m].idFolter;
         const nameNewElement = arrayDown[m].nameFolder;
         const numberNewElement = arrayDown[m].numberFolder;
         // Передача значений и вывод элементов в таблицу //
         table.innerHTML += getHtmlRowOfWorkFolderInTheTalbe(idNewElement, nameNewElement, numberNewElement);
         // Отчистка таблицы файлов //
-        tableBody.innerHTML = '';
+        tableBody.innerHTML = voidElement;
         tableBody.innerHTML += getHtmlTableTh();
       }
-      for (let i = 0; i < date.length; i++) {
-        if (folderThree.folderLevel !== 0 && date[i].id_parent === arrayChildrenOfFilderThree[m].idFolter) {
+      for (let i = numberZero; i < date.length; i++) {
+        if (folderThree.folderLevel !== numberZero && date[i].id_parent === arrayChildrenOfFilderThree[m].idFolter) {
           const id = date[m].id;
           const registr = date[m].number_register;
           const subscr = date[m].id_subscriber;
@@ -569,7 +571,7 @@ const getNewFolder = (elements, arrayForPush) => {
   });
   const objOfNewFolder = {
     'idFolter': arrayChildrenOfFilderThree.length,
-    'idParent': arrayChildrenOfFilderThree[0].idParent,
+    'idParent': arrayChildrenOfFilderThree[numberZero].idParent,
     'nameFolder': inputDate[2],
     'numberFolder': inputDate[1],
     'folderLevel': levelFolderCounter
@@ -580,25 +582,25 @@ const getNewFolder = (elements, arrayForPush) => {
 // Функция для удаления папки и ее детей(И файлы в лежащие в них) //
 const getDeleteFolder = (arrayOfFolders, arrayOfDocument, arrayOfFiles, idElement) => {
   const filtredChildrenArray = arrayOfFolders.filter(item => item.idFolter !== Number(idElement));
-  for (let i = 0; i < arrayOfDocument.length; i++) {
-    if (arrayOfDocument[i].id_documents.length !== 0) {
-      for (let p = 0; p < arrayOfFolders.length; p++) {
+  for (let i = numberZero; i < arrayOfDocument.length; i++) {
+    if (arrayOfDocument[i].id_documents.length !== numberZero) {
+      for (let p = numberZero; p < arrayOfFolders.length; p++) {
         if (arrayOfDocument[i].id_parent === arrayOfFolders[p].idFolter) {
-          arrayOfFolders.length = 0;
-          for (let n = 0; n < filtredChildrenArray.length; n++) {
+          arrayOfFolders.length = numberZero;
+          for (let n = numberZero; n < filtredChildrenArray.length; n++) {
             arrayOfFolders.push(filtredChildrenArray[n]);
           }
-          for (let j = 0; j < arrayOfFiles.length; j++) {
-            for (let m = 0; m < arrayOfDocument[i].id_documents; m++) {
+          for (let j = numberZero; j < arrayOfFiles.length; j++) {
+            for (let m = numberZero; m < arrayOfDocument[i].id_documents; m++) {
               if (arrayOfFiles[j].idDocument === arrayOfDocument[i].id_documents[m]) {
                 const arrayFiltredOfFiles = arrayOfFiles.filter(item => item.idDocument !== arrayOfDocument[i].id_documents[m]);
-                arrayOfFiles.length = 0;
-                for (let n = 0; n < arrayOfDocument[i].id_documents.length; n++) {
+                arrayOfFiles.length = numberZero;
+                for (let n = numberZero; n < arrayOfDocument[i].id_documents.length; n++) {
                   arrayOfFiles.push(arrayFiltredOfFiles[n]);
                 }
                 const arrayFiltredOfDocuments = arrayOfDocument.filter(item => item.id !== arrayOfDocument[i].id);
-                arrayOfDocument.length = 0;
-                for (let f = 0; f < arrayFiltredOfDocuments.length; f++) {
+                arrayOfDocument.length = numberZero;
+                for (let f = numberZero; f < arrayFiltredOfDocuments.length; f++) {
                   arrayOfDocument.push(arrayFiltredOfDocuments[f]);
                 }
               }
@@ -619,9 +621,8 @@ buttonDeleteOfFolder.addEventListener('click', () => {
     item.addEventListener('click', () => {
       if (item.id === 'dutton-of-delete-folder') {
         getDeleteFolder(arrayChildrenOfFilderThree, date, arrayDocumentsOfArchive, inputFromPopupOfDeleteFolder.value);
-        console.log(item);
       } else {
-        archivePagePopup.innerHTML = '';
+        archivePagePopup.innerHTML = voidElement;
       }
     });
   });
@@ -640,7 +641,7 @@ newFolder.addEventListener('click', () => {
         getNewFolder(inputsOfNewFolder, arrayChildrenOfFilderThree);
         // Слушатель события для закрытия popup //
       } else {
-        archivePagePopup.innerHTML = '';
+        archivePagePopup.innerHTML = voidElement;
       }
     });
   });
@@ -651,8 +652,8 @@ newFolder.addEventListener('click', () => {
 buttonArchive.addEventListener('click', () => {
   getRequiredWindow(archivePage, adminPage, settingsPage, aboutProgrammPage, displayGrid, displayNone);
   // Вывести левую таблицу папок //
-  tableOfFolderThree.innerHTML = '';
-  for (let i = 0; i < folderThree.length; i++) {
+  tableOfFolderThree.innerHTML = voidElement;
+  for (let i = numberZero; i < folderThree.length; i++) {
     const idElement = folderThree[i].idFolter;
     const nameElement = folderThree[i].nameFolder;
     const numberElement = folderThree[i].numberFolder;
@@ -672,7 +673,7 @@ buttonAdmin.addEventListener('click', () => {
 // Блок кода появления popup's admin //
 Array.from(adminMainMenu.children).forEach(item => {
   item.addEventListener('click', () => {
-    if (item === Array.from(adminMainMenu.children)[0]) {
+    if (item === Array.from(adminMainMenu.children)[numberZero]) {
       workersPopup.style = 'display: block';
       groupAccessPopup.style = 'display: none';
       structureFolder.style = 'display: none';
@@ -778,8 +779,8 @@ buttonAbout.addEventListener('click', () => {
 // Работа с таблицей archive //
 // Выгрузка информации из строки для помещения в popup //
 const getInformationFromElement = item => {
-  for (let i = 0; i < date.length; i++) {
-    if (Number(item.path[1].children[0].textContent) === Number(date[i].id)) {
+  for (let i = numberZero; i < date.length; i++) {
+    if (Number(item.path[1].children[numberZero].textContent) === Number(date[i].id)) {
       const idDocument = date[i].id;
       const registrationNumber = date[i].id_element;
       const numberSubscriptionCasing = date[i].number_register;
@@ -843,17 +844,17 @@ const changeRigthsOnBlocked = () => {
   const inputNumberFlat = document.getElementById('flat');
   const inputApplication = document.getElementById('application');
   const tableDocumentsOfArchive = document.querySelector('.work-width-the-file__table-popup');
-  date[0].type_document = inputTypeDocument.value;
-  date[0].date_registration = inputDate.value;
-  date[0].number_register = inputNumberRegister.value;
-  date[0].id_element = inputIdElement.value;
-  date[0].name_object = inputNaming.value;
-  date[0].name_sity = inputSity.value;
-  date[0].name_street = inputStreet.value;
-  date[0].number__agreement = inputNumberArgreement.value;
-  date[0].number_home = inputNumberHome.value;
-  date[0].number_body = inputNumberBody.value;
-  date[0].number_flat = inputNumberFlat.value;
+  date[numberZero].type_document = inputTypeDocument.value;
+  date[numberZero].date_registration = inputDate.value;
+  date[numberZero].number_register = inputNumberRegister.value;
+  date[numberZero].id_element = inputIdElement.value;
+  date[numberZero].name_object = inputNaming.value;
+  date[numberZero].name_sity = inputSity.value;
+  date[numberZero].name_street = inputStreet.value;
+  date[numberZero].number__agreement = inputNumberArgreement.value;
+  date[numberZero].number_home = inputNumberHome.value;
+  date[numberZero].number_body = inputNumberBody.value;
+  date[numberZero].number_flat = inputNumberFlat.value;
   inputDate.disabled = true;
   inputNumberRegister.disabled = true;
   inputIdElement.disabled = true;
@@ -871,7 +872,7 @@ const changeRigthsOnBlocked = () => {
 
 // Прорисоки pop и заполение его данными //
 const getLoadInformationInPopup = item => {
-  archivePagePopup.innerHTML += getHtmlPopupOfArchiveChangeDocument(getInformationFromElement(item)[0], getInformationFromElement(item)[4]);
+  archivePagePopup.innerHTML += getHtmlPopupOfArchiveChangeDocument(getInformationFromElement(item)[numberZero], getInformationFromElement(item)[4]);
   const inputTypeDocument = document.getElementById('type-document');
   const inputNumberRegister = document.getElementById('number-register');
   const inputIdElement = document.getElementById('id_element');
@@ -915,12 +916,12 @@ const getLoadInformationInPopup = item => {
 const getNewContent = () => {
   tableBody.innerHTML = getHtmlTableTh();
   // Проходимся по массиву //
-  for (let i = 0; i < date.length; i++) {
+  for (let i = numberZero; i < date.length; i++) {
     const elementOfArrayArchive = Object.values(date[i]);
     const [idElement, registrationNumber, numberSubscriptionCasing, typeDocument, comment, numberAgreement, naming] = elementOfArrayArchive;
-    for (let t = 0; t < elementOfArrayArchive.length; t++) {
-      t = 'error idElement';
-      t = 'error registrationNumber';
+    for (let t = numberZero; t < elementOfArrayArchive.length; t++) {
+      t = numberZero ? elementOfArrayArchive[numberZero] = idElement : 'error idElement';
+      t = numberZero ? elementOfArrayArchive[1] = registrationNumber : 'error registrationNumber';
       t = elementOfArrayArchive[2] = numberSubscriptionCasing;
       t = elementOfArrayArchive[3] = typeDocument;
       t = elementOfArrayArchive[4] = comment;
@@ -937,17 +938,17 @@ const getNewContent = () => {
 const getDocuments = item => {
   const tableDocumentPopup = document.querySelector('.work-width-the-file__body-table-popup');
   // Проходимся циколом по массиву объектов //
-  if (item.path[1].children[0].textContent !== undefined && item.path[1].children[0].textContent !== null && arrayDocumentsOfArchive.length !== 0) {
-    for (let i = 0; i < arrayDocumentsOfArchive.length; i++) {
+  if (item.path[1].children[numberZero].textContent !== undefined && item.path[1].children[numberZero].textContent !== null && arrayDocumentsOfArchive.length !== numberZero) {
+    for (let i = numberZero; i < arrayDocumentsOfArchive.length; i++) {
       const parent = arrayDocumentsOfArchive[i].idParent;
       const nameDocument = arrayDocumentsOfArchive[i].name;
       const typeDocument = arrayDocumentsOfArchive[i].typeOfDocument;
       const weight = arrayDocumentsOfArchive[i].sizeOfDocument;
       const author = arrayDocumentsOfArchive[i].authorsName;
       const dateCreated = arrayDocumentsOfArchive[i].dateOfSublication;
-      for (let n = 0; n < date[n].id_documents.length; n++) {
+      for (let n = numberZero; n < date[n].id_documents.length; n++) {
         // Проверка по условию привязанного документа по id родителя //
-        if (Number(item.path[1].children[0].textContent) === Number(parent)) {
+        if (Number(item.path[1].children[numberZero].textContent) === Number(parent)) {
           // Загрузка документа в таблицу //
           tableDocumentPopup.innerHTML += getHtmlRowTalbeOfDocumentArchive(nameDocument, typeDocument, weight, author, dateCreated);
         } else {
@@ -956,8 +957,8 @@ const getDocuments = item => {
         }
       }
     }
-  } else if (item.path[1].children[0].textContent === undefined || item.path[1].children[0].textContent === null) {
-    tableDocumentPopup.innerHTML += 'При выводе документации произошла ошибка.';
+  } else if (item.path[1].children[numberZero].textContent === undefined || item.path[1].children[numberZero].textContent === null) {
+    tableDocumentPopup.innerHTML += errorOfLoadDocumentation;
   }
 };
 
@@ -977,7 +978,7 @@ archiveButtonOpen.addEventListener('click', () => {
       getDocuments(item);
       // Слушатель события для закрытия popup //
       buttonClosePopupArchive.addEventListener('click', () => {
-        archivePagePopup.innerHTML = '';
+        archivePagePopup.innerHTML = voidElement;
       });
       buttonChangeRigths.addEventListener('click', () => {
         changeRigthsforWorkWithElements();
@@ -1031,27 +1032,27 @@ buttonDeleteElementOfArrayArchive.addEventListener('click', () => {
   const inputDeleteElementOfArray = document.querySelector('.work-width-the-file__input-delete-element-popup');
   // Закрыть popup delete element of archive //
   buttonClosePopup.addEventListener('click', () => {
-    archivePagePopup.innerHTML = '';
+    archivePagePopup.innerHTML = voidElement;
   });
   // Удалить объект из массива(Archive) //
   buttonDeleteElementOfArray.addEventListener('click', () => {
     Array.from(allRowOnTalbe).forEach(item => {
       // Проходимся по массиву и фильтруем элементы //
-      for (let i = 0; i < date.length; i++) {
-        if (Number(item.children[0].textContent) === Number(inputDeleteElementOfArray.value)) {
+      for (let i = numberZero; i < date.length; i++) {
+        if (Number(item.children[numberZero].textContent) === Number(inputDeleteElementOfArray.value)) {
           // фильтрация массива //
           filtredArrayOfArchiveDocument = date.filter(element => element.id !== Number(inputDeleteElementOfArray.value));
           // Очистка старого массива //
-          date.length = 0;
+          date.length = numberZero;
           // Заливаем фильтрованный массив в отчищенный старый //
-          for (let n = 0; n < filtredArrayOfArchiveDocument.length; n++) {
+          for (let n = numberZero; n < filtredArrayOfArchiveDocument.length; n++) {
             date.push(filtredArrayOfArchiveDocument[n]);
           }
           break;
         }
       }
       // Закрытие popup //
-      archivePagePopup.innerHTML = '';
+      archivePagePopup.innerHTML = voidElement;
       // Обновит таблицу //
       getNewContent();
     });
@@ -1066,7 +1067,7 @@ buttonOpenPopupForCreateElementInArray.addEventListener('click', () => {
   const buttonSaveElement = document.querySelector('.work-width-the-file-popup-create-element__button-popup');
   // Слушатель события для закрытия popup //
   buttonClowPopup.addEventListener('click', () => {
-    archivePagePopup.innerHTML = '';
+    archivePagePopup.innerHTML = voidElement;
   });
   // Слушатель событий для сохванения изменений //
   buttonSaveElement.addEventListener('click', () => {
@@ -1075,7 +1076,7 @@ buttonOpenPopupForCreateElementInArray.addEventListener('click', () => {
     // Обновит контент //
     getNewContent();
     // Закроет popup //
-    archivePagePopup.innerHTML = '';
+    archivePagePopup.innerHTML = voidElement;
   });
 });
 
