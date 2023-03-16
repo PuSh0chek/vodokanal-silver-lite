@@ -319,10 +319,10 @@ const getHtmlDeleteFolderOfPopup = () => `<h3 class="work-width-the-file__title-
         </div>`;
 const getHtmlSearchPopup = () => `<div class="work-width-the-file__search-popup">
 <h3 class="work-width-the-file__title-search-popup">Поиск по архиву</h3>
-<span class="work-width-the-file__naming-checkbox-search-popup">Всебщий поиск</span><input class="work-width-the-file__checkbox-search-popup" type="checkbox" name="" id="">
-<span class="work-width-the-file__naming-checkbox-search-popup">Поиск по уровлю вложенности</span><input class="work-width-the-file__checkbox-search-popup" type="checkbox" name="" id="">
-<span class="work-width-the-file__naming-checkbox-search-popup">Поиск по папке</span><input class="work-width-the-file__checkbox-search-popup" type="checkbox" name="" id="">
-<input class="work-width-the-file__input-sorting-element-of-search-popup" type="text" placeholder=""> <input class="work-width-the-file__checkbox-search-popup" type="checkbox" name="" id=""> <span class="work-width-the-file__naming-checkbox-search-popup">Поиск по интервалу</span>
+<span class="work-width-the-file__naming-checkbox-search-popup">Всебщий поиск</span><input class="work-width-the-file__checkbox-search-popup" type="checkbox" name="" id="allSearch">
+<span class="work-width-the-file__naming-checkbox-search-popup">Поиск по уровлю вложенности</span><input class="work-width-the-file__checkbox-search-popup" type="checkbox" name="" id="levelSearch">
+<span class="work-width-the-file__naming-checkbox-search-popup">Поиск по папке</span><input class="work-width-the-file__checkbox-search-popup" type="checkbox" name="" id="folderSearch">
+<input class="work-width-the-file__input-sorting-element-of-search-popup" type="text" placeholder=""> <input class="work-width-the-file__checkbox-search-popup" type="checkbox" name="" id="intervalSearch"> <span class="work-width-the-file__naming-checkbox-search-popup">Поиск по интервалу</span>
 <div class="work-width-the-file__wrapper-date-registration-search-popup">
   <span class="work-width-the-file__text-from-date-registration-search-popup">C</span> <input class="work-width-the-file__input-sorting-element-of-search-popup" type="date" name="" id="" placeholder="Дата регистрации"> <span class="work-width-the-file__text-to-date-registration-search-popup">по</span> <input class="work-width-the-file__input-sorting-element-of-search-popup" type="date" name="" id="" placeholder="Дата регистрации">
 </div>
@@ -335,7 +335,7 @@ const getHtmlSearchPopup = () => `<div class="work-width-the-file__search-popup"
 <input class="work-width-the-file__input-sorting-element-of-search-popup" type="text" placeholder="Доп.адрес">
 <input class="work-width-the-file__input-sorting-element-of-search-popup" type="text" placeholder="Номер обхода">
 <input class="work-width-the-file__input-sorting-element-of-search-popup" type="text" placeholder="Номер договора">
-<input class="work-width-the-file__input-sorting-element-of-search-popup" type="text" placeholder="ФИО\Наименование объекта">
+<input class="work-width-the-file__input-sorting-element-of-search-popup" type="text" placeholder="ФИО(Наименование объекта)">
 <div>
   <input class="work-width-the-file__input-sorting-element-of-search-popup" type="text"> <input class="" type="checkbox" name="" id="">
 </div>
@@ -423,9 +423,22 @@ let filtredArrayOfArchiveDocument = [];
 const getSearchDate = () => {
   archivePagePopup.innerHTML += getHtmlSearchPopup();
   const buttonsOfSearchPopup = document.querySelectorAll('.work-width-the-file__button-of-search-popup');
+  const checkboxsOfSearchPopup = document.querySelectorAll('.work-width-the-file__checkbox-search-popup');
   Array.from(buttonsOfSearchPopup).forEach(item => {
     item.addEventListener('click', () => {
-      if (item.textContent === textOnButtonOfSearchPopup) {} else {
+      if (item.textContent === textOnButtonOfSearchPopup) {
+        Array.from(checkboxsOfSearchPopup).forEach(element => {
+          if (element.id === 'allSearch' && element.checked === true) {
+            console.log(1);
+          } else if (element.id === 'levelSearch' && element.checked === true) {
+            console.log(2);
+          } else if (element.id === 'folderSearch' && element.checked === true) {
+            console.log(3);
+          } else if (element.id === 'intervalSearch' && element.checked === true) {
+            console.log(4);
+          }
+        });
+      } else {
         archivePagePopup.innerHTML = voidElement;
       }
     });

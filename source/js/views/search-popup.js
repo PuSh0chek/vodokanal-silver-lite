@@ -1,9 +1,9 @@
 export const getHtmlSearchPopup = () => `<div class="work-width-the-file__search-popup">
 <h3 class="work-width-the-file__title-search-popup">Поиск по архиву</h3>
-<span class="work-width-the-file__naming-checkbox-search-popup">Всебщий поиск</span><input class="work-width-the-file__checkbox-search-popup" type="checkbox" name="" id="">
-<span class="work-width-the-file__naming-checkbox-search-popup">Поиск по уровлю вложенности</span><input class="work-width-the-file__checkbox-search-popup" type="checkbox" name="" id="">
-<span class="work-width-the-file__naming-checkbox-search-popup">Поиск по папке</span><input class="work-width-the-file__checkbox-search-popup" type="checkbox" name="" id="">
-<input class="work-width-the-file__input-sorting-element-of-search-popup" type="text" placeholder=""> <input class="work-width-the-file__checkbox-search-popup" type="checkbox" name="" id=""> <span class="work-width-the-file__naming-checkbox-search-popup">Поиск по интервалу</span>
+<span class="work-width-the-file__naming-checkbox-search-popup">Всебщий поиск</span><input class="work-width-the-file__checkbox-search-popup" type="checkbox" name="" id="allSearch">
+<span class="work-width-the-file__naming-checkbox-search-popup">Поиск по уровлю вложенности</span><input class="work-width-the-file__checkbox-search-popup" type="checkbox" name="" id="levelSearch">
+<span class="work-width-the-file__naming-checkbox-search-popup">Поиск по папке</span><input class="work-width-the-file__checkbox-search-popup" type="checkbox" name="" id="folderSearch">
+<input class="work-width-the-file__input-sorting-element-of-search-popup" type="text" placeholder=""> <input class="work-width-the-file__checkbox-search-popup" type="checkbox" name="" id="intervalSearch"> <span class="work-width-the-file__naming-checkbox-search-popup">Поиск по интервалу</span>
 <div class="work-width-the-file__wrapper-date-registration-search-popup">
   <span class="work-width-the-file__text-from-date-registration-search-popup">C</span> <input class="work-width-the-file__input-sorting-element-of-search-popup" type="date" name="" id="" placeholder="Дата регистрации"> <span class="work-width-the-file__text-to-date-registration-search-popup">по</span> <input class="work-width-the-file__input-sorting-element-of-search-popup" type="date" name="" id="" placeholder="Дата регистрации">
 </div>
@@ -16,7 +16,7 @@ export const getHtmlSearchPopup = () => `<div class="work-width-the-file__search
 <input class="work-width-the-file__input-sorting-element-of-search-popup" type="text" placeholder="Доп.адрес">
 <input class="work-width-the-file__input-sorting-element-of-search-popup" type="text" placeholder="Номер обхода">
 <input class="work-width-the-file__input-sorting-element-of-search-popup" type="text" placeholder="Номер договора">
-<input class="work-width-the-file__input-sorting-element-of-search-popup" type="text" placeholder="ФИО\Наименование объекта">
+<input class="work-width-the-file__input-sorting-element-of-search-popup" type="text" placeholder="ФИО(Наименование объекта)">
 <div>
   <input class="work-width-the-file__input-sorting-element-of-search-popup" type="text"> <input class="" type="checkbox" name="" id="">
 </div>

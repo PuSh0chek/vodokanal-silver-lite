@@ -100,10 +100,21 @@ let filtredArrayOfArchiveDocument = [];
 const getSearchDate = () => {
   archivePagePopup.innerHTML += getHtmlSearchPopup();
   const buttonsOfSearchPopup = document.querySelectorAll('.work-width-the-file__button-of-search-popup');
+  const checkboxsOfSearchPopup = document.querySelectorAll('.work-width-the-file__checkbox-search-popup');
   Array.from(buttonsOfSearchPopup).forEach((item) => {
     item.addEventListener('click', () => {
       if(item.textContent === textOnButtonOfSearchPopup) {
-        
+        Array.from(checkboxsOfSearchPopup).forEach((element) => {
+          if(element.id === 'allSearch' && element.checked === true) {
+            console.log(1);
+          } else if(element.id === 'levelSearch' && element.checked === true) {
+            console.log(2);
+          } else if(element.id === 'folderSearch' && element.checked === true) {
+            console.log(3);
+          } else if (element.id === 'intervalSearch' && element.checked === true) {
+            console.log(4);
+          }
+        });
       } else {
         archivePagePopup.innerHTML = voidElement;
       }
@@ -126,7 +137,6 @@ buttonOfShowDocuments.addEventListener('click', () => {
 buttonSearchResultOfDocuments.addEventListener('click', () => {
   tableBody.innerHTML = voidElement;
   tableBody.innerHTML = getHtmlTableTh();
-  arrayFilteredDocumentsOfArchive;
 });
 
 // Функция стилизации //
