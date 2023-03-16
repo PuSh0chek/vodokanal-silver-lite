@@ -6,16 +6,16 @@ import {
 } from './views/th-table-body';
 import {
   getHtmlPopupOfArchiveChangeDocument
-} from './views/work-with-the-file-popup';
+} from './views/file-popup';
 import {
   date
 } from './arrays/arrayOfArchive';
 import {
   getHtmlPopupNewDocument
-} from './views/work-width-the-file-popup-create-element';
+} from './views/popup-create-element';
 import {
   getHtmlPopupDeleteElementInDocument
-} from './views/work-width-the-file__delete-element-wrapper-popup';
+} from './views/delete-element-wrapper-popup';
 import {
   getHtmlRowTalbeOfDocumentArchive
 } from './views/row-doc-element-popup';
@@ -27,7 +27,7 @@ import {
 } from './arrays/arrayOfFolderTree';
 import {
   getHtmlRowOfWorkFolderInTheTalbe
-} from './views/work-width-the-folder-row';
+} from './views/folder-row';
 import {
   arrayChildrenOfFilderThree
 } from './arrays/arrayOfFolderChidren';
@@ -37,6 +37,12 @@ import {
 import {
   getHtmlDeleteFolderOfPopup
 } from './views/delete-folder-of-popup';
+import {
+  arrayFilteredDocumentsOfArchive
+} from './arrays/arrayFilteredDocumentsOfArchive';
+import {
+  getHtmlSearchPopup
+} from './views/search-popup';
 
 
 // Переменнные //
@@ -80,8 +86,44 @@ const archiveButtonOpen = document.querySelector('.header__button-of-archive-pag
 const newFolder = document.querySelector('.work-with-the-folder__button-new-folder');
 const buttonDeleteOfFolder = document.querySelector('.work-with-the-folder__button-remove');
 const buttonOfUpdateContent = document.querySelector('.work-with-the-folder__button-renovate');
+const buttonOfShowDocuments = document.querySelector('.work-with-the-file__button-of-documents');
+const buttonSearchResultOfDocuments = document.querySelector('.work-with-the-file__button-of-search-result');
+const buttonSearchOfDocuments = document.querySelector('.work-with-the-file__button-search');
 let levelFolderCounter = 0;
 let filtredArrayOfArchiveDocument = [];
+
+// Функция фильтрации файлов //
+const getSearchDate = () => {
+  archivePagePopup.innerHTML += getHtmlSearchPopup();
+  const buttonsOfSearchPopup = document.querySelectorAll('.work-width-the-file__button-of-search-popup');
+  Array.from(buttonsOfSearchPopup).forEach((item) => {
+    item.addEventListener('click', () => {
+      if(item.textContent === 'Поиск') {
+        console.log(1);
+      } else {
+        archivePagePopup.innerHTML = '';
+      }
+    });
+  });
+};
+
+// Слушатель события КНОПКА ПОИСК //
+buttonSearchOfDocuments.addEventListener('click', () => {
+  getSearchDate();
+});
+
+// Слущатель события ПОКАЗАТЬ ТАБЛИЦУ АБОНЕНТСКИЕ ДЕЛА //
+buttonOfShowDocuments.addEventListener('click', () => {
+  tableBody.innerHTML = '';
+  tableBody.innerHTML = getHtmlTableTh();
+});
+
+// Слущатель события ПОКАЗАТЬ РЕЗУЛЬТАТЫ ПОИСКА //
+buttonSearchResultOfDocuments.addEventListener('click', () => {
+  tableBody.innerHTML = '';
+  tableBody.innerHTML = getHtmlTableTh();
+  arrayFilteredDocumentsOfArchive;
+});
 
 // Функция стилизации //
 const getRequiredWindow = (showElement, removeElementOne, removeElementTwo, removeElementThree, displayShow, displayRemove) => {
@@ -717,6 +759,8 @@ buttonOpenPopupForCreateElementInArray.addEventListener('click', () => {
     archivePagePopup.innerHTML = '';
   });
 });
+
+
 
 // Архив  //
 // Блок вызова функций //
