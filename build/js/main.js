@@ -420,9 +420,10 @@ let levelFolderCounter = 0;
 let filtredArrayOfArchiveDocument = [];
 
 // Блокировка/разблокировка элементов popup //
-const getChangeAccessOfElement = (arrayElements, change) => {
+const getChangeAccessOfElement = (arrayElements, selectElement, change) => {
   Array.from(arrayElements).forEach(item => {
     item.disabled = change;
+    selectElement.disabled = change;
   });
 };
 
@@ -432,17 +433,30 @@ const getSearchDate = () => {
   const buttonsOfSearchPopup = document.querySelectorAll('.work-width-the-file__button-of-search-popup');
   const checkboxsSearchOfPopup = document.querySelectorAll('.work-width-the-file__checkbox-search-popup');
   const inputsSearchOfPopup = document.querySelectorAll('.work-width-the-file__input-sorting-element-of-search-popup');
-  getChangeAccessOfElement(inputsSearchOfPopup, true);
+  const selectSearchOfPopup = document.querySelector('.work-width-the-file__select-sorting-element-of-search-popup');
+  getChangeAccessOfElement(inputsSearchOfPopup, selectSearchOfPopup, true);
   Array.from(checkboxsSearchOfPopup).forEach(item => {
     item.addEventListener('change', () => {
-      getChangeAccessOfElement(inputsSearchOfPopup, false);
+      if (String(item.checked) === 'true') {
+        getChangeAccessOfElement(inputsSearchOfPopup, selectSearchOfPopup, false);
+      } else {
+        getChangeAccessOfElement(inputsSearchOfPopup, selectSearchOfPopup, true);
+      }
     });
   });
   Array.from(buttonsOfSearchPopup).forEach(item => {
     item.addEventListener('click', () => {
       if (item.textContent === textOnButtonOfSearchPopup) {
         Array.from(checkboxsSearchOfPopup).forEach(element => {
-          if (element.id === 'allSearch' && element.checked === true) {} else if (element.id === 'levelSearch' && element.checked === true) {
+          if (element.id === 'allSearch' && element.checked === true) {
+            date.filter(inf => {
+              Array.from(inputsSearchOfPopup).forEach(it => {
+                if (Number(inf.id_subscriber) === Number(it.value)) {
+                  console.log(inf);
+                }
+              });
+            });
+          } else if (element.id === 'levelSearch' && element.checked === true) {
             console.log(2);
           } else if (element.id === 'folderSearch' && element.checked === true) {
             console.log(3);
