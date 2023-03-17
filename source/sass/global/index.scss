@@ -1626,3 +1626,74 @@
   width: 150px;
   margin-left: 5px;
 }
+
+// SEARCH POPUP //
+.work-width-the-file__search-popup {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+}
+.work-width-the-file__title-search-popup {
+  font-size: 20px;
+  margin: 10px;
+}
+.work-width-the-file__naming-checkbox-search-popup {
+  width: 100px;
+  margin: 5px;
+}
+.work-width-the-file__wrapper-checkbox-search-popup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.work-width-the-file__wrapper-input-sorting-element-of-search-popup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.work-width-the-file__checkbox-search-popup {
+  margin: 5px;
+}
+.work-width-the-file__-wrapper-input-sorting-element-of-search-popup {
+  display: flex;
+}
+.work-width-the-file__input-sorting-element-of-search-popup {
+  width: 150px;
+  margin: 5px;
+}
+.work-width-the-file__wrapper-date-registration-search-popup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.work-width-the-file__text-from-date-registration-search-popup {
+}
+.work-width-the-file__text-to-date-registration-search-popup {
+}
+.work-width-the-file__wrapper-to-date-filling-of-search-popup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.work-width-the-file__text-to-date-filling-of-search-popup {
+  margin: 5px;
+}
+.work-width-the-file__select-sorting-element-of-search-popup {
+  width: 150px;
+}
+.work-width-the-file__item-select-for-sorting-element-of-search-popup {
+  width: 200px;
+}
+.work-width-the-file__wrapper-button-of-search-popup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.work-width-the-file__button-of-search-popup {
+  width: 150px;
+  margin: 10px 0 10px 0;
+  cursor: pointer;
+}
