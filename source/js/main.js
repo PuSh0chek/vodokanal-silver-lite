@@ -95,75 +95,6 @@ const voidElement = '';
 let levelFolderCounter = 0;
 let filtredArrayOfArchiveDocument = [];
 
-// Блокировка/разблокировка элементов popup //
-const getChangeAccessOfElement = (arrayElements, selectElement, change) => {
-  Array.from(arrayElements).forEach((item) => {
-    item.disabled = change;
-    selectElement.disabled = change;
-  });
-};
-
-// Функция фильтрации файлов //
-const getSearchDate = () => {
-  archivePagePopup.innerHTML += getHtmlSearchPopup();
-  const buttonsOfSearchPopup = document.querySelectorAll('.work-width-the-file__button-of-search-popup');
-  const checkboxsSearchOfPopup = document.querySelectorAll('.work-width-the-file__checkbox-search-popup');
-  const inputsSearchOfPopup = document.querySelectorAll('.work-width-the-file__input-sorting-element-of-search-popup');
-  const selectSearchOfPopup = document.querySelector('.work-width-the-file__select-sorting-element-of-search-popup');
-  getChangeAccessOfElement(inputsSearchOfPopup, selectSearchOfPopup, true);
-  Array.from(checkboxsSearchOfPopup).forEach((item) => {
-    item.addEventListener('change', () => {
-      if(String(item.checked) === 'true') {
-        getChangeAccessOfElement(inputsSearchOfPopup, selectSearchOfPopup, false);
-      } else {
-        getChangeAccessOfElement(inputsSearchOfPopup, selectSearchOfPopup, true);
-      }
-    });
-  });
-  Array.from(buttonsOfSearchPopup).forEach((item) => {
-    item.addEventListener('click', () => {
-      if(item.textContent === textOnButtonOfSearchPopup) {
-        Array.from(checkboxsSearchOfPopup).forEach((element) => {
-          if(element.id === 'allSearch' && element.checked === true) {
-            date.filter((inf) => {
-              Array.from(inputsSearchOfPopup).forEach((it) => {
-                if(Number(inf.id_subscriber) === Number(it.value)) {
-                  console.log(inf);
-                }
-              });
-            });
-          } else if(element.id === 'levelSearch' && element.checked === true) {
-            console.log(2);
-          } else if(element.id === 'folderSearch' && element.checked === true) {
-            console.log(3);
-          } else if (element.id === 'intervalSearch' && element.checked === true) {
-            console.log(4);
-          }
-        });
-      } else {
-        archivePagePopup.innerHTML = voidElement;
-      }
-    });
-  });
-};
-
-// Слушатель события КНОПКА ПОИСК //
-buttonSearchOfDocuments.addEventListener('click', () => {
-  getSearchDate();
-});
-
-// Слущатель события ПОКАЗАТЬ ТАБЛИЦУ АБОНЕНТСКИЕ ДЕЛА //
-buttonOfShowDocuments.addEventListener('click', () => {
-  tableBody.innerHTML = voidElement;
-  tableBody.innerHTML = getHtmlTableTh();
-});
-
-// Слущатель события ПОКАЗАТЬ РЕЗУЛЬТАТЫ ПОИСКА //
-buttonSearchResultOfDocuments.addEventListener('click', () => {
-  tableBody.innerHTML = voidElement;
-  tableBody.innerHTML = getHtmlTableTh();
-});
-
 // Функция стилизации //
 const getRequiredWindow = (showElement, removeElementOne, removeElementTwo, removeElementThree, displayShow, displayRemove) => {
   showElement.style = `display: ${displayShow}`;
@@ -178,7 +109,7 @@ const getUpdateCotent = () => {
   tableBody.innerHTML = voidElement;
   tableBody.innerHTML = getHtmlTableTh();
   tableOfFolderThree.innerHTML = voidElement;
-  for(let i = 0; i < folderThree.length; i++) {
+  for (let i = 0; i < folderThree.length; i++) {
     const idNewElement = folderThree[i].idFolter;
     const nameNewElement = folderThree[i].nameFolder;
     const numberNewElement = folderThree[i].numberFolder;
@@ -207,7 +138,7 @@ const getFolderLevelUp = () => {
   tableOfFolderThree.innerHTML = voidElement;
   levelFolderCounter--;
   if (levelFolderCounter === 0) {
-    for(let i = 0; i < folderThree.length; i++) {
+    for (let i = 0; i < folderThree.length; i++) {
       const idNewElement = folderThree[i].idFolter;
       const nameNewElement = folderThree[i].nameFolder;
       const numberNewElement = folderThree[i].numberFolder;
@@ -218,7 +149,7 @@ const getFolderLevelUp = () => {
       tableBody.innerHTML += getHtmlTableTh();
     }
   } else {
-    for(let i = 0; i < arrayChildrenOfFilderThree.length; i++) {
+    for (let i = 0; i < arrayChildrenOfFilderThree.length; i++) {
       if (Number(arrayChildrenOfFilderThree[i].folderLevel) === Number(levelFolderCounter)) {
         const idNewElement = arrayChildrenOfFilderThree[i].idFolter;
         const nameNewElement = arrayChildrenOfFilderThree[i].nameFolder;
@@ -238,8 +169,8 @@ const getFolderLevelDown = (item, arrayDown, table) => {
   // слулушатель события для погружения в папку //
   item.addEventListener('click', () => {
     table.innerHTML = voidElement;
-    for(let m = 0; m < arrayDown.length; m++) {
-      if(Number(item.children[0].innerHTML) === Number(arrayDown[m].idParent)) {
+    for (let m = 0; m < arrayDown.length; m++) {
+      if (Number(item.children[0].innerHTML) === Number(arrayDown[m].idParent)) {
         const idNewElement = arrayDown[m].idFolter;
         const nameNewElement = arrayDown[m].nameFolder;
         const numberNewElement = arrayDown[m].numberFolder;
@@ -249,8 +180,8 @@ const getFolderLevelDown = (item, arrayDown, table) => {
         tableBody.innerHTML = voidElement;
         tableBody.innerHTML += getHtmlTableTh();
       }
-      for(let i = 0; i < date.length; i++) {
-        if(folderThree.folderLevel !== 0 && date[i].id_parent === arrayChildrenOfFilderThree[m].idFolter) {
+      for (let i = 0; i < date.length; i++) {
+        if (folderThree.folderLevel !== 0 && date[i].id_parent === arrayChildrenOfFilderThree[m].idFolter) {
           const id = date[m].id;
           const registr = date[m].number_register;
           const subscr = date[m].id_subscriber;
@@ -297,25 +228,25 @@ const getNewFolder = (elements, arrayForPush) => {
 // Функция для удаления папки и ее детей(И файлы в лежащие в них) //
 const getDeleteFolder = (arrayOfFolders, arrayOfDocument, arrayOfFiles, idElement) => {
   const filtredChildrenArray = arrayOfFolders.filter((item) => item.idFolter !== Number(idElement));
-  for(let i = 0; i < arrayOfDocument.length; i++) {
-    if(arrayOfDocument[i].id_documents.length !== 0) {
-      for(let p = 0; p < arrayOfFolders.length; p++) {
-        if(arrayOfDocument[i].id_parent === arrayOfFolders[p].idFolter) {
+  for (let i = 0; i < arrayOfDocument.length; i++) {
+    if (arrayOfDocument[i].id_documents.length !== 0) {
+      for (let p = 0; p < arrayOfFolders.length; p++) {
+        if (arrayOfDocument[i].id_parent === arrayOfFolders[p].idFolter) {
           arrayOfFolders.length = 0;
-          for(let n = 0; n < filtredChildrenArray.length; n++) {
+          for (let n = 0; n < filtredChildrenArray.length; n++) {
             arrayOfFolders.push(filtredChildrenArray[n]);
           };
-          for(let j = 0; j < arrayOfFiles.length; j++) {
-            for(let m = 0; m < arrayOfDocument[i].id_documents; m++) {
-              if(arrayOfFiles[j].idDocument === arrayOfDocument[i].id_documents[m]) {
+          for (let j = 0; j < arrayOfFiles.length; j++) {
+            for (let m = 0; m < arrayOfDocument[i].id_documents; m++) {
+              if (arrayOfFiles[j].idDocument === arrayOfDocument[i].id_documents[m]) {
                 const arrayFiltredOfFiles = arrayOfFiles.filter((item) => item.idDocument !== arrayOfDocument[i].id_documents[m]);
                 arrayOfFiles.length = 0;
-                for(let n = 0; n < arrayOfDocument[i].id_documents.length; n++) {
+                for (let n = 0; n < arrayOfDocument[i].id_documents.length; n++) {
                   arrayOfFiles.push(arrayFiltredOfFiles[n]);
                 };
                 const arrayFiltredOfDocuments = arrayOfDocument.filter((item) => item.id !== arrayOfDocument[i].id);
                 arrayOfDocument.length = 0;
-                for(let f = 0; f < arrayFiltredOfDocuments.length; f++) {
+                for (let f = 0; f < arrayFiltredOfDocuments.length; f++) {
                   arrayOfDocument.push(arrayFiltredOfDocuments[f]);
                 };
               }
@@ -334,7 +265,7 @@ buttonDeleteOfFolder.addEventListener('click', () => {
   const buttonsFromPopupOfDeleteFolder = document.querySelectorAll('.work-width-the-file__button-popup-of-delete-folder');
   Array.from(buttonsFromPopupOfDeleteFolder).forEach((item) => {
     item.addEventListener('click', () => {
-      if(item.id === 'dutton-of-delete-folder') {
+      if (item.id === 'dutton-of-delete-folder') {
         getDeleteFolder(arrayChildrenOfFilderThree, date, arrayDocumentsOfArchive, inputFromPopupOfDeleteFolder.value);
       } else {
         archivePagePopup.innerHTML = voidElement;
@@ -352,7 +283,7 @@ newFolder.addEventListener('click', () => {
   Array.from(buttonsOfNewFolder).forEach((item) => {
     item.addEventListener('click', () => {
       // Слушатель события для создания новой папки //
-      if(item.id === 'buttonSaveFolder') {
+      if (item.id === 'buttonSaveFolder') {
         getNewFolder(inputsOfNewFolder, arrayChildrenOfFilderThree);
         // Слушатель события для закрытия popup //
       } else {
@@ -368,7 +299,7 @@ buttonArchive.addEventListener('click', () => {
   getRequiredWindow(archivePage, adminPage, settingsPage, aboutProgrammPage, displayGrid, displayNone);
   // Вывести левую таблицу папок //
   tableOfFolderThree.innerHTML = voidElement;
-  for(let i = 0; i < folderThree.length; i++) {
+  for (let i = 0; i < folderThree.length; i++) {
     const idElement = folderThree[i].idFolter;
     const nameElement = folderThree[i].nameFolder;
     const numberElement = folderThree[i].numberFolder;
@@ -653,8 +584,8 @@ const getNewContent = () => {
 const getDocuments = (item) => {
   const tableDocumentPopup = document.querySelector('.work-width-the-file__body-table-popup');
   // Проходимся циколом по массиву объектов //
-  if(item.path[1].children[0].textContent !== undefined && item.path[1].children[0].textContent !== null && arrayDocumentsOfArchive.length !== 0) {
-    for(let i = 0; i < arrayDocumentsOfArchive.length; i++) {
+  if (item.path[1].children[0].textContent !== undefined && item.path[1].children[0].textContent !== null && arrayDocumentsOfArchive.length !== 0) {
+    for (let i = 0; i < arrayDocumentsOfArchive.length; i++) {
       const idDocument = arrayDocumentsOfArchive[i].idDocument;
       const parent = arrayDocumentsOfArchive[i].idParent;
       const nameDocument = arrayDocumentsOfArchive[i].name;
@@ -664,9 +595,9 @@ const getDocuments = (item) => {
       const dateCreated = arrayDocumentsOfArchive[i].dateOfSublication;
       const way = arrayDocumentsOfArchive[i].way;
       // Проходимся по массиву присвоенных документов //
-      for(let n = 0; n < date[n].id_documents.length; n++) {
+      for (let n = 0; n < date[n].id_documents.length; n++) {
         // Проверка по условию привязанного документа по id родителя //
-        if(Number(item.path[1].children[0].textContent) === Number(parent)) {
+        if (Number(item.path[1].children[0].textContent) === Number(parent)) {
           // Загрузка документа в таблицу //
           tableDocumentPopup.innerHTML += getHtmlRowTalbeOfDocumentArchive(nameDocument, typeDocument, weight, author, dateCreated);
         } else {
@@ -675,7 +606,7 @@ const getDocuments = (item) => {
         };
       };
     };
-  } else if(item.path[1].children[0].textContent === undefined || item.path[1].children[0].textContent === null) {
+  } else if (item.path[1].children[0].textContent === undefined || item.path[1].children[0].textContent === null) {
     tableDocumentPopup.innerHTML += errorOfLoadDocumentation;
   }
 };
@@ -796,6 +727,130 @@ buttonOpenPopupForCreateElementInArray.addEventListener('click', () => {
     // Закроет popup //
     archivePagePopup.innerHTML = voidElement;
   });
+});
+
+// Блокировка/разблокировка элементов popup //
+const getChangeAccessOfElement = (arrayElements, selectElement, change) => {
+  Array.from(arrayElements).forEach((item) => {
+    item.disabled = change;
+    selectElement.disabled = change;
+  });
+};
+
+// Функция сортировки //
+const getSortContent = (arrayOfInputs, optionOfSelect) => {
+  const newArrayContentElements = [];
+  // Фильтрация по input's //
+  // ДОБАВИТЬ УСЛОВИЕ ФИЛЬТРАЦИИ < при отсутствии условия в Input пропускаем фильтрацию ( скорее всего перейти в if лучшу будет ) > //
+  date.filter((elemContent) => {
+    Array.from(arrayOfInputs).forEach((item) => {
+      console.log(item.value);
+      elemContent.id_subscriber === Number(item.value) ? newArrayContentElements.push(elemContent) :
+        elemContent.type_document === item.value ? newArrayContentElements.push(elemContent) :
+        elemContent.name_object === String(item.value) ? newArrayContentElements.push(elemContent) :
+        elemContent.comments === String(item.value) ? newArrayContentElements.push(elemContent) :
+        elemContent.date_registration === Number(item.value) ? newArrayContentElements.push(elemContent) :
+        elemContent.name_sity === String(item.value) ? newArrayContentElements.push(elemContent) :
+        elemContent.name_street === Number(item.value) ? newArrayContentElements.push(elemContent) :
+        elemContent.number_home === Number(item.value) ? newArrayContentElements.push(elemContent) :
+        elemContent.number_body === Number(item.value) ? newArrayContentElements.push(elemContent) :
+        elemContent.number_flat === Number(item.value) ? newArrayContentElements.push(elemContent) :
+        elemContent.number__agreement === Number(item.value) ? newArrayContentElements.push(elemContent) :
+        console.log('Error');
+    });
+  });
+  // Фильтрация по select //
+  date.filter((elemContent) => {
+    optionOfSelect.value === elemContent.type_document ? newArrayContentElements.push(elemContent) : console.log('Wrong element');
+  });
+  // Избавляемся от копий //
+  const setArray = Array.from(new Set(newArrayContentElements));
+  console.log(setArray[0]);
+  // Генерация таблица //
+  tableBody.innerHTML = voidElement;
+  tableBody.innerHTML = getHtmlTableTh();
+  for (let i = 0; i < setArray.length; i++) {
+    const idElement = setArray[i].id;
+    const registrationNumber = setArray[i].number_register;
+    const numberSubscriptionCasing = setArray[i].id_subscriber;
+    const typeDocument = setArray[i].type_document;
+    const comment = setArray[i].comments;
+    const numberAgreement = setArray[i].number__agreement;
+    const naming = setArray[i].name_object;
+    tableBody.innerHTML += getHtmlTableBody(idElement, registrationNumber, numberSubscriptionCasing, typeDocument, comment, numberAgreement, naming);
+  };
+
+  // Слущатель события ПОКАЗАТЬ РЕЗУЛЬТАТЫ ПОИСКА //
+  buttonSearchResultOfDocuments.addEventListener('click', () => {
+    tableBody.innerHTML = voidElement;
+    tableBody.innerHTML = getHtmlTableTh();
+    console.log(buttonSearchResultOfDocuments.textContent);
+    for (let i = 0; i < setArray.length; i++) {
+      const idElement = setArray[i].id;
+      const registrationNumber = setArray[i].number_register;
+      const numberSubscriptionCasing = setArray[i].id_subscriber;
+      const typeDocument = setArray[i].type_document;
+      const comment = setArray[i].comments;
+      const numberAgreement = setArray[i].number__agreement;
+      const naming = setArray[i].name_object;
+      tableBody.innerHTML += getHtmlTableBody(idElement, registrationNumber, numberSubscriptionCasing, typeDocument, comment, numberAgreement, naming);
+    };
+  });
+
+  // Слущатель события ПОКАЗАТЬ ТАБЛИЦУ АБОНЕНТСКИЕ ДЕЛА //
+  buttonOfShowDocuments.addEventListener('click', () => {
+    tableBody.innerHTML = voidElement;
+    tableBody.innerHTML = getHtmlTableTh();
+    console.log(buttonOfShowDocuments.textContent);
+  });
+};
+
+// Функция позволяющая выбрать режим сортировки контента //
+const getCheckedTypeSortContent = (arrayOfInputs, arrayOfCheckedSelectElements, arrayOfButtonsSearch, optionOfSelect) => {
+  Array.from(arrayOfButtonsSearch).forEach((item) => {
+    item.addEventListener('click', () => {
+      if (item.textContent === textOnButtonOfSearchPopup) {
+        Array.from(arrayOfCheckedSelectElements).forEach((element) => {
+          if (element.id === 'allSearch' && element.checked === true) {
+            getSortContent(arrayOfInputs, optionOfSelect);
+          } else if (element.id === 'levelSearch' && element.checked === true) {
+            console.log(2);
+          } else if (element.id === 'folderSearch' && element.checked === true) {
+            console.log(3);
+          } else if (element.id === 'intervalSearch' && element.checked === true) {
+            console.log(4);
+          }
+        });
+      } else {
+        archivePagePopup.innerHTML = voidElement;
+      }
+    });
+  });
+};
+
+// Главная функция сборщик фильтрации файлов, блокирует, разблок. input's. //
+const getSearchDate = () => {
+  archivePagePopup.innerHTML += getHtmlSearchPopup();
+  const buttonsOfSearchPopup = document.querySelectorAll('.work-width-the-file__button-of-search-popup');
+  const checkboxsSearchOfPopup = document.querySelectorAll('.work-width-the-file__checkbox-search-popup');
+  const inputsSearchOfPopup = document.querySelectorAll('.work-width-the-file__input-sorting-element-of-search-popup');
+  const selectSearchOfPopup = document.querySelector('.work-width-the-file__select-sorting-element-of-search-popup');
+  getChangeAccessOfElement(inputsSearchOfPopup, selectSearchOfPopup, true);
+  Array.from(checkboxsSearchOfPopup).forEach((item) => {
+    item.addEventListener('change', () => {
+      if (String(item.checked) === 'true') {
+        getChangeAccessOfElement(inputsSearchOfPopup, selectSearchOfPopup, false);
+      } else {
+        getChangeAccessOfElement(inputsSearchOfPopup, selectSearchOfPopup, true);
+      }
+    });
+  });
+  getCheckedTypeSortContent(inputsSearchOfPopup, checkboxsSearchOfPopup, buttonsOfSearchPopup, selectSearchOfPopup);
+};
+
+// Слушатель события КНОПКА ПОИСК //
+buttonSearchOfDocuments.addEventListener('click', () => {
+  getSearchDate();
 });
 
 // Архив  //

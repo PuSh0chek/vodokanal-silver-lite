@@ -90,7 +90,7 @@ const date = [{
   'id': 341,
   'number_register': 4,
   'id_subscriber': 4,
-  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'type_document': 'Правовые документы',
   'comments': 'Заявление на опломбирование ',
   'number__agreement': 12,
   'name_object': 'Силенко И.П',
@@ -106,7 +106,7 @@ const date = [{
   'id': 342,
   'number_register': 3,
   'id_subscriber': 3,
-  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'type_document': 'Баланс водопотребления и водоотведения',
   'comments': 'Заявление на опломбирование ',
   'number__agreement': 12,
   'name_object': 'Силенко И.П',
@@ -122,7 +122,7 @@ const date = [{
   'id': 343,
   'number_register': 2,
   'id_subscriber': 2,
-  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'type_document': 'Служебные записи, рапорты',
   'comments': 'Заявление на опломбирование ',
   'number__agreement': 12,
   'name_object': 'Силенко И.П',
@@ -138,7 +138,7 @@ const date = [{
   'id': 344,
   'number_register': 1,
   'id_subscriber': 1,
-  'type_document': 'Доп.соглашение и документы об изменении преамбулы',
+  'type_document': 'Проектно-техническая документация',
   'comments': 'Заявление на опломбирование ',
   'number__agreement': 12,
   'name_object': 'Силенко И.П',
@@ -327,25 +327,21 @@ const getHtmlSearchPopup = () => `<div class="work-width-the-file__search-popup"
 <div class="work-width-the-file__wrapper-interval-input-sorting-element-of-search-popup">
   <input class="work-width-the-file__input-sorting-element-of-search-popup" type="text" placeholder=""> <input class="work-width-the-file__checkbox-search-popup" type="checkbox" name="" id="intervalSearch"> <span class="work-width-the-file__naming-checkbox-search-popup">Поиск по интервалу</span>
 </div>
-<div class="work-width-the-file__input-sorting-element-of-search-popup">
   <select class="work-width-the-file__select-sorting-element-of-search-popup" name="" id="" aria-placeholder="Поиск по типу файла">
-    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="правовые документы">правовые документы</option>
-    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="учредительные и регистрационные документы">учредительные и регистрационные документы</option>
-    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="заявления">заявления</option>
-    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="акты">акты</option>
-    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="баланс водопотребления и водоотведения">баланс водопотребления и водоотведения</option>
-    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="технический паспорт объекта">технический паспорт объекта</option>
-    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="письма, заявления, жалобы абонентов и ответы на них">письма, заявления, жалобы абонентов и ответы на них</option>
-    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="договор">договор</option>
-    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="служебные записи, рапорты">служебные записи, рапорты</option>
-    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="прочие документы">прочие документы</option>
-    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="проектно-техническая документация">проектно-техническая документация</option>
-    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="акты контрольного обслудования">акты контрольного обслудования</option>
+    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="-">Выбор типа</option>
+    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="Правовые документы">Правовые документы</option>
+    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="Учредительные и регистрационные документы">Учредительные и регистрационные документы</option>
+    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="Заявления">Заявления</option>
+    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="Акты">Акты</option>
+    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="Баланс водопотребления и водоотведения">Баланс водопотребления и водоотведения</option>
+    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="Технический паспорт объекта">Технический паспорт объекта</option>
+    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="Письма, заявления, жалобы абонентов и ответы на них">Письма, заявления, жалобы абонентов и ответы на них</option>
+    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="Договор">Договор</option>
+    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="Служебные записи, рапорты">Служебные записи, рапорты</option>
+    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="Прочие документы">Прочие документы</option>
+    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="Проектно-техническая документация">Проектно-техническая документация</option>
+    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="Акты контрольного обслудования">Акты контрольного обслудования</option>
   </select>
-  <div class="work-width-the-file__wrapper-input-sorting-element-of-search-popup">
-    <input class="work-width-the-file__input-sorting-element-of-search-popup" type="checkbox" name="" id=""> <span class="work-width-the-file__naming-checkbox-search-popup">Поиск по типу</span>
-  </div>
-</div>
 <div class="work-width-the-file__wrapper-date-registration-search-popup">
   <span class="work-width-the-file__text-from-date-registration-search-popup">Дата регистрации: c</span> <input class="work-width-the-file__input-sorting-element-of-search-popup" type="date" name="" id="" placeholder="Дата регистрации"> <span class="work-width-the-file__text-to-date-registration-search-popup">по</span> <input class="work-width-the-file__input-sorting-element-of-search-popup" type="date" name="" id="" placeholder="Дата регистрации">
 </div>
@@ -418,75 +414,6 @@ const textOnButtonOfSearchPopup = 'Поиск';
 const voidElement = '';
 let levelFolderCounter = 0;
 let filtredArrayOfArchiveDocument = [];
-
-// Блокировка/разблокировка элементов popup //
-const getChangeAccessOfElement = (arrayElements, selectElement, change) => {
-  Array.from(arrayElements).forEach(item => {
-    item.disabled = change;
-    selectElement.disabled = change;
-  });
-};
-
-// Функция фильтрации файлов //
-const getSearchDate = () => {
-  archivePagePopup.innerHTML += getHtmlSearchPopup();
-  const buttonsOfSearchPopup = document.querySelectorAll('.work-width-the-file__button-of-search-popup');
-  const checkboxsSearchOfPopup = document.querySelectorAll('.work-width-the-file__checkbox-search-popup');
-  const inputsSearchOfPopup = document.querySelectorAll('.work-width-the-file__input-sorting-element-of-search-popup');
-  const selectSearchOfPopup = document.querySelector('.work-width-the-file__select-sorting-element-of-search-popup');
-  getChangeAccessOfElement(inputsSearchOfPopup, selectSearchOfPopup, true);
-  Array.from(checkboxsSearchOfPopup).forEach(item => {
-    item.addEventListener('change', () => {
-      if (String(item.checked) === 'true') {
-        getChangeAccessOfElement(inputsSearchOfPopup, selectSearchOfPopup, false);
-      } else {
-        getChangeAccessOfElement(inputsSearchOfPopup, selectSearchOfPopup, true);
-      }
-    });
-  });
-  Array.from(buttonsOfSearchPopup).forEach(item => {
-    item.addEventListener('click', () => {
-      if (item.textContent === textOnButtonOfSearchPopup) {
-        Array.from(checkboxsSearchOfPopup).forEach(element => {
-          if (element.id === 'allSearch' && element.checked === true) {
-            date.filter(inf => {
-              Array.from(inputsSearchOfPopup).forEach(it => {
-                if (Number(inf.id_subscriber) === Number(it.value)) {
-                  console.log(inf);
-                }
-              });
-            });
-          } else if (element.id === 'levelSearch' && element.checked === true) {
-            console.log(2);
-          } else if (element.id === 'folderSearch' && element.checked === true) {
-            console.log(3);
-          } else if (element.id === 'intervalSearch' && element.checked === true) {
-            console.log(4);
-          }
-        });
-      } else {
-        archivePagePopup.innerHTML = voidElement;
-      }
-    });
-  });
-};
-
-// Слушатель события КНОПКА ПОИСК //
-buttonSearchOfDocuments.addEventListener('click', () => {
-  getSearchDate();
-});
-
-// Слущатель события ПОКАЗАТЬ ТАБЛИЦУ АБОНЕНТСКИЕ ДЕЛА //
-buttonOfShowDocuments.addEventListener('click', () => {
-  tableBody.innerHTML = voidElement;
-  tableBody.innerHTML = getHtmlTableTh();
-});
-
-// Слущатель события ПОКАЗАТЬ РЕЗУЛЬТАТЫ ПОИСКА //
-buttonSearchResultOfDocuments.addEventListener('click', () => {
-  tableBody.innerHTML = voidElement;
-  tableBody.innerHTML = getHtmlTableTh();
-});
 
 // Функция стилизации //
 const getRequiredWindow = (showElement, removeElementOne, removeElementTwo, removeElementThree, displayShow, displayRemove) => {
@@ -1117,6 +1044,119 @@ buttonOpenPopupForCreateElementInArray.addEventListener('click', () => {
     // Закроет popup //
     archivePagePopup.innerHTML = voidElement;
   });
+});
+
+// Блокировка/разблокировка элементов popup //
+const getChangeAccessOfElement = (arrayElements, selectElement, change) => {
+  Array.from(arrayElements).forEach(item => {
+    item.disabled = change;
+    selectElement.disabled = change;
+  });
+};
+
+// Функция сортировки //
+const getSortContent = (arrayOfInputs, optionOfSelect) => {
+  const newArrayContentElements = [];
+  // Фильтрация по input's //
+  // ДОБАВИТЬ УСЛОВИЕ ФИЛЬТРАЦИИ < при отсутствии условия в Input пропускаем фильтрацию ( скорее всего перейти в if лучшу будет ) > //
+  date.filter(elemContent => {
+    Array.from(arrayOfInputs).forEach(item => {
+      console.log(item.value);
+      elemContent.id_subscriber === Number(item.value) ? newArrayContentElements.push(elemContent) : elemContent.type_document === item.value ? newArrayContentElements.push(elemContent) : elemContent.name_object === String(item.value) ? newArrayContentElements.push(elemContent) : elemContent.comments === String(item.value) ? newArrayContentElements.push(elemContent) : elemContent.date_registration === Number(item.value) ? newArrayContentElements.push(elemContent) : elemContent.name_sity === String(item.value) ? newArrayContentElements.push(elemContent) : elemContent.name_street === Number(item.value) ? newArrayContentElements.push(elemContent) : elemContent.number_home === Number(item.value) ? newArrayContentElements.push(elemContent) : elemContent.number_body === Number(item.value) ? newArrayContentElements.push(elemContent) : elemContent.number_flat === Number(item.value) ? newArrayContentElements.push(elemContent) : elemContent.number__agreement === Number(item.value) ? newArrayContentElements.push(elemContent) : console.log('Error');
+    });
+  });
+  // Фильтрация по select //
+  date.filter(elemContent => {
+    optionOfSelect.value === elemContent.type_document ? newArrayContentElements.push(elemContent) : console.log('Wrong element');
+  });
+  // Избавляемся от копий //
+  const setArray = Array.from(new Set(newArrayContentElements));
+  console.log(setArray[0]);
+  // Генерация таблица //
+  tableBody.innerHTML = voidElement;
+  tableBody.innerHTML = getHtmlTableTh();
+  for (let i = 0; i < setArray.length; i++) {
+    const idElement = setArray[i].id;
+    const registrationNumber = setArray[i].number_register;
+    const numberSubscriptionCasing = setArray[i].id_subscriber;
+    const typeDocument = setArray[i].type_document;
+    const comment = setArray[i].comments;
+    const numberAgreement = setArray[i].number__agreement;
+    const naming = setArray[i].name_object;
+    tableBody.innerHTML += getHtmlTableBody(idElement, registrationNumber, numberSubscriptionCasing, typeDocument, comment, numberAgreement, naming);
+  }
+
+  // Слущатель события ПОКАЗАТЬ РЕЗУЛЬТАТЫ ПОИСКА //
+  buttonSearchResultOfDocuments.addEventListener('click', () => {
+    tableBody.innerHTML = voidElement;
+    tableBody.innerHTML = getHtmlTableTh();
+    console.log(buttonSearchResultOfDocuments.textContent);
+    for (let i = 0; i < setArray.length; i++) {
+      const idElement = setArray[i].id;
+      const registrationNumber = setArray[i].number_register;
+      const numberSubscriptionCasing = setArray[i].id_subscriber;
+      const typeDocument = setArray[i].type_document;
+      const comment = setArray[i].comments;
+      const numberAgreement = setArray[i].number__agreement;
+      const naming = setArray[i].name_object;
+      tableBody.innerHTML += getHtmlTableBody(idElement, registrationNumber, numberSubscriptionCasing, typeDocument, comment, numberAgreement, naming);
+    }
+  });
+
+  // Слущатель события ПОКАЗАТЬ ТАБЛИЦУ АБОНЕНТСКИЕ ДЕЛА //
+  buttonOfShowDocuments.addEventListener('click', () => {
+    tableBody.innerHTML = voidElement;
+    tableBody.innerHTML = getHtmlTableTh();
+    console.log(buttonOfShowDocuments.textContent);
+  });
+};
+
+// Функция позволяющая выбрать режим сортировки контента //
+const getCheckedTypeSortContent = (arrayOfInputs, arrayOfCheckedSelectElements, arrayOfButtonsSearch, optionOfSelect) => {
+  Array.from(arrayOfButtonsSearch).forEach(item => {
+    item.addEventListener('click', () => {
+      if (item.textContent === textOnButtonOfSearchPopup) {
+        Array.from(arrayOfCheckedSelectElements).forEach(element => {
+          if (element.id === 'allSearch' && element.checked === true) {
+            getSortContent(arrayOfInputs, optionOfSelect);
+          } else if (element.id === 'levelSearch' && element.checked === true) {
+            console.log(2);
+          } else if (element.id === 'folderSearch' && element.checked === true) {
+            console.log(3);
+          } else if (element.id === 'intervalSearch' && element.checked === true) {
+            console.log(4);
+          }
+        });
+      } else {
+        archivePagePopup.innerHTML = voidElement;
+      }
+    });
+  });
+};
+
+// Главная функция сборщик фильтрации файлов, блокирует, разблок. input's. //
+const getSearchDate = () => {
+  archivePagePopup.innerHTML += getHtmlSearchPopup();
+  const buttonsOfSearchPopup = document.querySelectorAll('.work-width-the-file__button-of-search-popup');
+  const checkboxsSearchOfPopup = document.querySelectorAll('.work-width-the-file__checkbox-search-popup');
+  const inputsSearchOfPopup = document.querySelectorAll('.work-width-the-file__input-sorting-element-of-search-popup');
+  const selectSearchOfPopup = document.querySelector('.work-width-the-file__select-sorting-element-of-search-popup');
+  getChangeAccessOfElement(inputsSearchOfPopup, selectSearchOfPopup, true);
+  Array.from(checkboxsSearchOfPopup).forEach(item => {
+    item.addEventListener('change', () => {
+      if (String(item.checked) === 'true') {
+        getChangeAccessOfElement(inputsSearchOfPopup, selectSearchOfPopup, false);
+      } else {
+        getChangeAccessOfElement(inputsSearchOfPopup, selectSearchOfPopup, true);
+      }
+    });
+  });
+  getCheckedTypeSortContent(inputsSearchOfPopup, checkboxsSearchOfPopup, buttonsOfSearchPopup, selectSearchOfPopup);
+};
+
+// Слушатель события КНОПКА ПОИСК //
+buttonSearchOfDocuments.addEventListener('click', () => {
+  getSearchDate();
 });
 
 // Архив  //

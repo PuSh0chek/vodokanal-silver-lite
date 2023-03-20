@@ -8,25 +8,21 @@ export const getHtmlSearchPopup = () => `<div class="work-width-the-file__search
 <div class="work-width-the-file__wrapper-interval-input-sorting-element-of-search-popup">
   <input class="work-width-the-file__input-sorting-element-of-search-popup" type="text" placeholder=""> <input class="work-width-the-file__checkbox-search-popup" type="checkbox" name="" id="intervalSearch"> <span class="work-width-the-file__naming-checkbox-search-popup">Поиск по интервалу</span>
 </div>
-<div class="work-width-the-file__input-sorting-element-of-search-popup">
   <select class="work-width-the-file__select-sorting-element-of-search-popup" name="" id="" aria-placeholder="Поиск по типу файла">
-    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="правовые документы">правовые документы</option>
-    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="учредительные и регистрационные документы">учредительные и регистрационные документы</option>
-    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="заявления">заявления</option>
-    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="акты">акты</option>
-    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="баланс водопотребления и водоотведения">баланс водопотребления и водоотведения</option>
-    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="технический паспорт объекта">технический паспорт объекта</option>
-    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="письма, заявления, жалобы абонентов и ответы на них">письма, заявления, жалобы абонентов и ответы на них</option>
-    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="договор">договор</option>
-    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="служебные записи, рапорты">служебные записи, рапорты</option>
-    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="прочие документы">прочие документы</option>
-    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="проектно-техническая документация">проектно-техническая документация</option>
-    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="акты контрольного обслудования">акты контрольного обслудования</option>
+    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="-">Выбор типа</option>
+    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="Правовые документы">Правовые документы</option>
+    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="Учредительные и регистрационные документы">Учредительные и регистрационные документы</option>
+    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="Заявления">Заявления</option>
+    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="Акты">Акты</option>
+    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="Баланс водопотребления и водоотведения">Баланс водопотребления и водоотведения</option>
+    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="Технический паспорт объекта">Технический паспорт объекта</option>
+    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="Письма, заявления, жалобы абонентов и ответы на них">Письма, заявления, жалобы абонентов и ответы на них</option>
+    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="Договор">Договор</option>
+    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="Служебные записи, рапорты">Служебные записи, рапорты</option>
+    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="Прочие документы">Прочие документы</option>
+    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="Проектно-техническая документация">Проектно-техническая документация</option>
+    <option class="work-width-the-file__item-select-for-sorting-element-of-search-popup" value="Акты контрольного обслудования">Акты контрольного обслудования</option>
   </select>
-  <div class="work-width-the-file__wrapper-input-sorting-element-of-search-popup">
-    <input class="work-width-the-file__input-sorting-element-of-search-popup" type="checkbox" name="" id=""> <span class="work-width-the-file__naming-checkbox-search-popup">Поиск по типу</span>
-  </div>
-</div>
 <div class="work-width-the-file__wrapper-date-registration-search-popup">
   <span class="work-width-the-file__text-from-date-registration-search-popup">Дата регистрации: c</span> <input class="work-width-the-file__input-sorting-element-of-search-popup" type="date" name="" id="" placeholder="Дата регистрации"> <span class="work-width-the-file__text-to-date-registration-search-popup">по</span> <input class="work-width-the-file__input-sorting-element-of-search-popup" type="date" name="" id="" placeholder="Дата регистрации">
 </div>
