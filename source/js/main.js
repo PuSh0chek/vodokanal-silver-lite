@@ -426,7 +426,7 @@ buttonAbout.addEventListener('click', () => {
 // Выгрузка информации из строки для помещения в popup //
 const getInformationFromElement = (item) => {
   for (let i = 0; i < date.length; i++) {
-    if (Number(item.path[1].children[0].textContent) === Number(date[i].id)) {
+    if (Number(item) === Number(date[i].id)) {
       const idDocument = date[i].id;
       const registrationNumber = date[i].id_element;
       const numberSubscriptionCasing = date[i].number_register;
@@ -518,7 +518,8 @@ const changeRigthsOnBlocked = () => {
 
 // Прорисоки pop и заполение его данными //
 const getLoadInformationInPopup = (item) => {
-  archivePagePopup.innerHTML += getHtmlPopupOfArchiveChangeDocument(getInformationFromElement(item)[0], getInformationFromElement(item)[4]);
+  console.log(item);
+  archivePagePopup.innerHTML += getHtmlPopupOfArchiveChangeDocument(getInformationFromElement(item.children[0].textContent), getInformationFromElement(item.children[4].textContent));
   const inputTypeDocument = document.getElementById('type-document');
   const inputNumberRegister = document.getElementById('number-register');
   const inputIdElement = document.getElementById('id_element');
@@ -584,7 +585,7 @@ const getNewContent = () => {
 const getDocuments = (item) => {
   const tableDocumentPopup = document.querySelector('.work-width-the-file__body-table-popup');
   // Проходимся циколом по массиву объектов //
-  if (item.path[1].children[0].textContent !== undefined && item.path[1].children[0].textContent !== null && arrayDocumentsOfArchive.length !== 0) {
+  if (item !== undefined && item !== null && arrayDocumentsOfArchive.length !== 0) {
     for (let i = 0; i < arrayDocumentsOfArchive.length; i++) {
       const idDocument = arrayDocumentsOfArchive[i].idDocument;
       const parent = arrayDocumentsOfArchive[i].idParent;
@@ -597,7 +598,7 @@ const getDocuments = (item) => {
       // Проходимся по массиву присвоенных документов //
       for (let n = 0; n < date[n].id_documents.length; n++) {
         // Проверка по условию привязанного документа по id родителя //
-        if (Number(item.path[1].children[0].textContent) === Number(parent)) {
+        if (Number(item) === Number(parent)) {
           // Загрузка документа в таблицу //
           tableDocumentPopup.innerHTML += getHtmlRowTalbeOfDocumentArchive(nameDocument, typeDocument, weight, author, dateCreated);
         } else {
@@ -606,7 +607,7 @@ const getDocuments = (item) => {
         };
       };
     };
-  } else if (item.path[1].children[0].textContent === undefined || item.path[1].children[0].textContent === null) {
+  } else if (item === undefined || item === null) {
     tableDocumentPopup.innerHTML += errorOfLoadDocumentation;
   }
 };
@@ -618,13 +619,13 @@ archiveButtonOpen.addEventListener('click', () => {
   const rowOnTalbe = document.querySelectorAll('.work-with-the-file__table-row');
   // Слушаель события для вывода popup of archive //
   Array.from(rowOnTalbe).forEach((element) => {
-    element.addEventListener('click', (item) => {
-      getLoadInformationInPopup(item);
+    element.addEventListener('click', () => {
+      getLoadInformationInPopup(element);
       const buttonClosePopupArchive = document.querySelector('.work-width-the-file__button-close-up-info-popup');
       const buttonChangeRigths = document.getElementById('buttonChangeRigths');
       const buttonSaveChange = document.getElementById('buttonSaveChange');
       // Заполнить таблицу документами //
-      getDocuments(item);
+      getDocuments(element);
       // Слушатель события для закрытия popup //
       buttonClosePopupArchive.addEventListener('click', () => {
         archivePagePopup.innerHTML = voidElement;
@@ -744,19 +745,23 @@ const getSortContent = (arrayOfInputs, optionOfSelect) => {
   // ДОБАВИТЬ УСЛОВИЕ ФИЛЬТРАЦИИ < при отсутствии условия в Input пропускаем фильтрацию ( скорее всего перейти в if лучшу будет ) > //
   date.filter((elemContent) => {
     Array.from(arrayOfInputs).forEach((item) => {
-      console.log(item.value);
-      elemContent.id_subscriber === Number(item.value) ? newArrayContentElements.push(elemContent) :
-        elemContent.type_document === item.value ? newArrayContentElements.push(elemContent) :
-        elemContent.name_object === String(item.value) ? newArrayContentElements.push(elemContent) :
-        elemContent.comments === String(item.value) ? newArrayContentElements.push(elemContent) :
-        elemContent.date_registration === Number(item.value) ? newArrayContentElements.push(elemContent) :
-        elemContent.name_sity === String(item.value) ? newArrayContentElements.push(elemContent) :
-        elemContent.name_street === Number(item.value) ? newArrayContentElements.push(elemContent) :
-        elemContent.number_home === Number(item.value) ? newArrayContentElements.push(elemContent) :
-        elemContent.number_body === Number(item.value) ? newArrayContentElements.push(elemContent) :
-        elemContent.number_flat === Number(item.value) ? newArrayContentElements.push(elemContent) :
-        elemContent.number__agreement === Number(item.value) ? newArrayContentElements.push(elemContent) :
-        console.log('Error');
+      if(item.value !== '' && elemContent.id_subscriber === Number(item.value)) {
+        newArrayContentElements.push(elemContent);
+      }
+      // if(item.value !== '') {
+      //   elemContent.id_subscriber === Number(item.value) ? newArrayContentElements.push(elemContent) :
+      //   elemContent.type_document === item.value ? newArrayContentElements.push(elemContent) :
+      //   elemContent.name_object === String(item.value) ? newArrayContentElements.push(elemContent) :
+      //   elemContent.comments === String(item.value) ? newArrayContentElements.push(elemContent) :
+      //   elemContent.date_registration === Number(item.value) ? newArrayContentElements.push(elemContent) :
+      //   elemContent.name_sity === String(item.value) ? newArrayContentElements.push(elemContent) :
+      //   elemContent.name_street === Number(item.value) ? newArrayContentElements.push(elemContent) :
+      //   elemContent.number_home === Number(item.value) ? newArrayContentElements.push(elemContent) :
+      //   elemContent.number_body === Number(item.value) ? newArrayContentElements.push(elemContent) :
+      //   elemContent.number_flat === Number(item.value) ? newArrayContentElements.push(elemContent) :
+      //   elemContent.number__agreement === Number(item.value) ? newArrayContentElements.push(elemContent) :
+      //   console.log('Error');
+      // }
     });
   });
   // Фильтрация по select //
@@ -765,7 +770,6 @@ const getSortContent = (arrayOfInputs, optionOfSelect) => {
   });
   // Избавляемся от копий //
   const setArray = Array.from(new Set(newArrayContentElements));
-  console.log(setArray[0]);
   // Генерация таблица //
   tableBody.innerHTML = voidElement;
   tableBody.innerHTML = getHtmlTableTh();
